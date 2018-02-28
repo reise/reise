@@ -19,6 +19,10 @@ Visual Studio Code ships with Node JS debugging and if you are using this IDE, y
 
 To start server using visual studio code, press `ctrl + shift + D` and press `green arrow` next to `DEBUG` label, on the top left corner of IDE.
 
+check folowing GIF for more information -
+
+![demo](vs-code-debug-process.gif)
+
 ---
 
 @author: Manoj Chalode chalodem@gmail.com
