@@ -4,10 +4,10 @@
     "description": "An application for online travel booking.",
     "main": "server.js",
     "scripts": {
-        "start": "node dist/server.js",
-        "modelSync": "bin/sync-model.bat",
+        "start": "cd ui && node_modules/@angular/cli/bin/ng build -w",
+        "config": "npm i && cd ui && npm i",
         "tsc": "node_modules/typescript/bin/tsc",
-        "build": "cd ui && node_modules/@angular/cli/bin/ng build -w"
+        "server": "npm run tsc && node dist/server.js"
     },
     "keywords": [],
     "author": "",
