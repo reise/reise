@@ -1,6 +1,8 @@
 # reise
 A travel app POC using Angular 4, NodejS And Mongo DB
 
+![demo](https://espnfivethirtyeight.files.wordpress.com/2015/03/flight-delay-620.gif)
+
 # Installation & Setup
 1. Clone  the repository and navigate to the root directory viz. `/reiser`.
 
