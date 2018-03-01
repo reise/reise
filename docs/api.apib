@@ -1,0 +1,35 @@
+FORMAT: 1A
+HOST: http://localhost:3000
+
+# Reise API Endpoint Reference
+Test API blueprint flie
+
+Author: Manoj Chalode <chalodem@gmail.com>
+
+Version: 1.0
+
+
+# Group USER
+
+Test Reise user APIs
+
+## Get User  → JSON [GET /user]
+
+Save the user.
+
++ Request  (application/json)
+
+        {
+            username: "manojc",
+            password:"12345"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                name: "Manoj Chalode",
+                username: "manojc",
+                address: "Preston, UK - PR1 1DL"
+            }
