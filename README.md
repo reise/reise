@@ -4,13 +4,13 @@ A travel app POC using Angular 4, NodejS And Mongo DB
 ![demo](https://espnfivethirtyeight.files.wordpress.com/2015/03/flight-delay-620.gif)
 
 # Installation & Setup
-1. Clone  the repository and navigate to the root directory viz. `/reiser`.
+1. Clone  the repository and navigate to the root directory viz. `/reise`.
 
 2. Install the dependencies using `npm run config` command (to be performed only for first time).
 
 3. Run `npm run server` command to start the server.
 
-4. Open a new command window and nevigate to the root directory viz. `reiser`.
+4. Open a new command window and nevigate to the root directory viz. `reise`.
 
 5. Run `npm start` to build the angular app.
 
