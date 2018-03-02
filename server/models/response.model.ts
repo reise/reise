@@ -7,10 +7,12 @@ export class Page<T> {
 
 export class Response<T> {
     data: T;
-    isSuccessful: boolean;
-    message: string;
+    status: boolean;
+    messages: Array<string>;
 
     constructor() {
-        this.isSuccessful = false;
+        this.data = null;
+        this.status = true;
+        this.messages = [];
     }
 }

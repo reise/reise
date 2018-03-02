@@ -5,8 +5,7 @@ import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as connectMongo from 'connect-mongo';
 import * as mongoose from "mongoose";
-import { apiRoutes } from './api-routes';
-import { connect } from "./database/db-initializer";
+import { registerApiRoutes } from './api-routes';
 
 class App {
 
@@ -16,7 +15,7 @@ class App {
     constructor() {
         this.express = express();
         this.middleware();
-        apiRoutes.registerApiRoutes(this.express);
+        registerApiRoutes(this.express);
         // this.connectDatabase();
     }
 
@@ -36,13 +35,6 @@ class App {
     }
 
     private connectDatabase() {
-        connect()
-            .then(() => {
-                console.log("database connection successful");
-            })
-            .catch(() => {
-                console.error("database connection faliure!!");
-            })
     }
 }
 
