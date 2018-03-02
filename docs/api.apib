@@ -11,17 +11,91 @@ Version: 1.0
 
 # Group USER
 
-Test Reise user APIs
+User APIs
 
-## Get User  → JSON [GET /user]
+## Login  → JSON [POST /api/user/login]
 
-Save the user.
+Get the user info based on username or password.
 
 + Request  (application/json)
 
         {
-            username: "manojc",
+            username: "john_doe",
             password:"12345"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                data: {
+                    id: "1",
+                    username: "john_doe",
+                    email: "john_doe@gmail.com",
+                    name: "John Doe",
+                    password: null
+                },
+                status: true,
+                messages: []
+            }
+
++ Request  (application/json)
+
+        {
+            username: "",
+            password:""
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                data: null,
+                status: false,
+                messages: [
+                    "username or email can not be left blank",
+                    "password can not be left blank"
+                ]
+            }
+
+## Register  → JSON [POST /api/user/register]
+
+Get the user info based on username or password.
+
++ Request  (application/json)
+
+        {
+            username: "john_doe",
+            email: "john_doe@gmail.com",
+            name: "John Doe",
+            password: "123qweqwe"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                data: {
+                    id: "1",
+                    username: "john_doe",
+                    email: "john_doe@gmail.com",
+                    name: "John Doe",
+                    password: null
+                },
+                status: true,
+                messages: []
+            }
+
++ Request  (application/json)
+
+        {
+            username: "",
+            email: "",
+            name: "",
+            password: ""
         }
 
 + Response 200 (application/json)
@@ -29,7 +103,14 @@ Save the user.
     + Body
 
             {
-                name: "Manoj Chalode",
-                username: "manojc",
-                address: "Preston, UK - PR1 1DL"
+                data: null,
+                status: false,
+                messages: [
+                    "username or email can not be left blank",
+                    "name can not be left blank",
+                    "password can not be left blank",
+                    "username should be atleast 5 letters long",
+                    "password should be atleast 6 letters long",
+                    "email is invalid"
+                ]
             }
