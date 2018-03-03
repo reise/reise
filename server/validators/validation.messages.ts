@@ -16,5 +16,17 @@ export const Validations = {
             required: "password can not be left blank",
             minLength: "password should be atleast 6 letters long"
         }
+    },
+    log : {
+        required: "log details are required",
+        url: {
+            required: "url can not be left blank"
+        },
+        request: {
+            required: "request can not be left blank"
+        },
+        response: {
+            required: "response can not be left blank"
+        }
     }
 }
