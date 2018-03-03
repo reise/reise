@@ -10,3 +10,16 @@
 
 
 </div>
+
+
+  <ul>
+    <li *ngFor="let Login of Logins"><input type="text" name="logins_name" [(ngModel)]="Logins.name">
+      <button (click)="updateLogin(Logins)">Save</button> 
+      <button (click)="deleteLogin(Logins)">Delete</button>
+    </li>
+  </ul>
+  <p>Create a new login: <input type="text" name="Logins_name" [(ngModel)]="Logins_name">
+    <button (click)="createLogin(Logins_name)">Save</button>
+  </p>
+  
+  
