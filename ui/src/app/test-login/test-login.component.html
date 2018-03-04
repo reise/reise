@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <input #txtUsername type="text" class="form-control" placeholder="username or email">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <input #txtPassword type="password" class="form-control" placeholder="password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button #btnLogin class="btn btn-primary btn-lg col-lg-12" (click)="login(txtUsername, txtPassword)">Login</button>
+        </div>
+    </div>
+    <div *ngIf="response" class="row">
+        <div class="col-lg-12 text-center">
+            <h1 *ngIf="!isValid" class="error">ERROR!!!</h1>
+            <h1 *ngIf="isValid" class="success">SUCCESS!!!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <pre>{{(response | json) || 'No Logged In User!!'}}</pre>
+        </div>
+    </div>
+</div>

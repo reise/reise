@@ -1,0 +1,23 @@
+.container {
+    margin-top: 50px;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+pre {
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+.error {
+    border: solid 3px red;
+    color: red;
+}
+
+.success {
+    border: solid 3px green;
+    color: green;
+}
