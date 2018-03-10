@@ -73,4 +73,15 @@ export namespace UserValidator {
         response.status ? next() : res.json(response);
         return;
     }
+
+    export function validateLoggedInUser(req: Request, res: Response, next: NextFunction): void {
+        let response: ApiResponse<User> = new ApiResponse();
+        if (!req.session) {
+            response.status = false;
+            response.messages.push(Validations.user.userNotFound);
+        }
+
+        response.status ? next() : res.json(response);
+        return;
+    }
 }

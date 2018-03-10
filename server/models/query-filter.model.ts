@@ -60,9 +60,9 @@ export class FilterGroup {
         return this._select;
     }
 
-    public static generateQuery(filterGroup: FilterGroup, query: DocumentQuery<Document[], Document>): Promise<DocumentQuery<Document[], Document>> {
+    public static generateQuery(filterGroup: FilterGroup, query: DocumentQuery<Array<Document>, Document>): Promise<DocumentQuery<Array<Document>, Document>> {
         if (!query || !filterGroup) {
-            return new Promise<DocumentQuery<Document[], Document>>((resolve: Function, reject: Function) => {
+            return new Promise<DocumentQuery<Array<Document>, Document>>((resolve: Function, reject: Function) => {
                 this.setTotalQueryCount(filterGroup, query)
                     .then(() => {
                         return resolve(query);
@@ -102,7 +102,7 @@ export class FilterGroup {
             });
         }
 
-        return new Promise<DocumentQuery<Document[], Document>>((resolve: Function, reject: Function) => {
+        return new Promise<DocumentQuery<Array<Document>, Document>>((resolve: Function, reject: Function) => {
             this.setTotalQueryCount(filterGroup, query)
                 .then(() => {
                     query = query.skip((filterGroup.page - 1) * filterGroup.size)
@@ -116,9 +116,9 @@ export class FilterGroup {
         });
     }
 
-    private static setTotalQueryCount(filterGroup: FilterGroup, query: DocumentQuery<Document[], Document>): Promise<void> {
+    private static setTotalQueryCount(filterGroup: FilterGroup, query: DocumentQuery<Array<Document>, Document>): Promise<void> {
         return query.count().then((response: number) => {
-            this._count = response;
+            filterGroup._count = response;
             return Promise.resolve();
         }).catch((error: any) => {
             return Promise.reject(error);

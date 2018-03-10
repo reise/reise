@@ -1,6 +1,6 @@
 export const DbSchema = {
     Collections: {
         Logs: "Logs",
-        User: "User"
+        Users: "Users"
     }
 };
