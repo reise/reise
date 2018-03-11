@@ -1,32 +1,32 @@
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { User } from "../models/user-model";
+import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user-model';
 
 @Component({
-    selector: 'app-register',
-    templateUrl: './register.component.html',
-    styleUrls: ['./register.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
     public user: User;
 
-    public constructor(private _HttpClient: HttpClient,
+    public constructor(private _Http: HttpClient,
         private _Router: Router) { }
 
     public ngOnInit(): void {
         this.user = this.user || new User();
     }
 
-    public register(): void {
+    public login(): void {
 
-        if (!User.checkPasswordmatch(this.user)) {
+        if (!this.user || !this.user.username || !this.user.password) {
             return;
-        }
+        }        
 
-        this._HttpClient
-            .post('/api/user/register', this.user)
+        this._Http
+            .post('/api/user/login', this.user)
             .toPromise()
             .then((response: any) => {
                 if (response.status) {
@@ -35,12 +35,7 @@ export class RegisterComponent implements OnInit {
                 }
             })
             .catch((error: any) => {
-                console.log(error);
+				console.log(error);
             });
     }
-
-    private validate(): boolean {
-        return !!this.user;
-    }
-
 }

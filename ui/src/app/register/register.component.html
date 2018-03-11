@@ -1,17 +1,49 @@
-
-
-<div class="login">
-  <h1>Register</h1>
-  <form method="post">
-    <input type="text" name="n" placeholder="Name" required="required" />
-    <input type="email" name="e" placeholder="E-mail" required="required"/>
-    <input type="text" name="u" placeholder="Username" required="required" />
-      <input type="password" name="p" placeholder="Password" required="required" />
-      
-      <button type="Submit" class="btn btn-primary btn-block btn-large">Register Me..</button>
-  </form>
-
-
-
-
+<div class="container">
+	<div class="row">
+		<div class="offset-lg-3 col-lg-6">
+			<mat-form-field class="col-lg-12">
+				<input matInput placeholder="name" [(ngModel)]="user.name">
+			</mat-form-field>
+		</div>
+	</div>
+	<div class="row">
+		<div class="offset-lg-3 col-lg-6">
+			<mat-form-field class="col-lg-12">
+				<input matInput placeholder="username" [(ngModel)]="user.username">
+			</mat-form-field>
+		</div>
+	</div>
+	<div class="row">
+		<div class="offset-lg-3 col-lg-6">
+			<mat-form-field class="col-lg-12">
+				<input type="email" matInput placeholder="email" [(ngModel)]="user.email">
+			</mat-form-field>
+		</div>
+	</div>
+	<div class="row">
+		<div class="offset-lg-3 col-lg-6">
+			<mat-form-field class="col-lg-12">
+				<input type="password" matInput placeholder="password" [(ngModel)]="user.password">
+			</mat-form-field>
+		</div>
+	</div>
+	<div class="row">
+		<div class="offset-lg-3 col-lg-6">
+			<mat-form-field class="col-lg-12">
+				<input matInput type="password" placeholder="repeat password" [(ngModel)]="user.repeatPassword">
+			</mat-form-field>
+		</div>
+	</div>
+	<div class="row">
+		<div class="offset-lg-3 col-lg-6">
+			<button mat-raised-button color="primary" class="col-lg-12" (click)="register()">Register</button>
+		</div>
+	</div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6 text-right">
+            <span>already a member?</span>
+            <a [routerLink]="['/login']">login</a>            
+            <span>here!</span>
+        </div>
+    </div>
 </div>

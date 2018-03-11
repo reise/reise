@@ -67,7 +67,7 @@ export namespace UserFacade {
                     apiResponse: apiResponse,
                     sessionId: sessionId
                 };
-                next();
+                res.json(apiResponse);
             }
         });
     }

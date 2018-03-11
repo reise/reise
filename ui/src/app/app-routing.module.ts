@@ -4,11 +4,17 @@ import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { TemplesComponent } from './temples/temples.component';
 import { HomeComponent } from './home/home.component';
-import { TestLoginComponent } from './test-login/test-login.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [{
     path: '',
-    component: TestLoginComponent
+    component: HomeComponent
+}, {
+    path: 'login',
+    component: LoginComponent
+}, {
+    path: 'register',
+    component: RegisterComponent
 }];
 
 // export const routes: Routes = [{

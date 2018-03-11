@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <mat-form-field class="col-lg-12">
+                <input matInput placeholder="username" [(ngModel)]="user.username">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <mat-form-field class="col-lg-12">
+                <input matInput type="password" placeholder="password" [(ngModel)]="user.password">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <button mat-raised-button color="primary" class="col-lg-12" (click)="login()">Login</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6 text-right">
+            <span>not a member yet?</span>
+            <a [routerLink]="['/register']">register</a>            
+            <span>here!</span>
+        </div>
+    </div>
+</div>
