@@ -1,10 +1,8 @@
-import { UUID } from "./uuid-generator";
 import { Model, Document } from "mongoose";
 
 export class Log {
 
     public constructor() {
-        this.sessionId = UUID.generate();
     }
 
     id?: string;
@@ -26,7 +24,8 @@ export class Log {
             url: dbObject.url,
             method: dbObject.method,
             request: dbObject.request,
-            response: dbObject.response
+            response: dbObject.response,
+            metadata: dbObject.metadata
         };
     }
 }

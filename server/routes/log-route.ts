@@ -4,7 +4,7 @@ import { LogsFacade } from "../facade/logs.facade";
 
 let router = express.Router();
 
-router.get('/all', LogValidator.validateSaveLog, LogsFacade.getLogs);
+router.post('/all', LogsFacade.getLogs);
 
 router.get('/all/:sessionId', LogValidator.validateSaveLog, LogsFacade.getLogsBySesionId);
 

@@ -30,31 +30,17 @@ export class FilterGroup {
     public constructor() {
         this.page = 1;
         this.size = 20;
+        this.orderType = "asc";
     }
 
-    public page: number;
-    public size: number;
-    private _count: number;
-    public get count(): number {
-        return this._count;
-    }
+    public page: number | string;
+    public size: number | string;
+    public count: number | string;
     public orderType: OrderType;
     public orderBy: string;
-
-    private _search: Filter<Search>;
-    public get search(): Filter<Search> {
-        return this._search;
-    }
-
-    private _range: Filter<Range>;
-    public get range(): Filter<Range> {
-        return this._range;
-    }
-
-    private _select: Array<SelectFilter<Select>>;
-    public get select(): Array<SelectFilter<Select>> {
-        return this._select;
-    }
+    public search: Filter<Search>;
+    public range: Filter<Range>;
+    public select: Array<SelectFilter<Select>>;
 
     public static reset(filterGroup: FilterGroup): void {
         filterGroup.search.filters.forEach((filter: Search) => {

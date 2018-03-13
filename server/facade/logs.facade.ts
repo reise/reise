@@ -107,7 +107,7 @@ export namespace LogsFacade {
             request: req.body,
             response: (res.locals && res.locals.apiResponse) ? res.locals.apiResponse : null
         }
-        log.metadata = res.locals;
+        // log.metadata = res.locals;
         //async log dump
         LogsProvider.createLog(log);
         res.json(log.response);

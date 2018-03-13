@@ -60,17 +60,17 @@ export class FilterGroup {
         return this._select;
     }
 
-    public static generateQuery(filterGroup: FilterGroup, query: DocumentQuery<Array<Document>, Document>): Promise<DocumentQuery<Array<Document>, Document>> {
-        if (!query || !filterGroup) {
-            return new Promise<DocumentQuery<Array<Document>, Document>>((resolve: Function, reject: Function) => {
-                this.setTotalQueryCount(filterGroup, query)
-                    .then(() => {
-                        return resolve(query);
-                    })
-                    .catch((error: any) => {
-                        return reject(error);
-                    });
-            });
+    public static generateResultQuery(filterGroup: FilterGroup, query: DocumentQuery<Array<Document>, Document>): DocumentQuery<Array<Document>, Document> {
+        return FilterGroup._generateQuery(filterGroup, query);
+    }
+
+    public static generateCountQuery(filterGroup: FilterGroup, query: Query<number>): Query<number> {
+        return FilterGroup._generateQuery(filterGroup, query);
+    }
+
+    private static _generateQuery(filterGroup: FilterGroup, query: any): any {
+        if (!query || !filterGroup || !filterGroup.page) {
+            return query;
         }
 
         if (filterGroup.search && filterGroup.search.filters) {
@@ -102,26 +102,16 @@ export class FilterGroup {
             });
         }
 
-        return new Promise<DocumentQuery<Array<Document>, Document>>((resolve: Function, reject: Function) => {
-            this.setTotalQueryCount(filterGroup, query)
-                .then(() => {
-                    query = query.skip((filterGroup.page - 1) * filterGroup.size)
-                        .limit(filterGroup.size)
-                        .sort(`${filterGroup.orderType === "asc" ? '' : '-'}${filterGroup.orderBy}`);
-                    return resolve(query);
-                })
-                .catch((error: any) => {
-                    return reject(error);
-                });
-        });
-    }
+        if (filterGroup.page && filterGroup.size) {
+            query = query
+                .skip((filterGroup.page - 1) * filterGroup.size)
+                .limit(parseInt(filterGroup.size.toString()));
+        }
 
-    private static setTotalQueryCount(filterGroup: FilterGroup, query: DocumentQuery<Array<Document>, Document>): Promise<void> {
-        return query.count().then((response: number) => {
-            filterGroup._count = response;
-            return Promise.resolve();
-        }).catch((error: any) => {
-            return Promise.reject(error);
-        });
+        if (filterGroup.orderBy && filterGroup.orderType) {
+            query = query.sort(`${filterGroup.orderType === "asc" ? '' : '-'}${filterGroup.orderBy}`);
+        }
+
+        return query;
     }
 }
