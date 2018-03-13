@@ -15,6 +15,9 @@ export const routes: Routes = [{
 }, {
     path: 'register',
     component: RegisterComponent
+}, {
+    path: 'logs',
+    loadChildren: 'app/logging/logging.module#LoggingModule'
 }];
 
 // export const routes: Routes = [{
