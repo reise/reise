@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './logs-routing.module';
 
 import { LogListingComponent } from './log-listing/log-listing.component';
+import { LogDetailsComponent } from './log-details/log-details.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { LogListingComponent } from './log-listing/log-listing.component';
         RouterModule.forChild(routes)
     ],
     declarations: [
-        LogListingComponent
+        LogListingComponent,
+        LogDetailsComponent
     ],
     bootstrap: [
         LogListingComponent

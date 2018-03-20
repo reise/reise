@@ -27,24 +27,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let log of logs?.rows">
-                        {{log | json}}
+                    <tr *ngFor="let log of logs?.rows; let i = index">
+                        <td>
+                            {{i + 1}}
+                            <button class="btn btn-link btn-sm">(details)</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-link">request</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-link">response</button>
+                        </td>
+                        <td>
+                            {{log?.url}}
+                        </td>
+                        <td>
+                            <button class="btn btn-link">metadata</button>
+                        </td>
                     </tr>
-                    <!-- <tr>
-                        <td>
-                            <a href="/">details</a>
-                        </td>
-                        <td>
-                            <a href="/">request</a>
-                        </td>
-                        <td>
-                            <a href="/">response</a>
-                        </td>
-                        <td>/api/user/login</td>
-                        <td>
-                            <a href="/">metadata</a>
-                        </td>
-                    </tr> -->
                 </tbody>
             </table>
         </div>

@@ -14,15 +14,24 @@ export namespace LogsProvider {
 
         return new Promise<Page<Log>>((resolve: Function, reject: Function) => {
 
-            let resultQuery: DocumentQuery<Array<Document>, Document> = !sessionId ? LogsCollection.find() : LogsCollection.find({ sessionId: sessionId });
+            let resultQuery: DocumentQuery<Array<Document>, Document> = !sessionId ?
+                LogsCollection.find().select('_id, url') :
+                LogsCollection.find({ sessionId: sessionId }).select('_id, url');
+
             resultQuery = FilterGroup.generateResultQuery(filter, resultQuery);
 
             let countQuery: Query<number> = !sessionId ? LogsCollection.count({}) : LogsCollection.count({ sessionId: sessionId });
             countQuery = FilterGroup.generateCountQuery(filter, countQuery);
 
             resultQuery
-                .exec((error: any, response: Array<Document>) => {
+                .exec((resultError: any, response: Array<Document>) => {
+                    if (resultError) {
+                        reject(resultError);
+                    }
                     countQuery.count((countError: any, count: number) => {
+                        if (countError) {
+                            reject(countError);
+                        }
                         page.count = count;
                         page.rows = page.rows || [];
                         response.forEach((document: Document) => {

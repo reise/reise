@@ -65,10 +65,10 @@ export class FilterGroup {
     }
 
     public static generateCountQuery(filterGroup: FilterGroup, query: Query<number>): Query<number> {
-        return FilterGroup._generateQuery(filterGroup, query);
+        return FilterGroup._generateQuery(filterGroup, query, true);
     }
 
-    private static _generateQuery(filterGroup: FilterGroup, query: any): any {
+    private static _generateQuery(filterGroup: FilterGroup, query: any, countQuery: boolean = false): any {
         if (!query || !filterGroup || !filterGroup.page) {
             return query;
         }
@@ -100,6 +100,10 @@ export class FilterGroup {
                     });
                 }
             });
+        }
+
+        if (countQuery) {
+            return query;
         }
 
         if (filterGroup.page && filterGroup.size) {
