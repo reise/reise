@@ -32,5 +32,20 @@ export const Validations = {
         response: {
             required: "response can not be left blank"
         }
+    },
+    temple : {
+        required: "temple details are required",
+        templeId: {
+            required: "temple id can not be left blank"
+        },
+        userId: {
+            required: "user id can not be left blank"
+        },
+        templeName: {
+            required: "temple name can not be left blank"
+        },
+        userName: {
+            required: "user name can not be left blank"
+        }
     }
 }
