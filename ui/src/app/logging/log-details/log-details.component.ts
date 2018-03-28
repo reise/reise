@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-log-details',
@@ -8,11 +8,10 @@ import { Router } from '@angular/router';
 })
 export class LogDetailsComponent implements OnInit {
 
-    public constructor(private _Router: Router) {
-        
+    public constructor(private _Router: Router, private _ActivatedRoute: ActivatedRoute) {
     }
 
     public ngOnInit(): void {
+        console.log(this._ActivatedRoute.snapshot.queryParams);
     }
-
 }

@@ -1,4 +1,7 @@
 import { Model, Document } from "mongoose";
+import { Type } from "@angular/compiler/src/core";
+
+export type LogParameter = "request" | "response" | "metadata";
 
 export class Log {
 

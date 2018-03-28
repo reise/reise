@@ -2,6 +2,8 @@ import { Model, Document, DocumentQuery, Query } from "mongoose";
 
 export type OrderType = "asc" | "desc";
 
+export type LogParameter = "request" | "response" | "metadata";
+
 export class Search {
     public key: string;
     public value: string;
