@@ -13,7 +13,8 @@ export class LoggingFacade extends BaseFacade{
     }
 
     public getLogs(filterGroup: FilterGroup): Promise<Page<Log>> {
-        return this.parseResponse<Page<Log>>(this._HttpClient.post('/api/logs/all', filterGroup));
+        return Promise.resolve(null);
+        // return this.parseResponse<Page<Log>>(this._HttpClient.post('/api/logs/all', filterGroup));
     }
 
     public getLogDetails(): Promise<Log> {
