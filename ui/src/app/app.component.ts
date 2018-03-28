@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { LoginApiService } from './login-api.service';
+import {Observable} from 'rxjs/Rx';
+
 
 
 @Component({

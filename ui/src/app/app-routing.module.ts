@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { TemplesComponent } from './temples/temples.component';

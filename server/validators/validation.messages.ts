@@ -1,6 +1,7 @@
 export const Validations = {
     user : {
         required: "user details are required",
+        userNotFound: "logged in user not found",
         username: {
             required: "username or email can not be left blank",
             minLength: "username should be atleast 5 letters long"
@@ -15,6 +16,21 @@ export const Validations = {
         password: {
             required: "password can not be left blank",
             minLength: "password should be atleast 6 letters long"
+        }
+    },
+    log : {
+        required: "log details are required",
+        sessionId: {
+            required: "session id can not be left blank"
+        },
+        url: {
+            required: "url can not be left blank"
+        },
+        request: {
+            required: "request can not be left blank"
+        },
+        response: {
+            required: "response can not be left blank"
         }
     }
 }
