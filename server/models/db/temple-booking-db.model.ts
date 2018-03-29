@@ -18,5 +18,9 @@ export let TemplesBookingCollection: Model<Document> = model(DbSchema.Collection
     userName: {
         type: String,
         required: [true, "user name is required"]
+    },
+    price: {
+        type: String,
+        required: [true, "price is required"]
     }
 }, { timestamps: true, versionKey: false }));

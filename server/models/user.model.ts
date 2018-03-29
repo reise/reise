@@ -4,6 +4,7 @@ export class User {
     public name: string;
     public email: string
     public password: string;
+    public isAdmin: boolean;
     public additionalInfo?: Array<any>;
 
     public static translate(user: any): User {
@@ -17,6 +18,7 @@ export class User {
             name: user.name,
             email: user.email,
             password: user.password,
+            isAdmin: !!user.isAdmin,
             additionalInfo: user.additionalInfo
         };
     }

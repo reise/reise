@@ -31,6 +31,10 @@ export let UsersCollection = model(DbSchema.Collections.Users, new Schema({
         required: [true, 'password is required']
     },
 
+    isAdmin: {
+        type: Boolean
+    },
+
     additinlaInfo: {
         type: Array,
     }

@@ -34,6 +34,11 @@ export namespace TempleValidator {
             response.messages.push(Validations.temple.userName.required);
         }
 
+        if (!parseInt(req.body.price)) {
+            response.status = false;
+            response.messages.push(Validations.temple.userName.required);
+        }
+
         response.status ? next() : res.json(response);
         return;
     }

@@ -34,7 +34,8 @@ Get the user info based on username or password.
                     username: "john_doe",
                     email: "john_doe@gmail.com",
                     name: "John Doe",
-                    password: null
+                    password: null,
+                    isAdmin: false
                 },
                 status: true,
                 messages: []
@@ -83,7 +84,8 @@ Create a new user by providing required ifnromation.
                     username: "john_doe",
                     email: "john_doe@gmail.com",
                     name: "John Doe",
-                    password: null
+                    password: null,
+                    isAdmin: false
                 },
                 status: true,
                 messages: []
@@ -169,7 +171,8 @@ Get all temple bookings.
                         templeId: "1",
                         userId: "5aa5745a57c63015fde29390",
                         templeName: "Shirdi",
-                        userName: "Manoj Chalode"
+                        userName: "Manoj Chalode",
+                        price: 1200
                     }
                 ],
                 status: true,
@@ -186,7 +189,8 @@ Book a temple.
             templeId: 1,
             userId: "5aa5745a57c63015fde29390",
             templeName: "Shirdi",
-            userName:"Manoj Chalode"
+            userName:"Manoj Chalode",
+            price: 1200
         }
 
 + Response 200 (application/json)
@@ -199,7 +203,8 @@ Book a temple.
                     templeId: "1",
                     userId: "5aa5745a57c63015fde29390",
                     templeName: "Shirdi",
-                    userName: "Manoj Chalode"
+                    userName: "Manoj Chalode",
+                    price: 1200
                 },
                 status: true,
                 messages: []
@@ -211,7 +216,8 @@ Book a temple.
             templeId: "",
             userId: "",
             templeName: "",
-            userName:""
+            userName:"",
+            price: ""
         }
 
 + Response 200 (application/json)
@@ -225,6 +231,7 @@ Book a temple.
                     "temple id can not be left blank",
                     "user id can not be left blank",
                     "temple name can not be left blank",
-                    "user name can not be left blank"
+                    "user name can not be left blank",
+                    "price can not be left blank"
                 ]
             }
