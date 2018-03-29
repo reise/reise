@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule, MatCheckboxModule } from "@angular/material";
 import { MatInputModule } from '@angular/material/input';
-
+import { MatTableModule } from '@angular/material/table';
 //components pipes and services
 import { ContactComponent } from './contact/contact.component';
 import { AppComponent } from './app.component';
@@ -31,6 +31,7 @@ import { ViewBookingComponent } from './view-booking/view-booking.component';
         MatButtonModule,
         MatCheckboxModule,
         MatInputModule,
+        MatTableModule,
         HttpClientModule,
        
         //this should always be last

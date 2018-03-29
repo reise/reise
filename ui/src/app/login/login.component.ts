@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
                 if (response.status) {
                     this._Router.navigate(['/']);
                     sessionStorage.setItem('user', JSON.stringify(response.data));
-                    console.log(this.user);
+                    
                 }
             })
             .catch((error: any) => {

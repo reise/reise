@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit {
         private _HttpClient: HttpClient) { }
 
     public ngOnInit(): void {
-       // this.user = JSON.parse(sessionStorage.getItem('user'));
-       // if (!this.user || !this.user.username) {
-           // this._Router.navigate(['/login']);
-       // }
+        this.user = JSON.parse(sessionStorage.getItem('user'));
+        if (!this.user || !this.user.username) {
+            this._Router.navigate(['/login']);
+        }
     }
 
     
