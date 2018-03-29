@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule, MatCheckboxModule } from "@angular/material";
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 //components pipes and services
 import { ContactComponent } from './contact/contact.component';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TemplesComponent } from './temples/temples.component';
 import { TempleDataService } from './temple-data.service';
+import { AdminDataService } from './admin-data.service';
 //routes
 import { routes } from './app-routing.module';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -48,7 +50,7 @@ import { ViewBookingComponent } from './view-booking/view-booking.component';
         AdminPanelComponent,
         ViewBookingComponent
     ],
-    providers: [TempleDataService],
+    providers: [TempleDataService, AdminDataService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
   })

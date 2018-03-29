@@ -4,7 +4,7 @@ import { ContactComponent } from './contact/contact.component';
 import { TemplesComponent } from './temples/temples.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 export const routes: Routes = [ 
     
     {
@@ -31,5 +31,9 @@ export const routes: Routes = [
   {    path: 'contact',
     component: ContactComponent
  }, 
+ {
 
+    path:'admin',
+    component:AdminPanelComponent
+ }
 ];

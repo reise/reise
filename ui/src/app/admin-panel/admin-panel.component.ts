@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AdminDataService } from '../admin-data.service';
 
 @Component({
     selector: 'app-admin-panel',
@@ -10,20 +12,26 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 })
 export class AdminPanelComponent implements OnInit {
 
-    public bookings: Array<any>;
+    public data:Array<any>= [];
 
-    public constructor(private _Router: Router) { }
+   
 
-    public ngOnInit(): void {
-        let user: any = JSON.parse(sessionStorage.getItem('user'));
-        if (!user.isAdmin) {
-            this._Router.navigate(['']);
-        } else {
-            this.getBookings();
-        }
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+ 
+  constructor(private _AdminDataService: AdminDataService) { }
+    
+  public ngOnInit(): void {
+    this._AdminDataService.getData().subscribe((response: any) => this.data = JSON.parse(JSON.stringify(response.data)));
+  
     }
+ 
 
-    public getBookings(): void {
-
-    }
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+   // this.data.filter = filterValue;
+  }
 }
+
+
