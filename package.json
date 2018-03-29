@@ -4,7 +4,8 @@
     "description": "An application for online travel booking.",
     "main": "server.js",
     "scripts": {
-        "start": "cd ui && node_modules/@angular/cli/bin/ng build -w",
+        "start": "npm run config && npm run tsc && npm run ui node dist/server.js",
+        "ui":"cd ui && node_modules/@angular/cli/bin/ng build",
         "config": "npm i && cd ui && npm i",
         "tsc": "node_modules/typescript/bin/tsc",
         "mongo": "sudo service mongod stop && sudo mongod --dbpath data/",
