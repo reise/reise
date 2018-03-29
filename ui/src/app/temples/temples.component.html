@@ -1,15 +1,12 @@
 <app-header></app-header>
 
-    <div class="card col-md-4"  *ngFor="let item of temp">
-        <img class="card-img-top" src="{{item.imgUrl}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{item.TempleName}}</h5>
-          
-            <p class="card-text">Base Sation : {{item.BaseStation }}</p>
-            <p class="card-text">Best Visit Time : {{item.BestVisit}}</p>
-            <p class="card-text">Tickete Price : {{item.Price | currency:'INR'}}</p>
-         
-          <a class="btn btn-primary">Book Now</a>
-        </div>
-      </div>
-   
+<div class="card col-md-4" *ngFor="let temple of temples">
+    <img class="card-img-top" src="{{temple.imgUrl}}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{temple.TempleName}}</h5>
+        <p class="card-text">Base Sation : {{temple.BaseStation }}</p>
+        <p class="card-text">Best Visit Time : {{temple.BestVisit}}</p>
+        <p class="card-text">Tickete Price : {{temple.Price | currency:'INR'}}</p>
+        <button class="btn btn-primary" (click)="book(temple)">Book Now</button>
+    </div>
+</div>

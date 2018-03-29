@@ -1,17 +1,29 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import { Router } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 @Component({
-  selector: 'app-admin-panel',
-  templateUrl: './admin-panel.component.html',
-  styleUrls: ['./admin-panel.component.css']
+    selector: 'app-admin-panel',
+    templateUrl: './admin-panel.component.html',
+    styleUrls: ['./admin-panel.component.css']
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor() { }
+    public bookings: Array<any>;
 
-  ngOnInit() {
-  }
+    public constructor(private _Router: Router) { }
 
+    public ngOnInit(): void {
+        let user: any = JSON.parse(sessionStorage.getItem('user'));
+        if (!user.isAdmin) {
+            this._Router.navigate(['']);
+        } else {
+            this.getBookings();
+        }
+    }
+
+    public getBookings(): void {
+
+    }
 }

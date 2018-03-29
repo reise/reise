@@ -5,20 +5,28 @@ import { Observable } from 'rxjs/Observable';
 import { TempleDataService } from '../temple-data.service';
 
 @Component({
-  selector: 'app-temples',
-  templateUrl: './temples.component.html',
-  styleUrls: ['./temples.component.css']
+    selector: 'app-temples',
+    templateUrl: './temples.component.html',
+    styleUrls: ['./temples.component.css']
 })
 export class TemplesComponent implements OnInit {
 
-   public temp = [];
-  
+    public temples: Array<any> = [];
 
-  constructor(private templedatails: TempleDataService ) { }
+    constructor(private _TempleDataService: TempleDataService) { }
 
-  ngOnInit() {
-  this.templedatails.getData().subscribe(data => this.temp = JSON.parse(JSON.stringify(data)));
-   
-  }
+    public ngOnInit(): void {
+        this._TempleDataService.getData().subscribe((response: any) => this.temples = JSON.parse(JSON.stringify(response.data)));
+    }
 
+    public book(temple: any): void {
+        let user: any = JSON.parse(sessionStorage.getItem('user'));
+        this._TempleDataService.bookTemple({
+            templeId: temple.id,
+            userId: user.id,
+            templeName: temple.TempleName,
+            userName: user.name,
+            price: temple.Price
+        }).subscribe((response: any) => alert('the temple has been booked!! An email has been sent to the registered email id!'));
+    }
 }

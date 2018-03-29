@@ -23,21 +23,24 @@ export class LoginComponent implements OnInit {
 
         if (!this.user || !this.user.username || !this.user.password) {
             return;
-        }        
+        }
 
         this._Http
             .post('/api/user/login', this.user)
             .toPromise()
             .then((response: any) => {
                 if (response.status) {
-                    this._Router.navigate(['/']);
+                    if (response.data.isAdmin) {
+                        this._Router.navigate(['/admin']);
+                    } else {
+                        this._Router.navigate(['/']);
+                    }
                     sessionStorage.setItem('user', JSON.stringify(response.data));
-                    
                 }
             })
             .catch((error: any) => {
                 console.log(error);
-                
+
             });
     }
 }
