@@ -7,7 +7,7 @@ let router = Router();
 
 router.post('/login', UserValidator.validateLogin, UserFacade.login, LogsFacade.dumpLog);
 
-// router.post('/register', UserValidator.validateRegister, UserFacade.register, LogsFacade.dumpLog);
+router.post('/register', UserValidator.validateRegister, UserFacade.register, LogsFacade.dumpLog);
 
 router.post('/logout', UserFacade.logout);
 
