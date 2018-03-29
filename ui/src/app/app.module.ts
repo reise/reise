@@ -1,6 +1,6 @@
 
 //framework modules
-import { NgModule,  Injectable } from '@angular/core';
+import { NgModule,  Injectable, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -49,8 +49,8 @@ import { ViewBookingComponent } from './view-booking/view-booking.component';
         ViewBookingComponent
     ],
     providers: [TempleDataService],
-    bootstrap: [AppComponent]
-
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
   })
 
  export class AppModule { };
