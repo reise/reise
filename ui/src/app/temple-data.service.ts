@@ -65,7 +65,7 @@ export class TempleDataService {
         {
           "id": "6",
           "imgUrl": "https://www.trawell.in/admin/images/upload/043721919Ratnagiri_Ganeshgule_Beach_Main.jpg",
-          "TempleName": "Ganeshgule Beach & Temple",
+          "TempleName": "Ganeshgule Temple",
           "BaseStation": "Ratnagiri",
           "BestVisit": "Septemberto February",
           "Price": "900"
@@ -91,7 +91,7 @@ export class TempleDataService {
         {
           "id": "9",
           "imgUrl": "https://www.trawell.in/admin/images/upload/69969945Alibaug_Anjarle_Beach_Main.jpg",
-          "TempleName": "Anjarle Beach & Ganesh Temple",
+          "TempleName": "Anjarle Ganesh Temple",
           "BaseStation": "Alibaug",
           "BestVisit": "September to February",
           "Price": "1270"
@@ -99,7 +99,7 @@ export class TempleDataService {
         {
           "id": "10",
           "imgUrl": "https://www.trawell.in/admin/images/upload/467141564Satara_Yamai_Devi_Temple_Main.jpg",
-          "TempleName": "Yamai Devi Temple",
+          "TempleName": "Yamai Temple",
           "BaseStation": "Aundh",
           "BestVisit": "January to December",
           "Price": "2500"
@@ -115,7 +115,7 @@ export class TempleDataService {
         {
           "id": "12",
           "imgUrl": "https://www.trawell.in/admin/images/upload/10282149Nashik_Saptashuringi_Main.jpg",
-          "TempleName": "SAPTASHRUNGI DEVI TEMPLE",
+          "TempleName": "SAPTASHRUNGI TEMPLE",
           "BaseStation": "Nanduri",
           "BestVisit": "January to December",
           "Price": "800"
@@ -123,7 +123,7 @@ export class TempleDataService {
         {
           "id": "13",
           "imgUrl": "https://www.trawell.in/admin/images/upload/860652306Pune_Ranjangaon_Temple_Main.jpg",
-          "TempleName": "RANJANGAON MAHA GANAPATI",
+          "TempleName": "RANJANGAON GANAPATI",
           "BaseStation": "Ranjangaon",
           "BestVisit": "January to December",
           "Price": "1000"
@@ -155,7 +155,7 @@ export class TempleDataService {
         {
           "id": "17",
           "imgUrl": "https://www.trawell.in/admin/images/upload/52046876Ganpatipule_Velneshwar_Main.jpg",
-          "TempleName": "VELNESHWAR TEMPLE & BEACH",
+          "TempleName": "VELNESHWAR TEMPLE",
           "BaseStation": "Guhagar",
           "BestVisit": "September to December",
           "Price": "1600"
@@ -163,7 +163,7 @@ export class TempleDataService {
         {
           "id": "18",
           "imgUrl": "https://www.trawell.in/admin/images/upload/520468357Ganpatipule_Hedvi_Beach_Main.jpg",
-          "TempleName": "HEDVI GANESH TEMPLE & BEACH",
+          "TempleName": "HEDVI GANESH TEMPLE",
           "BaseStation": "Hedvi",
           "BestVisit": "September to December",
           "Price": "3000"
@@ -171,7 +171,7 @@ export class TempleDataService {
         {
           "id": "19",
           "imgUrl": "https://www.trawell.in/admin/images/upload/043721322Ratnagiri_Marleshwar_Main.jpg",
-          "TempleName": "MARLESHWAR TEMPLE & WATERFALLS",
+          "TempleName": "MARLESHWAR TEMPLE",
           "BaseStation": "Maral",
           "BestVisit": "July to September",
           "Price": "2000"
@@ -179,7 +179,7 @@ export class TempleDataService {
         {
           "id": "20",
           "imgUrl": "https://www.trawell.in/admin/images/upload/69969981Alibaug_Harihareshwar_Beach_Main.jpg",
-          "TempleName": "HARIHARESHWAR BEACH & TEMPLE",
+          "TempleName": "HARIHARESHWAR TEMPLE",
           "BaseStation": "Harihareshwar",
           "BestVisit": "September to February",
           "Price": "1200"

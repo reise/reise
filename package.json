@@ -7,7 +7,7 @@
         "start": "cd ui && node_modules/@angular/cli/bin/ng build -w",
         "config": "npm i && cd ui && npm i",
         "tsc": "node_modules/typescript/bin/tsc",
-        "mongo":"sudo service mongod stop && sudo mongod --dbpath data/",
+        "mongo": "sudo service mongod stop && sudo mongod --dbpath data/",
         "server": "npm run tsc && node dist/server.js",
         "docs": "aglio --theme-variables default -i ./docs/api.apib --full-width -o ./docs/api.html"
     },
