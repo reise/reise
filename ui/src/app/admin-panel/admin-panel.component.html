@@ -1,0 +1,23 @@
+
+    <app-header></app-header>
+    
+    <table class="table" *ngFor="let data of data">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Temple Name</th>
+            <th scope="col">User</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{data.templeId}}</th>
+            <td>{{data.templeName}}</td>
+            <td>{{data.userName}}</td>
+            <td>{{data.price}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+     

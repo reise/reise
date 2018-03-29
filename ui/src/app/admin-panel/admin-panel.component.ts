@@ -16,8 +16,7 @@ export class AdminPanelComponent implements OnInit {
 
    
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  
  
   constructor(private _AdminDataService: AdminDataService) { }
     
@@ -27,11 +26,7 @@ export class AdminPanelComponent implements OnInit {
     }
  
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-   // this.data.filter = filterValue;
-  }
+  
 }
 
 
