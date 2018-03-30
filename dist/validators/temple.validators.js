@@ -28,6 +28,10 @@ var TempleValidator;
             response.status = false;
             response.messages.push(validation_messages_1.Validations.temple.userName.required);
         }
+        if (!parseInt(req.body.price)) {
+            response.status = false;
+            response.messages.push(validation_messages_1.Validations.temple.userName.required);
+        }
         response.status ? next() : res.json(response);
         return;
     }

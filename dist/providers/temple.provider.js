@@ -189,7 +189,8 @@ var TempleProvider;
                         templeId: item["templeId"],
                         userId: item["userId"],
                         templeName: item["templeName"],
-                        userName: item["userName"]
+                        userName: item["userName"],
+                        price: response["price"]
                     });
                     return currList;
                 }, []));
@@ -209,7 +210,8 @@ var TempleProvider;
                     templeId: response["templeId"],
                     userId: response["userId"],
                     templeName: response["templeName"],
-                    userName: response["userName"]
+                    userName: response["userName"],
+                    price: response["price"]
                 });
             })
                 .catch((error) => {

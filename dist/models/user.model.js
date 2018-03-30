@@ -11,6 +11,7 @@ class User {
             name: user.name,
             email: user.email,
             password: user.password,
+            isAdmin: !!user.isAdmin,
             additionalInfo: user.additionalInfo
         };
     }

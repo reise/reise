@@ -19,6 +19,10 @@ exports.TemplesBookingCollection = mongoose_1.model(db_constants_1.DbSchema.Coll
     userName: {
         type: String,
         required: [true, "user name is required"]
+    },
+    price: {
+        type: String,
+        required: [true, "price is required"]
     }
 }, { timestamps: true, versionKey: false }));
 //# sourceMappingURL=temple-booking-db.model.js.map

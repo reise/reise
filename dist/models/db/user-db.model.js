@@ -26,6 +26,9 @@ exports.UsersCollection = mongoose_1.model(db_constants_1.DbSchema.Collections.U
         type: String,
         required: [true, 'password is required']
     },
+    isAdmin: {
+        type: Boolean
+    },
     additinlaInfo: {
         type: Array,
     }

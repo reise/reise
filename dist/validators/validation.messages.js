@@ -48,6 +48,9 @@ exports.Validations = {
         },
         userName: {
             required: "user name can not be left blank"
+        },
+        price: {
+            required: "price can not be left blank"
         }
     }
 };
