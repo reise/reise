@@ -194,7 +194,7 @@ export namespace TempleProvider {
                             userId: item["userId"],
                             templeName: item["templeName"],
                             userName: item["userName"],
-                            price: response["price"]
+                            price: item["price"]
                         });
                         return currList;
                     }, []));
