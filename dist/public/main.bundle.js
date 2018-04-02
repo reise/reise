@@ -25,17 +25,52 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
+/***/ "./src/app/admin-data.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var http_1 = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var AdminDataService = /** @class */ (function () {
+    function AdminDataService(http) {
+        this.http = http;
+    }
+    AdminDataService.prototype.getData = function () {
+        return this.http.get('/api/temples/get-bookings');
+    };
+    AdminDataService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], AdminDataService);
+    return AdminDataService;
+}());
+exports.AdminDataService = AdminDataService;
+
+
+/***/ }),
+
 /***/ "./src/app/admin-panel/admin-panel.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "table{\n    margin-top:20px;\n    \n\n}\n\n"
 
 /***/ }),
 
 /***/ "./src/app/admin-panel/admin-panel.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\n<div class=\"example-header\">\n  <mat-form-field>\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n  </mat-form-field>\n</div>\n\n<div class=\"example-container mat-elevation-z8\">\n\n  <mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"id\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.id}} </mat-cell>\n    </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"progress\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.progress}}% </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"color\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.color}} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </mat-row>\n  </mat-table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>\n\n"
+module.exports = "\n    <app-header></app-header>\n    \n    <table class=\"table table-bordered\" >\n        <thead class=\"thead-dark\">\n          <tr>\n            <th scope=\"col\"> Temple Id</th>\n            <th scope=\"col\">Temple Name</th>\n            <th scope=\"col\">User</th>\n            <th scope=\"col\">Price</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of data\">\n            <th scope=\"row\">{{data.templeId}}</th>\n            <td>{{data.templeName}}</td>\n            <td>{{data.userName}}</td>\n            <td>{{data.price}}</td>\n          </tr>\n          \n        </tbody>\n      </table>\n     "
 
 /***/ }),
 
@@ -55,21 +90,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var admin_data_service_1 = __webpack_require__("./src/app/admin-data.service.ts");
 var AdminPanelComponent = /** @class */ (function () {
-    function AdminPanelComponent(_Router) {
-        this._Router = _Router;
+    function AdminPanelComponent(_AdminDataService) {
+        this._AdminDataService = _AdminDataService;
+        this.data = [];
     }
     AdminPanelComponent.prototype.ngOnInit = function () {
-        var user = JSON.parse(sessionStorage.getItem('user'));
-        if (!user.isAdmin) {
-            this._Router.navigate(['']);
-        }
-        else {
-            this.getBookings();
-        }
-    };
-    AdminPanelComponent.prototype.getBookings = function () {
+        var _this = this;
+        this._AdminDataService.getData().subscribe(function (response) { return _this.data = JSON.parse(JSON.stringify(response.data)); });
     };
     AdminPanelComponent = __decorate([
         core_1.Component({
@@ -77,7 +106,7 @@ var AdminPanelComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/admin-panel/admin-panel.component.html"),
             styles: [__webpack_require__("./src/app/admin-panel/admin-panel.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [admin_data_service_1.AdminDataService])
     ], AdminPanelComponent);
     return AdminPanelComponent;
 }());
@@ -97,6 +126,7 @@ var contact_component_1 = __webpack_require__("./src/app/contact/contact.compone
 var temples_component_1 = __webpack_require__("./src/app/temples/temples.component.ts");
 var home_component_1 = __webpack_require__("./src/app/home/home.component.ts");
 var login_component_1 = __webpack_require__("./src/app/login/login.component.ts");
+var admin_panel_component_1 = __webpack_require__("./src/app/admin-panel/admin-panel.component.ts");
 exports.routes = [
     {
         path: '',
@@ -120,6 +150,10 @@ exports.routes = [
     { path: 'contact',
         component: contact_component_1.ContactComponent
     },
+    {
+        path: 'user-admin',
+        component: admin_panel_component_1.AdminPanelComponent
+    }
 ];
 
 
@@ -201,6 +235,7 @@ var login_component_1 = __webpack_require__("./src/app/login/login.component.ts"
 var register_component_1 = __webpack_require__("./src/app/register/register.component.ts");
 var temples_component_1 = __webpack_require__("./src/app/temples/temples.component.ts");
 var temple_data_service_1 = __webpack_require__("./src/app/temple-data.service.ts");
+var admin_data_service_1 = __webpack_require__("./src/app/admin-data.service.ts");
 //routes
 var app_routing_module_1 = __webpack_require__("./src/app/app-routing.module.ts");
 var admin_panel_component_1 = __webpack_require__("./src/app/admin-panel/admin-panel.component.ts");
@@ -233,7 +268,7 @@ var AppModule = /** @class */ (function () {
                 admin_panel_component_1.AdminPanelComponent,
                 view_booking_component_1.ViewBookingComponent
             ],
-            providers: [temple_data_service_1.TempleDataService],
+            providers: [temple_data_service_1.TempleDataService, admin_data_service_1.AdminDataService],
             bootstrap: [app_component_1.AppComponent],
             schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
         })
@@ -369,7 +404,7 @@ exports.HeaderComponent = HeaderComponent;
 /***/ "./src/app/home/home.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#header {\n    background-color: gray;\n    height: 30px;\n}\n\n.jumbotron{\npadding: 0px;\nmargin: 0px;\nborder-radius: 0px; \n}\n\nimg{\n\n    width: 100%;\n    max-height: 400px;\n}"
+module.exports = "\n\n.jumbotron{\npadding: 0px;\nmargin: 0px;\nborder-radius: 0px; \n}\nimg{\n\n    width: 100%;\n    max-height: 400px;\n}"
 
 /***/ }),
 
