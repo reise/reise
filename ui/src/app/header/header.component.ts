@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   public constructor(private _Router: Router,
     private _HttpClient: HttpClient) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
   public logout(): void {

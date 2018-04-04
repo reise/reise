@@ -1,4 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,300");
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 .mtl {

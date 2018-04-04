@@ -16,7 +16,11 @@ export class LoginComponent implements OnInit {
         private _Router: Router) { }
 
     public ngOnInit(): void {
-        this.user = this.user || new User();
+        let user: User = JSON.parse(sessionStorage.getItem('user'));
+        this.user = user || new User();
+        if (!!user && !!user.id) {            
+            this._Router.navigate([this.user.isAdmin ? '/user-admin' : '']);
+        }
     }
 
     public login(): void {
@@ -29,18 +33,16 @@ export class LoginComponent implements OnInit {
             .post('/api/user/login', this.user)
             .toPromise()
             .then((response: any) => {
-                if (response.status) {
-                    if (response.data.isAdmin) {
-                        this._Router.navigate(['/admin']);
-                    } else {
-                        this._Router.navigate(['/']);
-                    }
-                    sessionStorage.setItem('user', JSON.stringify(response.data));
+                if (!response && !response.status) {
+                    //show messgae
+                    return;
                 }
+                this._Router.navigate([response.data.isAdmin ? '/user-admin' : '']);
+                sessionStorage.setItem('user', JSON.stringify(response.data));
             })
             .catch((error: any) => {
+                //show messgae
                 console.log(error);
-
             });
     }
 }

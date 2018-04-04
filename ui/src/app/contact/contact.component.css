@@ -1,9 +1,3 @@
-
-/*Font-awesome integration*/
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-/*Google font integration*/
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
 #contact{
     padding:5px; 
     background-color:#f1f1f1;
@@ -36,9 +30,6 @@
     }
     
 }
-
-
-@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300);
 
 .team{
     font-family: 'Quicksand', sans-serif;
