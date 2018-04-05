@@ -25,6 +25,9 @@ check folowing GIF for more information -
 
 ![demo](vs-code-debug-process.gif)
 
+# Database Server
+`mongo "mongodb+srv://cluster0-utnpu.mongodb.net/test" --username manojc`
+
 ---
 
 @author: Manoj Chalode chalodem@gmail.com
