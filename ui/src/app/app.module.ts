@@ -6,10 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule, MatCheckboxModule } from "@angular/material";
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+// import { SwiperModule } from 'swiper';
 //components pipes and services
 import { ContactComponent } from './contact/contact.component';
 import { AppComponent } from './app.component';
@@ -24,6 +27,7 @@ import { AdminDataService } from './admin-data.service';
 import { routes } from './app-routing.module';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ViewBookingComponent } from './view-booking/view-booking.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
     imports: [
@@ -34,6 +38,9 @@ import { ViewBookingComponent } from './view-booking/view-booking.component';
         MatCheckboxModule,
         MatInputModule,
         MatTableModule,
+        MatToolbarModule,
+        MatCardModule,
+        
         HttpClientModule,
        
         //this should always be last
@@ -48,7 +55,8 @@ import { ViewBookingComponent } from './view-booking/view-booking.component';
         HeaderComponent,
         ContactComponent,
         AdminPanelComponent,
-        ViewBookingComponent
+        ViewBookingComponent,
+        NotificationComponent
     ],
     providers: [TempleDataService, AdminDataService],
     bootstrap: [AppComponent],

@@ -34,9 +34,11 @@ export class LoginComponent implements OnInit {
             .toPromise()
             .then((response: any) => {
                 if (!response && !response.status) {
-                    //show messgae
-                    return;
+                    
+                    
+                    alert(response.messages);
                 }
+               
                 this._Router.navigate([response.data.isAdmin ? '/user-admin' : '']);
                 sessionStorage.setItem('user', JSON.stringify(response.data));
             })

@@ -33,9 +33,17 @@ export class RegisterComponent implements OnInit {
                     this._Router.navigate(['/']);
                     sessionStorage.setItem('user', JSON.stringify(response.data));
                 }
+
+                else{
+                     
+                    alert(response.messages);
+                }
+               
             })
             .catch((error: any) => {
                 console.log(error);
+
+
             });
     }
 
