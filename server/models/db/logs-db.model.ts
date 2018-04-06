@@ -38,4 +38,4 @@ export let LogsCollection: Model<Document> = model(DbSchema.Collections.Logs, ne
     metadata: {
         type: Object
     }
-}, { timestamps: true, versionKey: false }));
+}, { timestamps: true, versionKey: false, id: true }));

@@ -1,14 +1,14 @@
 import { Request, Response, NextFunction } from "express";
 import { Response as ApiResponse } from "../models/response.model";
-import { TempleProvider } from "../providers/temple.provider";
-import { Temple } from "../models/temple.model";
+import { BookingProvider } from "../providers/booking.provider";
+import { Booking } from "../models/booking.model";
 
-export namespace TempleFacade {
+export namespace BookingFacade {
 
-    export function getTemples(req: Request, res: Response, next: NextFunction): void {
-        let apiResponse: ApiResponse<Array<Temple>> = new ApiResponse();
-        TempleProvider.getTemples()
-            .then((response: Array<Temple>) => {
+    export function getBookings(req: Request, res: Response, next: NextFunction): void {
+        let apiResponse: ApiResponse<Array<Booking>> = new ApiResponse();
+        BookingProvider.getBookings()
+            .then((response: Array<Booking>) => {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
@@ -20,10 +20,10 @@ export namespace TempleFacade {
             });
     }
 
-    export function getTemple(req: Request, res: Response, next: NextFunction): void {
-        let apiResponse: ApiResponse<Temple> = new ApiResponse();
-        TempleProvider.getTemple(req.params.id)
-            .then((response: Temple) => {
+    export function getBooking(req: Request, res: Response, next: NextFunction): void {
+        let apiResponse: ApiResponse<Booking> = new ApiResponse();
+        BookingProvider.getBooking(req.params.id)
+            .then((response: Booking) => {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
@@ -35,10 +35,10 @@ export namespace TempleFacade {
             });
     }
 
-    export function createTemple(req: Request, res: Response, next: NextFunction): void {
-        let apiResponse: ApiResponse<Temple> = new ApiResponse();
-        TempleProvider.createTemple(req.body)
-            .then((response: Temple) => {
+    export function createBooking(req: Request, res: Response, next: NextFunction): void {
+        let apiResponse: ApiResponse<Booking> = new ApiResponse();
+        BookingProvider.createBooking(req.body)
+            .then((response: Booking) => {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
@@ -50,10 +50,10 @@ export namespace TempleFacade {
             });
     }
 
-    export function updateTemple(req: Request, res: Response, next: NextFunction): void {
-        let apiResponse: ApiResponse<Temple> = new ApiResponse();
-        TempleProvider.updateTemple(req.body)
-            .then((response: Temple) => {
+    export function updateBooking(req: Request, res: Response, next: NextFunction): void {
+        let apiResponse: ApiResponse<Booking> = new ApiResponse();
+        BookingProvider.updateBooking(req.body)
+            .then((response: Booking) => {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
@@ -65,9 +65,9 @@ export namespace TempleFacade {
             });
     }
 
-    export function deleteTemple(req: Request, res: Response, next: NextFunction): void {
+    export function deleteBooking(req: Request, res: Response, next: NextFunction): void {
         let apiResponse: ApiResponse<boolean> = new ApiResponse();
-        TempleProvider.deleteTemple(req.params.id)
+        BookingProvider.deleteBooking(req.query.id)
             .then((response: boolean) => {
                 apiResponse.data = response;
                 res.json(apiResponse);

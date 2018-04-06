@@ -20,7 +20,7 @@ export namespace UserProvider {
                     return resolve(translatedUser);
                 })
                 .catch((error: any) => {
-                    return reject("failed to get user from database");
+                    return reject(error.message);
                 });
         });
     }
@@ -36,7 +36,7 @@ export namespace UserProvider {
                     return resolve(translatedUser);
                 })
                 .catch((error: any) => {
-                    return reject("failed to save user details");
+                    return reject(error.message);
                 });
         });
     }

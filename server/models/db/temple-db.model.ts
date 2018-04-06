@@ -1,22 +1,27 @@
 import { model, Schema, Model, Document } from "mongoose";
 import { DbSchema } from "./db-constants";
+import { Temple } from "../temple.model";
 
-export let TemplesCollection: Model<Document> = model(DbSchema.Collections.Temples, new Schema({
-    templeId: {
-        type: String,
-        required: [true, "temple id is required"]
-    },
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: DbSchema.Collections.Users,
-        required: [true, "user id is required"]
-    },
-    templeName: {
+export interface ITempleDbModel extends Temple, Document {
+    id: string;
+}
+
+let schema: Schema = new Schema({
+    name: {
         type: String,
         required: [true, "temple name is required"]
     },
-    userName: {
-        type: String,
-        required: [true, "user name is required"]
+    imageUrls: {
+        type: Array,
+        required: [true, "image URL is required"]
+    },
+    description: {
+        type: String
+    },
+    additionalInfo: {
+        type: Object
     }
-}, { timestamps: true, versionKey: false }));
+}, { timestamps: true, versionKey: false, id: true })
+
+export let TemplesCollection: Model<ITempleDbModel> = 
+    model<ITempleDbModel>(DbSchema.Collections.Temples, schema);
