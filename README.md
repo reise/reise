@@ -26,7 +26,14 @@ check folowing GIF for more information -
 ![demo](vs-code-debug-process.gif)
 
 # Database Server
-`mongo "mongodb+srv://cluster0-utnpu.mongodb.net/test" --username manojc`
+
+1. Connect to the production database server with `mongo "mongodb+srv://cluster0-utnpu.mongodb.net/test" --username manojc` (password required)
+
+2. Take backup of database using `mongodump --db reise  --out FOLDER_PATH` (replace folder path with actual path)
+
+3. To restore the database from backup folder, navigate to solution root directory.
+
+4. Execute `mongorestore --db reise --drop /backup/reise/` command to restore database.
 
 ---
 
