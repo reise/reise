@@ -21,6 +21,9 @@ export const Validations = {
     },
     log : {
         required: "log details are required",
+        id: {
+            required: "id can not be left blank"
+        },
         sessionId: {
             required: "session id can not be left blank"
         },

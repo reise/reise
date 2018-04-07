@@ -6,9 +6,9 @@ let router = express.Router();
 
 router.post('/all', LogsFacade.getLogs);
 
-router.get('/all/:sessionId', LogValidator.validateSaveLog, LogsFacade.getLogsBySesionId);
+router.get('/all/:sessionId', LogValidator.validateGetSessionLogs, LogsFacade.getLogsBySesionId);
 
-router.get('/:id', LogValidator.validateSaveLog, LogsFacade.getLog);
+router.get('/:id', LogValidator.validateGetLog, LogsFacade.getLog);
 
 // router.put('/create', LogValidator.validateSaveLog, LogsFacade.createLog);
 
