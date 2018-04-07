@@ -17,10 +17,10 @@ export namespace UserFacade {
                 };
                 next();
             })
-            .catch((error: any) => {
+            .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
-                apiResponse.messages = error;
+                apiResponse.messages = [error];
                 res.locals = {
                     apiResponse: apiResponse
                 };
@@ -40,10 +40,10 @@ export namespace UserFacade {
                 };
                 next();
             })
-            .catch((error: any) => {
+            .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
-                apiResponse.messages = error;
+                apiResponse.messages = [error];
                 res.locals = {
                     apiResponse: apiResponse
                 };

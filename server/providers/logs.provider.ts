@@ -26,11 +26,11 @@ export namespace LogsProvider {
             resultQuery
                 .exec((resultError: any, response: Array<Document>) => {
                     if (resultError) {
-                        reject(resultError);
+                        reject(resultError.message);
                     }
                     countQuery.count((countError: any, count: number) => {
                         if (countError) {
-                            reject(countError);
+                            reject(countError.message);
                         }
                         page.count = count;
                         page.rows = page.rows || [];
@@ -41,7 +41,7 @@ export namespace LogsProvider {
                     });
                 })
                 .catch((error: any) => {
-                    reject(error);
+                    reject(error.message);
                 });
 
         });
@@ -58,7 +58,7 @@ export namespace LogsProvider {
                     return resolve(Log.translate(document));
                 })
                 .catch((error: any) => {
-                    return reject(false);
+                    return reject(error.message);
                 });
         });
     }
@@ -70,7 +70,7 @@ export namespace LogsProvider {
                     return resolve(Log.translate(document));
                 })
                 .catch((error: any) => {
-                    return reject(false);
+                    return reject(error.message);
                 });
         });
     }
@@ -82,7 +82,7 @@ export namespace LogsProvider {
                     return resolve(Log.translate(document));
                 })
                 .catch((error: any) => {
-                    return reject(false);
+                    return reject(error.message);
                 });
         });
     }
@@ -94,7 +94,7 @@ export namespace LogsProvider {
                     return resolve(true);
                 })
                 .catch((error: any) => {
-                    return reject(false);
+                    return reject(error.message);
                 });
         });
     }

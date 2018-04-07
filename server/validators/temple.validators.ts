@@ -1,44 +1,68 @@
 import { Request, Response, NextFunction } from "express";
 import { Response as ApiResponse } from "../models/response.model";
 import { Validations } from "./validation.messages";
+import { Temple } from "../models/temple.model";
 
 export namespace TempleValidator {
 
-    export function validateTempleBooking(req: Request, res: Response, next: NextFunction): void {
-        let response: ApiResponse<any> = new ApiResponse();
+    export function validateGetTemple(req: Request, res: Response, next: NextFunction): void {
+        let response: ApiResponse<Temple> = new ApiResponse();
 
-        if (!req.body) {
+        if (!req.params) {
             response.status = false;
-            response.messages.push(Validations.user.required);
+            response.messages.push(Validations.temple.required);
             res.json(response);
             return;
         }
 
-        if (!req.body.templeId) {
+        if (!req.params.id) {
             response.status = false;
-            response.messages.push(Validations.temple.templeId.required);
+            response.messages.push(Validations.temple.id);
         }
 
-        if (!req.body.userId) {
+        response.status ? next() : res.json(response);
+        return;
+    }
+
+    export function validateCreateTemple(req: Request, res: Response, next: NextFunction): void {
+        let response: ApiResponse<Temple> = new ApiResponse();
+
+        if (!req.body) {
             response.status = false;
-            response.messages.push(Validations.temple.userId.required);
+            response.messages.push(Validations.temple.required);
+            res.json(response);
+            return;
         }
 
-        if (!req.body.templeName) {
+        if (!req.body.name) {
             response.status = false;
-            response.messages.push(Validations.temple.templeName.required);
+            response.messages.push(Validations.temple.name);
         }
 
-        if (!req.body.userName) {
+        response.status ? next() : res.json(response);
+        return;
+    }
+
+    export function validateUpdateTemple(req: Request, res: Response, next: NextFunction): void {
+        let response: ApiResponse<Temple> = new ApiResponse();
+
+        if (!req.body) {
             response.status = false;
-            response.messages.push(Validations.temple.userName.required);
+            response.messages.push(Validations.temple.required);
+            res.json(response);
+            return;
         }
 
-        if (!parseInt(req.body.price)) {
+        if (!req.body.id) {
             response.status = false;
-            response.messages.push(Validations.temple.userName.required);
+            response.messages.push(Validations.temple.id);
         }
 
+        if (!req.body.name) {
+            response.status = false;
+            response.messages.push(Validations.temple.name);
+        }
+        
         response.status ? next() : res.json(response);
         return;
     }

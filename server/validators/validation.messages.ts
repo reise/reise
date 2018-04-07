@@ -35,6 +35,14 @@ export const Validations = {
     },
     temple : {
         required: "temple details are required",
+        id: "temple id is required",
+        name: "temple name is required"
+    },
+    booking : {
+        required: "booking details are required",
+        id: {
+            required: "booking id can not be left blank"
+        },
         templeId: {
             required: "temple id can not be left blank"
         },

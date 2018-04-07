@@ -1,9 +1,15 @@
 import { model, Schema, Model, Document } from "mongoose";
 import { DbSchema } from "./db-constants";
+import { Booking } from "../booking.model";
 
-export let TemplesBookingCollection: Model<Document> = model(DbSchema.Collections.TempleBookings, new Schema({
+export interface IBookingDbModel extends Booking, Document {
+    id: string;
+}
+
+let schema: Schema = new Schema({
     templeId: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: DbSchema.Collections.Temples,
         required: [true, "temple id is required"]
     },
     userId: {
@@ -22,5 +28,11 @@ export let TemplesBookingCollection: Model<Document> = model(DbSchema.Collection
     price: {
         type: String,
         required: [true, "price is required"]
+    },
+    remarks: {
+        type: String
     }
-}, { timestamps: true, versionKey: false }));
+}, { timestamps: true, versionKey: false, id: true });
+
+export let BookingCollection: Model<IBookingDbModel> = 
+    model<IBookingDbModel>(DbSchema.Collections.Bookings, schema);

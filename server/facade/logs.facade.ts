@@ -12,10 +12,10 @@ export namespace LogsFacade {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
-            .catch((error: any) => {
+            .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
-                apiResponse.messages = error;
+                apiResponse.messages = [error];
                 res.json(apiResponse);
             });
     }
@@ -27,10 +27,10 @@ export namespace LogsFacade {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
-            .catch((error: any) => {
+            .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
-                apiResponse.messages = error;
+                apiResponse.messages = [error];
                 res.json(apiResponse);
             });
     }
@@ -42,10 +42,10 @@ export namespace LogsFacade {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
-            .catch((error: any) => {
+            .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
-                apiResponse.messages = error;
+                apiResponse.messages = [error];
                 res.json(apiResponse);
             });
     }
@@ -57,10 +57,10 @@ export namespace LogsFacade {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
-            .catch((error: any) => {
+            .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
-                apiResponse.messages = error;
+                apiResponse.messages = [error];
                 res.json(apiResponse);
             });
     }
@@ -72,10 +72,10 @@ export namespace LogsFacade {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
-            .catch((error: any) => {
+            .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
-                apiResponse.messages = error;
+                apiResponse.messages = [error];
                 res.json(apiResponse);
             });
     }
@@ -87,10 +87,10 @@ export namespace LogsFacade {
                 apiResponse.data = response;
                 res.json(apiResponse);
             })
-            .catch((error: any) => {
+            .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
-                apiResponse.messages = error;
+                apiResponse.messages = [error];
                 res.json(apiResponse);
             });
     }

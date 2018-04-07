@@ -38,4 +38,4 @@ export let UsersCollection = model(DbSchema.Collections.Users, new Schema({
     additinlaInfo: {
         type: Array,
     }
-}, { timestamps: true, versionKey: false }));
+}, { timestamps: true, versionKey: false, id: true }));

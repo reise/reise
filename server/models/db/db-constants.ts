@@ -1,8 +1,10 @@
+import { Document } from "mongoose";
+
 export const DbSchema = {
     Collections: {
-        Logs: "Logs",
-        Users: "Users",
-        Temples: "Temples",
-        TempleBookings: "TempleBookings"
+        Logs: "logs",
+        Users: "users",
+        Temples: "temples",
+        Bookings: "bookings"
     }
 };
