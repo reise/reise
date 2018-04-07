@@ -11,6 +11,6 @@ router.post('/login', UserValidator.validateLogin, UserFacade.login, LogsFacade.
 
 router.post('/register', UserValidator.validateRegister, UserFacade.register, LogsFacade.dumpLog);
 
-router.post('/logout', UserFacade.logout);
+router.post('/logout', UserValidator.validateLogoutUser, UserFacade.logout);
 
 export let userRoutes: Router = router;

@@ -39,6 +39,13 @@ export namespace UserValidator {
     export function validateRegister(req: Request, res: Response, next: NextFunction): void {
         let response: ApiResponse<User> = new ApiResponse();
 
+        if (req.session && req.session.user && req.session.user.id) {
+            response.status = false;
+            response.messages.push(Validations.user.alreadyLoggedIn);
+            res.json(response);
+            return;            
+        }
+
         if (!req.body) {
             response.status = false;
             response.messages.push(Validations.user.required);
@@ -81,9 +88,10 @@ export namespace UserValidator {
         return;
     }
 
-    export function validateLoggedInUser(req: Request, res: Response, next: NextFunction): void {
+    export function validateLogoutUser(req: Request, res: Response, next: NextFunction): void {
         let response: ApiResponse<User> = new ApiResponse();
-        if (!req.session) {
+        
+        if (!req.session || !req.session.user || !req.session.user.id) {
             response.status = false;
             response.messages.push(Validations.user.userNotFound);
         }
