@@ -15,7 +15,7 @@ export namespace TempleProvider {
                     }, []));
                 })
                 .catch((error: any) => {
-                    reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 })
         });
     }
@@ -27,7 +27,7 @@ export namespace TempleProvider {
                     resolve(Temple.translate(response));
                 })
                 .catch((error: any) => {
-                    reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }
@@ -39,7 +39,7 @@ export namespace TempleProvider {
                     resolve(Temple.translate(response));
                 })
                 .catch((error: any) => {
-                    reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }
@@ -51,7 +51,7 @@ export namespace TempleProvider {
                     resolve(Temple.translate(response));
                 })
                 .catch((error: any) => {
-                    reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }

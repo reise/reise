@@ -10,14 +10,14 @@ export namespace BookingValidator {
 
         if (!req.params) {
             response.status = false;
-            response.messages.push(Validations.booking.required);
+            response.messages.push(Validations.Booking.required);
             res.json(response);
             return;
         }
 
         if (!req.params.id) {
             response.status = false;
-            response.messages.push(Validations.booking.id.required);
+            response.messages.push(Validations.Booking.id.required);
         }
 
         response.status ? next() : res.json(response);
@@ -29,34 +29,34 @@ export namespace BookingValidator {
 
         if (!req.body) {
             response.status = false;
-            response.messages.push(Validations.user.required);
+            response.messages.push(Validations.User.required);
             res.json(response);
             return;
         }
 
         if (!req.body.templeId) {
             response.status = false;
-            response.messages.push(Validations.booking.templeId.required);
+            response.messages.push(Validations.Booking.templeId.required);
         }
 
         if (!req.body.userId) {
             response.status = false;
-            response.messages.push(Validations.booking.userId.required);
+            response.messages.push(Validations.Booking.userId.required);
         }
 
         if (!req.body.templeName) {
             response.status = false;
-            response.messages.push(Validations.booking.templeName.required);
+            response.messages.push(Validations.Booking.templeName.required);
         }
 
         if (!req.body.userName) {
             response.status = false;
-            response.messages.push(Validations.booking.userName.required);
+            response.messages.push(Validations.Booking.userName.required);
         }
 
         if (!parseInt(req.body.price)) {
             response.status = false;
-            response.messages.push(Validations.booking.price.required);
+            response.messages.push(Validations.Booking.price.required);
         }
 
         response.status ? next() : res.json(response);
@@ -68,39 +68,39 @@ export namespace BookingValidator {
 
         if (!req.body) {
             response.status = false;
-            response.messages.push(Validations.user.required);
+            response.messages.push(Validations.User.required);
             res.json(response);
             return;
         }
 
         if (!req.body.id) {
             response.status = false;
-            response.messages.push(Validations.booking.id.required);
+            response.messages.push(Validations.Booking.id.required);
         }
 
         if (!req.body.templeId) {
             response.status = false;
-            response.messages.push(Validations.booking.templeId.required);
+            response.messages.push(Validations.Booking.templeId.required);
         }
 
         if (!req.body.userId) {
             response.status = false;
-            response.messages.push(Validations.booking.userId.required);
+            response.messages.push(Validations.Booking.userId.required);
         }
 
         if (!req.body.templeName) {
             response.status = false;
-            response.messages.push(Validations.booking.templeName.required);
+            response.messages.push(Validations.Booking.templeName.required);
         }
 
         if (!req.body.userName) {
             response.status = false;
-            response.messages.push(Validations.booking.userName.required);
+            response.messages.push(Validations.Booking.userName.required);
         }
 
         if (!parseInt(req.body.price)) {
             response.status = false;
-            response.messages.push(Validations.booking.price.required);
+            response.messages.push(Validations.Booking.price.required);
         }
 
         response.status ? next() : res.json(response);

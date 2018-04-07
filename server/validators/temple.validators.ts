@@ -10,14 +10,14 @@ export namespace TempleValidator {
 
         if (!req.params) {
             response.status = false;
-            response.messages.push(Validations.temple.required);
+            response.messages.push(Validations.Temple.required);
             res.json(response);
             return;
         }
 
         if (!req.params.id) {
             response.status = false;
-            response.messages.push(Validations.temple.id);
+            response.messages.push(Validations.Temple.id);
         }
 
         response.status ? next() : res.json(response);
@@ -29,14 +29,14 @@ export namespace TempleValidator {
 
         if (!req.body) {
             response.status = false;
-            response.messages.push(Validations.temple.required);
+            response.messages.push(Validations.Temple.required);
             res.json(response);
             return;
         }
 
         if (!req.body.name) {
             response.status = false;
-            response.messages.push(Validations.temple.name);
+            response.messages.push(Validations.Temple.name);
         }
 
         response.status ? next() : res.json(response);
@@ -48,19 +48,19 @@ export namespace TempleValidator {
 
         if (!req.body) {
             response.status = false;
-            response.messages.push(Validations.temple.required);
+            response.messages.push(Validations.Temple.required);
             res.json(response);
             return;
         }
 
         if (!req.body.id) {
             response.status = false;
-            response.messages.push(Validations.temple.id);
+            response.messages.push(Validations.Temple.id);
         }
 
         if (!req.body.name) {
             response.status = false;
-            response.messages.push(Validations.temple.name);
+            response.messages.push(Validations.Temple.name);
         }
         
         response.status ? next() : res.json(response);

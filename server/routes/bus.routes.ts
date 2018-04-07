@@ -1,11 +1,11 @@
 import { Router, Response, Request, NextFunction } from "express";
-import { TempleValidator } from "../validators/temple.validators";
+import { BusValidator } from "../validators/bus.validators";
 import { UserValidator } from "../validators/user-validator";
-import { TempleFacade } from "../facade/temple.facade";
+import { BusFacade } from "../facade/bus.facade";
 import { LogsFacade } from "../facade/logs.facade";
 
 function redirect(req: Request, res: Response, next: NextFunction) {
-    res.redirect('/api/temples/all');
+    res.redirect('/api/buses/all');
 }
 
 let router: Router = Router();
@@ -14,39 +14,39 @@ router.get('/', redirect);
 
 router.get('/all', [
     UserValidator.validateUser,
-    TempleFacade.getTemples,
+    BusFacade.getBuses,
     LogsFacade.dumpLog
 ]);
 
 router.get('/:id', [
     UserValidator.validateUser,
-    TempleValidator.validateGetTemple,
-    TempleFacade.getTemple,
+    BusValidator.validateGetBus,
+    BusFacade.getBus,
     LogsFacade.dumpLog
 ]);
 
 router.put('/create', [
     UserValidator.validateUser,
     UserValidator.validateAdmin,
-    TempleValidator.validateCreateTemple,
-    TempleFacade.createTemple,
+    BusValidator.validateCreateBus,
+    BusFacade.createBus,
     LogsFacade.dumpLog
 ]);
 
 router.post('/update', [
     UserValidator.validateUser,
     UserValidator.validateAdmin,
-    TempleValidator.validateUpdateTemple,
-    TempleFacade.updateTemple,
+    BusValidator.validateUpdateBus,
+    BusFacade.updateBus,
     LogsFacade.dumpLog
 ]);
 
 router.delete('/:id', [
     UserValidator.validateUser,
     UserValidator.validateAdmin,
-    TempleValidator.validateGetTemple,
-    TempleFacade.deleteTemple,
+    BusValidator.validateGetBus,
+    BusFacade.deleteBus,
     LogsFacade.dumpLog
 ]);
 
-export let templesRoutes: Router = router;
+export let busRoutes: Router = router;

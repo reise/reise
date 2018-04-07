@@ -10,7 +10,7 @@
         "tsc": "node_modules/typescript/bin/tsc",
         "mongo": "sudo service mongod stop && sudo mongod --dbpath data/",
         "server": "npm run tsc && node dist/server.js",
-        "docs": "aglio --theme-variables default -i ./docs/api.apib --full-width -o ./docs/api.html"
+        "docs": "aglio --theme-variables slate -i ./docs/api.apib --full-width -o ./docs/api.html"
     },
     "keywords": [],
     "author": "",

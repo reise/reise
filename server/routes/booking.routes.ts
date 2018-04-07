@@ -1,20 +1,54 @@
-import { Router, Response, Request } from "express";
-import { NextFunction } from "express-serve-static-core";
+import { Router, Response, Request, NextFunction } from "express";
 import { BookingValidator } from "../validators/booking.validators";
+import { UserValidator } from "../validators/user-validator";
 import { BookingFacade } from "../facade/booking.facade";
+import { LogsFacade } from "../facade/logs.facade";
+
+function redirect(req: Request, res: Response, next: NextFunction) {
+    res.redirect('/api/bookings/all');
+}
 
 let router: Router = Router();
 
-router.get('/', (req: Request, res: Response, next: NextFunction) => res.redirect('/api/bookings/all'));
+router.get('/', redirect);
 
-router.get('/all', BookingFacade.getBookings);
+router.get('/all', [
+    UserValidator.validateUser,
+    UserValidator.validateAdmin,
+    BookingFacade.getBookings,
+    LogsFacade.dumpLog
+]);
 
-router.get('/:id', BookingValidator.validateGetBooking, BookingFacade.getBooking);
+router.get('/:id', [
+    UserValidator.validateUser,
+    UserValidator.validateAdmin,
+    BookingValidator.validateGetBooking,
+    BookingFacade.getBooking,
+    LogsFacade.dumpLog
+]);
 
-router.put('/create', BookingValidator.validateCreateBooking, BookingFacade.createBooking);
+router.put('/create', [
+    UserValidator.validateUser,
+    UserValidator.validateAdmin,
+    BookingValidator.validateCreateBooking,
+    BookingFacade.createBooking,
+    LogsFacade.dumpLog
+]);
 
-router.post('/update', BookingValidator.validateUpdateBooking, BookingFacade.updateBooking);
+router.post('/update', [
+    UserValidator.validateUser,
+    UserValidator.validateAdmin,
+    BookingValidator.validateUpdateBooking,
+    BookingFacade.updateBooking,
+    LogsFacade.dumpLog
+]);
 
-router.delete('/:id', BookingValidator.validateGetBooking, BookingFacade.deleteBooking);
+router.delete('/:id', [
+    UserValidator.validateUser,
+    UserValidator.validateAdmin,
+    BookingValidator.validateGetBooking,
+    BookingFacade.deleteBooking,
+    LogsFacade.dumpLog
+]);
 
 export let bookingRoutes: Router = router;

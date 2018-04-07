@@ -10,13 +10,19 @@ export namespace TempleFacade {
         TempleProvider.getTemples()
             .then((response: Array<Temple>) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -25,13 +31,19 @@ export namespace TempleFacade {
         TempleProvider.getTemple(req.params.id)
             .then((response: Temple) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -40,13 +52,19 @@ export namespace TempleFacade {
         TempleProvider.createTemple(req.body)
             .then((response: Temple) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -55,13 +73,19 @@ export namespace TempleFacade {
         TempleProvider.updateTemple(req.body)
             .then((response: Temple) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -70,13 +94,19 @@ export namespace TempleFacade {
         TempleProvider.deleteTemple(req.params.id)
             .then((response: boolean) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 }

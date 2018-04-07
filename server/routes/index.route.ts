@@ -1,6 +1,5 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction, Router } from "express";
 import * as path from 'path';
-import { Router } from "express";
 
 let router = Router();
 

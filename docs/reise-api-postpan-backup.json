@@ -1,0 +1,302 @@
+{
+	"variables": [],
+	"info": {
+		"name": "reise",
+		"_postman_id": "34580a2b-ad81-c3cf-850b-7de577f0b647",
+		"description": "reise API calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"description": "",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "login API"
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"url": "http://localhost:3000/api/user/logout",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": "logout"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"url": "http://localhost:3000/api/user/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\":\"1234567\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get logged in user",
+					"request": {
+						"url": "http://localhost:3000/api/user/logged-in-user",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "temple",
+			"description": "",
+			"item": [
+				{
+					"name": "temple list",
+					"request": {
+						"url": "http://localhost:3000/api/temples/all",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "create temple",
+					"request": {
+						"url": "http://localhost:3000/api/temples/create",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\",\n\t\"imageUrls\": [\n\t\t\"https://www.trawell.in/admin/images/upload/860652183Pune_Morgaon_Main.jpg\"\t\n\t],\n\t\"description\":\"test Description\",\n\t\"additionalInfo\": {\n\t\t\"key1\":\"value1\",\n\t\t\"key2\":\"value2\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "temple update",
+					"request": {
+						"url": "http://localhost:3000/api/temples/update",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5ac7f12e2630de7ee61eec00\",\n    \"name\": \"New Temple\",\n    \"imageUrls\": [\n        \"https://www.trawell.in/admin/images/upload/860652183Pune_Morgaon_Main.jpg\"\n    ],\n    \"description\":\"test Description\",\n    \"additionalInfo\": {\n        \"key1\":\"value1\",\n        \"key2\":\"value2\",\n        \"key3\":\"value3\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "temple delete",
+					"request": {
+						"url": "http://localhost:3000/api/temples/5ac7f12e2630de7ee61eec00",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "booking",
+			"description": "",
+			"item": [
+				{
+					"name": "all bookings",
+					"request": {
+						"url": "http://localhost:3000/api/bookings/all",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "booking details",
+					"request": {
+						"url": "http://localhost:3000/api/bookings/5ac7ff820fb00a105fba28ac",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create booking",
+					"request": {
+						"url": "http://localhost:3000/api/bookings/create",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"templeId\":\"5ac7cc259ed19d99651dec24\",\n\t\"userId\":\"5aa3e7f63259c01048902eaa\",\n\t\"templeName\":\"Bhimashankar Temple\",\n\t\"userName\":\"Manoj Chalode\",\n\t\"price\":\"1700\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update booking",
+					"request": {
+						"url": "http://localhost:3000/api/bookings/update",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"5ac7ff820fb00a105fba28ac\",\n\t\"templeId\":\"5ac7cc259ed19d99651dec24\",\n\t\"userId\":\"5aa3e7f63259c01048902eaa\",\n\t\"templeName\":\"Bhimashankar Temple\",\n\t\"userName\":\"Manoj Chalode\",\n\t\"price\":\"1700\",\n\t\"remarks\": \"remarks added and updated\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "logs",
+			"description": "",
+			"item": [
+				{
+					"name": "all logs",
+					"request": {
+						"url": "http://localhost:3000/api/logs/all",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get log details",
+					"request": {
+						"url": "http://localhost:3000/api/logs/5ac8d16733817b406cc80b94",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bus",
+			"description": "",
+			"item": [
+				{
+					"name": "create bus",
+					"request": {
+						"url": "http://localhost:3000/api/buses/create",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Jejuri Express\",\n\t\"number\":\"MH-22T3324\",\n\t\"arrivalTime\":\"9 AM\",\n\t\"departureTime\":\"6 PM\",\n\t\"sourceStation\":\"Parbhani\",\n\t\"destinationStation\":\"Jejuri\",\n\t\"fare\":\"600\",\n\t\"availableSeats\":\"50\",\n\t\"totalSeats\":\"50\",\n\t\"details\":\"Runs everyday\",\n\t\"additionalInfo\": {\n\t\t\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update bus",
+					"request": {
+						"url": "http://localhost:3000/api/buses/update",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5ac908d9ddf941647d8663c3\",\n    \"name\": \"Jejuri Express\",\n    \"number\": \"MH-22T3324\",\n    \"arrivalTime\": \"9 AM\",\n    \"departureTime\": \"6 PM\",\n    \"sourceStation\": \"Parbhani\",\n    \"destinationStation\": \"Jejuri\",\n    \"fare\": 600,\n    \"availableSeats\": 12,\n    \"totalSeats\": 50,\n    \"details\": \"Runs everyday except Sunday\",\n    \"additionalInfo\": {\n    \t\"Stops\" : \"Bus has 2 stops in between\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "all buses",
+					"request": {
+						"url": "http://localhost:3000/api/buses/all",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "bus details",
+					"request": {
+						"url": "http://localhost:3000/api/buses/5ac908d9ddf941647d8663c3",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

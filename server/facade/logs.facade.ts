@@ -10,13 +10,19 @@ export namespace LogsFacade {
         LogsProvider.getLogs(req.body)
             .then((response: Page<Log>) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -25,13 +31,19 @@ export namespace LogsFacade {
         LogsProvider.getLogsBySessionId(req.params.sessionId, req.body)
             .then((response: Page<Log>) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -40,13 +52,19 @@ export namespace LogsFacade {
         LogsProvider.getLog(req.params.id)
             .then((response: Log) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -55,13 +73,19 @@ export namespace LogsFacade {
         LogsProvider.createLog(req.body)
             .then((response: Log) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -70,13 +94,19 @@ export namespace LogsFacade {
         LogsProvider.updateLog(req.body)
             .then((response: Log) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -85,13 +115,19 @@ export namespace LogsFacade {
         LogsProvider.deleteLog(req.params.id)
             .then((response: boolean) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -103,7 +139,7 @@ export namespace LogsFacade {
         let log: Log = {
             sessionId: req.sessionID || res.locals.sessionId,
             method: req.method,
-            url: req.url,
+            url: `${req.baseUrl}${req.url}`,
             request: req.body,
             response: (res.locals && res.locals.apiResponse) ? res.locals.apiResponse : null
         }
