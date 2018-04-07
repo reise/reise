@@ -9,8 +9,8 @@ export namespace LogsProvider {
     export function getLogs(filter: FilterGroup, sessionId?: string): Promise<Page<Log>> {
 
         let page = new Page<Log>();
-        page.size = parseInt(filter.size.toString());
-        page.page = parseInt(filter.page.toString());
+        page.size = !!filter.size ? parseInt(filter.size.toString()) : 10;
+        page.page = !!filter.page ? parseInt(filter.page.toString()) : 1;
 
         return new Promise<Page<Log>>((resolve: Function, reject: Function) => {
 
@@ -54,7 +54,7 @@ export namespace LogsProvider {
     export function getLog(id: string): Promise<Log> {
         return new Promise<Log>((resolve: Function, reject: Function) => {
             LogsCollection.findById(id)
-                .then((response: Document) => {
+                .then((document: Document) => {
                     return resolve(Log.translate(document));
                 })
                 .catch((error: any) => {
@@ -66,7 +66,7 @@ export namespace LogsProvider {
     export function createLog(log: Log): Promise<Log> {
         return new Promise<Log>((resolve: Function, reject: Function) => {
             LogsCollection.create(log)
-                .then((response: Document) => {
+                .then((document: Document) => {
                     return resolve(Log.translate(document));
                 })
                 .catch((error: any) => {

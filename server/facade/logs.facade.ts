@@ -103,7 +103,7 @@ export namespace LogsFacade {
         let log: Log = {
             sessionId: req.sessionID || res.locals.sessionId,
             method: req.method,
-            url: req.url,
+            url: `${req.baseUrl}${req.url}`,
             request: req.body,
             response: (res.locals && res.locals.apiResponse) ? res.locals.apiResponse : null
         }
