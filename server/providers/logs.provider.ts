@@ -58,7 +58,7 @@ export namespace LogsProvider {
                     return resolve(Log.translate(document));
                 })
                 .catch((error: any) => {
-                    return reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }
@@ -70,7 +70,7 @@ export namespace LogsProvider {
                     return resolve(Log.translate(document));
                 })
                 .catch((error: any) => {
-                    return reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }
@@ -82,7 +82,7 @@ export namespace LogsProvider {
                     return resolve(Log.translate(document));
                 })
                 .catch((error: any) => {
-                    return reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }
@@ -94,7 +94,7 @@ export namespace LogsProvider {
                     return resolve(true);
                 })
                 .catch((error: any) => {
-                    return reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }

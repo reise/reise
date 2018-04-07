@@ -14,7 +14,7 @@ export namespace BookingProvider {
                     }, []));
                 })
                 .catch((error: any) => {
-                    reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 })
         });
     }
@@ -26,7 +26,7 @@ export namespace BookingProvider {
                     resolve(Booking.translate(response));
                 })
                 .catch((error: any) => {
-                    reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }
@@ -38,7 +38,7 @@ export namespace BookingProvider {
                     resolve(Booking.translate(response));
                 })
                 .catch((error: any) => {
-                    reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }
@@ -50,7 +50,7 @@ export namespace BookingProvider {
                     resolve(Booking.translate(response));
                 })
                 .catch((error: any) => {
-                    reject(error.message);
+                    return reject("failed to serve the request, something went wrong!");
                 });
         });
     }
