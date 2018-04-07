@@ -10,9 +10,9 @@ export namespace UserValidator {
 
         if (req.session && req.session.user && req.session.user.id) {
             response.status = false;
-            response.messages.push(Validations.user.alreadyLoggedIn);
+            response.messages.push(Validations.user.alreadyLoggedIn.required);
             res.json(response);
-            return;            
+            return;
         }
 
         if (!req.body) {
@@ -41,9 +41,9 @@ export namespace UserValidator {
 
         if (req.session && req.session.user && req.session.user.id) {
             response.status = false;
-            response.messages.push(Validations.user.alreadyLoggedIn);
+            response.messages.push(Validations.user.alreadyLoggedIn.required);
             res.json(response);
-            return;            
+            return;
         }
 
         if (!req.body) {
@@ -88,12 +88,24 @@ export namespace UserValidator {
         return;
     }
 
-    export function validateLogoutUser(req: Request, res: Response, next: NextFunction): void {
+    export function validateUser(req: Request, res: Response, next: NextFunction): void {
         let response: ApiResponse<User> = new ApiResponse();
-        
+
         if (!req.session || !req.session.user || !req.session.user.id) {
             response.status = false;
-            response.messages.push(Validations.user.userNotFound);
+            response.messages.push(Validations.user.userNotFound.required);
+        }
+
+        response.status ? next() : res.json(response);
+        return;
+    }
+
+    export function validateAdmin(req: Request, res: Response, next: NextFunction): void {
+        let response: ApiResponse<User> = new ApiResponse();
+
+        if (!req.session || !req.session.user || !req.session.user.isAdmin) {
+            response.status = false;
+            response.messages.push(Validations.user.isAdmin.required);
         }
 
         response.status ? next() : res.json(response);

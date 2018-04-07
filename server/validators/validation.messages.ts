@@ -1,8 +1,15 @@
 export const Validations = {
-    user : {
+    user: {
         required: "user details are required",
-        userNotFound: "logged in user not found",
-        alreadyLoggedIn: "user already logged in!",
+        userNotFound: {
+            required: "logged in user not found"
+        },
+        isAdmin: {
+            required: "You do not have admin privileges!"
+        },
+        alreadyLoggedIn: {
+            required: "user already logged in!"
+        },
         username: {
             required: "username or email can not be left blank",
             minLength: "username should be atleast 5 letters long"
@@ -19,7 +26,7 @@ export const Validations = {
             minLength: "password should be atleast 6 letters long"
         }
     },
-    log : {
+    log: {
         required: "log details are required",
         id: {
             required: "id can not be left blank"
@@ -37,12 +44,12 @@ export const Validations = {
             required: "response can not be left blank"
         }
     },
-    temple : {
+    temple: {
         required: "temple details are required",
         id: "temple id is required",
         name: "temple name is required"
     },
-    booking : {
+    booking: {
         required: "booking details are required",
         id: {
             required: "booking id can not be left blank"
