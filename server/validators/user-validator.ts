@@ -8,6 +8,13 @@ export namespace UserValidator {
     export function validateLogin(req: Request, res: Response, next: NextFunction): void {
         let response: ApiResponse<User> = new ApiResponse();
 
+        if (req.session && req.session.user && req.session.user.id) {
+            response.status = false;
+            response.messages.push(Validations.user.alreadyLoggedIn);
+            res.json(response);
+            return;            
+        }
+
         if (!req.body) {
             response.status = false;
             response.messages.push(Validations.user.required);

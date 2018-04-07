@@ -5,13 +5,28 @@ import { User } from "../models/user.model";
 
 export namespace UserFacade {
 
+    export function getLoggedInUser(req: Request, res: Response, next: NextFunction): void {
+        let apiResponse: ApiResponse<User> = new ApiResponse();
+        if (req.session.user && req.session.user.id) {
+            apiResponse.data = req.session.user;
+        } else {
+            apiResponse.data = null;
+            apiResponse.status = false;
+            apiResponse.messages = ["no logged in user found!"];
+        }
+        res.locals = {
+            apiResponse: apiResponse
+        };
+        next();
+    }
+
     export function login(req: Request, res: Response, next: NextFunction): void {
         let apiResponse: ApiResponse<User> = new ApiResponse();
         UserProvider.login(req.body)
             .then((response: User) => {
                 apiResponse.data = response;
-                //set user in session
-                // req.session.user = response;
+                // set user in session
+                req.session.user = response;
                 res.locals = {
                     apiResponse: apiResponse
                 };
@@ -34,7 +49,7 @@ export namespace UserFacade {
             .then((response: User) => {
                 apiResponse.data = response;
                 //set user in session
-                // req.session.user = response;
+                req.session.user = response;
                 res.locals = {
                     apiResponse: apiResponse
                 };

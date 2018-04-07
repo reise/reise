@@ -2,6 +2,7 @@ export const Validations = {
     user : {
         required: "user details are required",
         userNotFound: "logged in user not found",
+        alreadyLoggedIn: "user already logged in!",
         username: {
             required: "username or email can not be left blank",
             minLength: "username should be atleast 5 letters long"
