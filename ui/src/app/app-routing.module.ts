@@ -5,6 +5,7 @@ import { TemplesComponent } from './temples/temples.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { TempleDatailsComponent } from './temple-datails/temple-datails.component';
 
 export const routes: Routes = [{
         path: '',
@@ -23,6 +24,11 @@ export const routes: Routes = [{
         path: 'temples',
         component: TemplesComponent
     }, {
+        path: 'temples/:id',
+        component: TempleDatailsComponent
+    },
+    
+    {
         path: 'contact',
         component: ContactComponent
     }, {

@@ -10,6 +10,8 @@ export class ViewBookingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+   
   }
 
 }

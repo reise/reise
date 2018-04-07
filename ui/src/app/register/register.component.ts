@@ -22,6 +22,8 @@ export class RegisterComponent implements OnInit {
     public register(): void {
 
         if (!User.checkPasswordmatch(this.user)) {
+            
+            alert('passwords do not match');
             return;
         }
 

@@ -23,11 +23,14 @@ import { RegisterComponent } from './register/register.component';
 import { TemplesComponent } from './temples/temples.component';
 import { TempleDataService } from './temple-data.service';
 import { AdminDataService } from './admin-data.service';
+import { TempledetailsService } from './templedetails.service';
 //routes
 import { routes } from './app-routing.module';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ViewBookingComponent } from './view-booking/view-booking.component';
 import { NotificationComponent } from './notification/notification.component';
+import { TempleDatailsComponent } from './temple-datails/temple-datails.component';
+
 
 @NgModule({
     imports: [
@@ -56,9 +59,10 @@ import { NotificationComponent } from './notification/notification.component';
         ContactComponent,
         AdminPanelComponent,
         ViewBookingComponent,
-        NotificationComponent
+        NotificationComponent,
+        TempleDatailsComponent
     ],
-    providers: [TempleDataService, AdminDataService],
+    providers: [TempleDataService, AdminDataService, TempledetailsService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
   })

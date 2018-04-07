@@ -1,12 +1,12 @@
 <app-header></app-header>
 <div class="flex-container">
     <div class="card" *ngFor="let temple of temples">
-        <img class="card-img-top" src="{{temple.imgUrl}}" alt="Card image cap">
+        <img class="card-img-top" src="{{temple.imageUrls[0]}}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title text-primary">{{temple.TempleName}}</h5>
-            <p class="card-text">Base Sation : {{temple.BaseStation }}</p>
+            <h5 class="card-title text-primary">{{temple.name}}</h5>
+            <!-- <p class="card-text">Base Sation : {{temple.BaseStation }}</p>
             <p class="card-text">Best Visit Time : {{temple.BestVisit}}</p>
-            <p class="card-text">Tickete Price : {{temple.Price | currency:'INR'}}</p>
+            <p class="card-text">Tickete Price : {{temple.Price | currency:'INR'}}</p> -->
             <button class="btn btn-primary col-lg-12" (click)="book(temple)">Book Now</button>
         </div>
     </div>
