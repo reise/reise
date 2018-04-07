@@ -10,14 +10,14 @@ export namespace LogValidator {
 
         if (!req.params) {
             response.status = false;
-            response.messages.push(Validations.log.required);
+            response.messages.push(Validations.Log.required);
             res.json(response);
             return;
         }
 
         if (!req.params.id) {
             response.status = false;
-            response.messages.push(Validations.log.id.required);
+            response.messages.push(Validations.Log.id.required);
         }
 
         response.status ? next() : res.json(response);
@@ -29,14 +29,14 @@ export namespace LogValidator {
 
         if (!req.params) {
             response.status = false;
-            response.messages.push(Validations.log.required);
+            response.messages.push(Validations.Log.required);
             res.json(response);
             return;
         }
 
         if (!req.params.sessionId) {
             response.status = false;
-            response.messages.push(Validations.log.sessionId.required);
+            response.messages.push(Validations.Log.sessionId.required);
         }
 
         response.status ? next() : res.json(response);
@@ -48,19 +48,19 @@ export namespace LogValidator {
 
         if (!req.body) {
             response.status = false;
-            response.messages.push(Validations.user.required);
+            response.messages.push(Validations.User.required);
             res.json(response);
             return;
         }
 
         if (!req.body.url) {
             response.status = false;
-            response.messages.push(Validations.log.url.required);
+            response.messages.push(Validations.Log.url.required);
         }
 
         if (!req.body.request) {
             response.status = false;
-            response.messages.push(Validations.log.request.required);
+            response.messages.push(Validations.Log.request.required);
         }
 
         response.status ? next() : res.json(response);

@@ -1,12 +1,13 @@
 import { BookingCollection, IBookingDbModel } from "../models/db/booking-db.model";
 import { Booking } from "../models/booking.model";
+import { DbSchema } from "../models/db/db-constants";
 
 export namespace BookingProvider {
 
     export function getBookings(): Promise<Array<Booking>> {
         return new Promise<Array<Booking>>((resolve: Function, reject: Function) => {
-            BookingCollection.find({}, 'id templeId userId templeName userName price')
-                .sort({ name : 'asc'})
+            BookingCollection.find({}, DbSchema.Projections.Temple.GetAll)
+                .sort({ name: 'asc' })
                 .then((response: Array<IBookingDbModel>) => {
                     resolve(response.reduce((currList: Array<Booking>, item: IBookingDbModel) => {
                         currList.push(Booking.translate(item));

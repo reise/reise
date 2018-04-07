@@ -1,5 +1,5 @@
 export const Validations = {
-    user: {
+    User: {
         required: "user details are required",
         userNotFound: {
             required: "logged in user not found"
@@ -26,7 +26,7 @@ export const Validations = {
             minLength: "password should be atleast 6 letters long"
         }
     },
-    log: {
+    Log: {
         required: "log details are required",
         id: {
             required: "id can not be left blank"
@@ -44,12 +44,12 @@ export const Validations = {
             required: "response can not be left blank"
         }
     },
-    temple: {
+    Temple: {
         required: "temple details are required",
         id: "temple id is required",
         name: "temple name is required"
     },
-    booking: {
+    Booking: {
         required: "booking details are required",
         id: {
             required: "booking id can not be left blank"
@@ -67,6 +67,39 @@ export const Validations = {
             required: "user name can not be left blank"
         },
         price: {
+            required: "price can not be left blank"
+        }
+    },
+    Bus: {
+        required: "bus details are required",
+        id: {
+            required: "bus id can not be left blank"
+        },
+        name: {
+            required: "bus name can not be left blank"
+        },
+        number: {
+            required: "temple number can not be left blank"
+        },
+        arrivalTime: {
+            required: "bus arrival time can not be left blank"
+        },
+        departureTime: {
+            required: "bus departure time can not be left blank"
+        },
+        sourceStation: {
+            required: "source place can not be left blank"
+        },
+        destinationStation: {
+            required: "destination place can not be left blank"
+        },
+        fare: {
+            required: "fare can not be left blank"
+        },
+        availableSeats: {
+            required: "available seats can not be left blank"
+        },
+        totalSeats: {
             required: "price can not be left blank"
         }
     }
