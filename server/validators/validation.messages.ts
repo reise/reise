@@ -96,9 +96,6 @@ export const Validations = {
         fare: {
             required: "fare can not be left blank"
         },
-        availableSeats: {
-            required: "available seats can not be left blank"
-        },
         totalSeats: {
             required: "price can not be left blank"
         }

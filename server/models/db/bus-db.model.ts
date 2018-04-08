@@ -35,14 +35,20 @@ let schema: Schema = new Schema({
         type: Number,
         required: [true, "fare is required"]
     },
-    availableSeats: {
-        type: Number,
-        required: [true, "available seats is required"]
-    },
     totalSeats: {
         type: Number,
         required: [true, "total seats is required"]
     },
+    availabilityCalendar: [{
+        date: {
+            type: Date,
+            required: [true, "availability date is required"]
+        },
+        availableSeats: {
+            type: Number,
+            required: [true, "available seats is required"]
+        }
+    }],
     details: {
         type: String
     },
