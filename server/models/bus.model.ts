@@ -10,6 +10,7 @@ export class Bus {
     public destinationStation: string;
     public fare: Number;
     public totalSeats: Number;
+    public availabilityCalendar: Array<AvailabilityCalendar>;
     public details?: string;
     public additionalInfo?: any;
 
@@ -24,9 +25,15 @@ export class Bus {
             destinationStation: model.destinationStation,
             fare: model.fare,
             totalSeats: model.totalSeats,
+            availabilityCalendar: model.availabilityCalendar,
             details: model.details,
             additionalInfo: model.additionalInfo,
 
-        }
+        };
     }
+}
+
+export class AvailabilityCalendar {
+    public date: Date;
+    public availableSeats: Number;
 }

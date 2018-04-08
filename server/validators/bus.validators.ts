@@ -74,11 +74,6 @@ export namespace BusValidator {
             response.messages.push(Validations.Bus.totalSeats.required);
         }
 
-        if (!req.body.availableSeats) {
-            response.status = false;
-            response.messages.push(Validations.Bus.availableSeats.required);
-        }
-
         response.status ? next() : res.json(response);
         return;
     }
@@ -136,11 +131,6 @@ export namespace BusValidator {
         if (!req.body.totalSeats) {
             response.status = false;
             response.messages.push(Validations.Bus.totalSeats.required);
-        }
-
-        if (!req.body.availableSeats) {
-            response.status = false;
-            response.messages.push(Validations.Bus.availableSeats.required);
         }
 
         response.status ? next() : res.json(response);
