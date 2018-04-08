@@ -10,10 +10,10 @@
         "tsc": "node_modules/typescript/bin/tsc",
         "mongo": "sudo service mongod stop && sudo mongod --dbpath data/",
         "server": "npm run tsc && node dist/server.js",
-        "docs": "aglio --theme-variables slate -i ./docs/api.apib --full-width -o ./docs/api.html"
+        "docs": "aglio --theme-variables flatly -i ./docs/api.apib --full-width -o ./docs/index.html"
     },
     "keywords": [],
-    "author": "",
+    "author": "Manoj Chalode <chalodem@gmail.com>",
     "license": "ISC",
     "devDependencies": {
         "@types/body-parser": "0.0.33",

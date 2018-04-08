@@ -2,16 +2,14 @@ FORMAT: 1A
 HOST: http://localhost:3000
 
 # Reise API Endpoint Reference
-Test API blueprint flie
 
 Author: Manoj Chalode <chalodem@gmail.com>
 
 Version: 1.0
 
-
 # Group USER
 
-User APIs
+User APIs is a collection of authentication APIs which includes login, authentication, logged in user & logout APIs
 
 ## Login  → JSON [POST /api/user/login]
 
@@ -120,11 +118,9 @@ Create a new user by providing required ifnromation.
 
 # Group TEMPLE
 
-Temple APIs
+Temple APIs is a CRUD API collection based on Temple mongodb collection
 
 ## Get Temple List  → JSON [GET /api/temples/all]
-
-Get all temples. Alternate URL - /api/temples
 
 + Request  (application/json)
 
@@ -152,13 +148,12 @@ Get all temples. Alternate URL - /api/temples
                 messages: []
             }
 
-## Get Temple Details  → JSON [GET /api/temples/:id]
+## Get Temple Details  → JSON [GET /api/temples/{id}]
 
-Get temples details with id.
++ Parameter
+    + id: `5ac908d9ddf941647d8663c3` - The ID of the Temple
 
 + Request  (application/json)
-
-        valid temple id e.g. /api/temples/5ac7cc259ed19d99651dec26
 
 + Response 200 (application/json)
 
@@ -189,7 +184,7 @@ Get temples details with id.
                 data: null,
                 status: false,
                 messages: [
-                    "Cast to ObjectId failed for value \"asd\" at path \"_id\" for model \"temples\""
+                    "failed to serve the request, something went wrong!"
                 ]
             }
 
@@ -258,7 +253,6 @@ Update temple.
 + Request  (application/json)
 
         {
-            //valid id
             id: "5ac7f12e2630de7ee61eec00",
             name: "New Temple",
             imageUrls: [
@@ -319,7 +313,7 @@ Update temple.
                 data: null,
                 status: false,
                 messages: [
-                    "Cast to ObjectId failed for value \"5ac7f12e2630de7ee61\" at path \"_id\" for model \"temples\""
+                    "failed to serve the request, something went wrong!"
                 ]
             }
 
@@ -351,13 +345,12 @@ Update temple.
                 ]
             }
 
-## Delete Temple Details  → JSON [DELETE /api/temples/:id]
+## Delete Temple Details  → JSON [DELETE /api/temples/{id}]
 
-Delete temples details with id
++ Parameter
+    + id: `5ac908d9ddf941647d8663c3` - The ID of the Temple
 
 + Request  (application/json)
-
-        valid temple id e.g. /api/temples/5ac7cc259ed19d99651dec26
 
 + Response 200 (application/json)
 
@@ -387,12 +380,10 @@ Delete temples details with id
 
 # Group Booking
 
-Booking APIs
+Booking APIs is a CRUD API collection based on Booking mongodb collection
 
 ## Get Booking List  → JSON [GET /api/bookings/all]
 
-Get all bookings. Alternate URL - /api/bookings
-
 + Request  (application/json)
 
 + Response 200 (application/json)
@@ -400,52 +391,51 @@ Get all bookings. Alternate URL - /api/bookings
     + Body
 
             {
-                "data": [
+                data: [
                     {
-                        "id": "5ac7ff820fb00a105fba28ac",
-                        "templeId": "5ac7cc259ed19d99651dec24",
-                        "userId": "5aa3e7f63259c01048902eaa",
-                        "templeName": "Bhimashankar Temple",
-                        "userName": "Manoj Chalode",
-                        "price": "1700"
+                        id: "5ac7ff820fb00a105fba28ac",
+                        templeId: "5ac7cc259ed19d99651dec24",
+                        userId: "5aa3e7f63259c01048902eaa",
+                        templeName: "Bhimashankar Temple",
+                        userName: "Manoj Chalode",
+                        price: "1700"
                     },
                     {
-                        "id": "5ac8024b4ce969176deb6d6d",
-                        "templeId": "5ac7cc259ed19d99651dec24",
-                        "userId": "5aa3e7f63259c01048902eaa",
-                        "templeName": "Bhimashankar Temple",
-                        "userName": "Manoj Chalode",
-                        "price": "1700"
+                        id: "5ac8024b4ce969176deb6d6d",
+                        templeId: "5ac7cc259ed19d99651dec24",
+                        userId: "5aa3e7f63259c01048902eaa",
+                        templeName: "Bhimashankar Temple",
+                        userName: "Manoj Chalode",
+                        price: "1700"
                     }
                 ],
-                "status": true,
-                "messages": []
+                status: true,
+                messages: []
             }
 
-## Get Booking Details  → JSON [GET /api/bookings/:id]
+## Get Booking Details  → JSON [GET /api/bookings/{id}]
 
-Get booking details with id.
++ Parameter
+    + id: `5ac908d9ddf941647d8663c3` - The ID of the Booking
 
 + Request  (application/json)
-
-        valid booking id e.g. /api/bookings/5ac7ff820fb00a105fba28ac
 
 + Response 200 (application/json)
 
     + Body
 
             {
-                "data": {
-                    "id": "5ac7ff820fb00a105fba28ac",
-                    "templeId": "5ac7cc259ed19d99651dec24",
-                    "userId": "5aa3e7f63259c01048902eaa",
-                    "templeName": "Bhimashankar Temple",
-                    "userName": "Manoj Chalode",
-                    "price": "1700",
-                    "remarks": "remarks added and updated"
+                data: {
+                    id: "5ac7ff820fb00a105fba28ac",
+                    templeId: "5ac7cc259ed19d99651dec24",
+                    userId: "5aa3e7f63259c01048902eaa",
+                    templeName: "Bhimashankar Temple",
+                    userName: "Manoj Chalode",
+                    price: "1700",
+                    remarks: "remarks added and updated"
                 },
-                "status": true,
-                "messages": []
+                status: true,
+                messages: []
             }
 
 + Request  (application/json)
@@ -457,10 +447,10 @@ Get booking details with id.
     + Body
 
             {
-                "data": null,
-                "status": false,
-                "messages": [
-                    "Cast to ObjectId failed for value \"invalid\" at path \"_id\" for model \"bookings\""
+                data: null,
+                status: false,
+                messages: [
+                    "failed to serve the request, something went wrong!"
                 ]
             }
 
@@ -531,14 +521,13 @@ Update booking.
 + Request  (application/json)
 
         {
-            //valid id
-            "id":"5ac7ff820fb00a105fba28ac",
-            "templeId":"5ac7cc259ed19d99651dec24",
-            "userId":"5aa3e7f63259c01048902eaa",
-            "templeName":"Bhimashankar Temple",
-            "userName":"Manoj Chalode",
-            "price":"1700",
-            "remarks": "remarks added and updated"
+            id:"5ac7ff820fb00a105fba28ac",
+            templeId:"5ac7cc259ed19d99651dec24",
+            userId:"5aa3e7f63259c01048902eaa",
+            templeName:"Bhimashankar Temple",
+            userName:"Manoj Chalode",
+            price:"1700",
+            remarks: "remarks added and updated"
         }
 
 + Response 200 (application/json)
@@ -546,30 +535,30 @@ Update booking.
     + Body
 
             {
-                "data": {
-                    "id": "5ac7ff820fb00a105fba28ac",
-                    "templeId": "5ac7cc259ed19d99651dec24",
-                    "userId": "5aa3e7f63259c01048902eaa",
-                    "templeName": "Bhimashankar Temple",
-                    "userName": "Manoj Chalode",
-                    "price": "1700",
-                    "remarks": "remarks added and updated"
+                data: {
+                    id: "5ac7ff820fb00a105fba28ac",
+                    templeId: "5ac7cc259ed19d99651dec24",
+                    userId: "5aa3e7f63259c01048902eaa",
+                    templeName: "Bhimashankar Temple",
+                    userName: "Manoj Chalode",
+                    price: "1700",
+                    remarks: "remarks added and updated"
                 },
-                "status": true,
-                "messages": []
+                status: true,
+                messages: []
             }
 
 + Request  (application/json)
 
         {
             //invalid id
-            "id":"invalid",
-            "templeId":"5ac7cc259ed19d99651dec24",
-            "userId":"5aa3e7f63259c01048902eaa",
-            "templeName":"Bhimashankar Temple",
-            "userName":"Manoj Chalode",
-            "price":"1700",
-            "remarks": "remarks added and updated"
+            id:"invalid",
+            templeId:"5ac7cc259ed19d99651dec24",
+            userId:"5aa3e7f63259c01048902eaa",
+            templeName:"Bhimashankar Temple",
+            userName:"Manoj Chalode",
+            price:"1700",
+            remarks: "remarks added and updated"
         }
 
 + Response 200 (application/json)
@@ -580,20 +569,20 @@ Update booking.
                 data: null,
                 status: false,
                 messages: [
-                    "Cast to ObjectId failed for value \"invalid\" at path \"_id\" for model \"bookings\""
+                    "failed to serve the request, something went wrong!"
                 ]
             }
 
 + Request  (application/json)
 
         {
-            "id":"",
-            "templeId":"",
-            "userId":"",
-            "templeName":"",
-            "userName":"",
-            "price":"",
-            "remarks": ""
+            id:"",
+            templeId:"",
+            userId:"",
+            templeName:"",
+            userName:"",
+            price:"",
+            remarks: ""
         }
 
 + Response 200 (application/json)
@@ -601,9 +590,9 @@ Update booking.
     + Body
 
             {
-                "data": null,
-                "status": false,
-                "messages": [
+                data: null,
+                status: false,
+                messages: [
                     "booking id can not be left blank",
                     "temple id can not be left blank",
                     "user id can not be left blank",
@@ -613,13 +602,12 @@ Update booking.
                 ]
             }
 
-## Delete Booking Details  → JSON [DELETE /api/bookings/:id]
+## Delete Booking Details  → JSON [DELETE /api/bookings/{id}]
 
-Delete temples details with id
++ Parameter
+    + id: `5ac908d9ddf941647d8663c3` - The ID of the Booking
 
 + Request  (application/json)
-
-        valid temple id e.g. /api/bookings/5ac7cc259ed19d99651dec26
 
 + Response 200 (application/json)
 
@@ -633,7 +621,328 @@ Delete temples details with id
 
 + Request  (application/json)
 
-        Invalid temple id e.g. /api/bookings/invalid
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: null,
+                status: false,
+                messages: [
+                    false
+                ]
+            }
+
+
+# Group Buses
+
+Buses APIs is a CRUD API collection based on Buses mongodb collection
+
+## Get Bus List  → JSON [GET /api/buses/all]
+
++ Request  (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: [
+                    {
+                        id: "5ac908d9ddf941647d8663c3",
+                        name: "Jejuri Express",
+                        number: "MH-22T3324",
+                        arrivalTime: "9 AM",
+                        departureTime: "6 PM",
+                        sourceStation: "Parbhani",
+                        destinationStation: "Jejuri",
+                        fare: 600,
+                        availableSeats: 12,
+                        totalSeats: 50
+                    },
+                    {
+                        id: "5ac90aaaddf941647d8663c5",
+                        name: "Velneshwar Express",
+                        number: "MH-16T7811",
+                        arrivalTime: "5 AM",
+                        departureTime: "7 PM",
+                        sourceStation: "Nagpur",
+                        destinationStation: "Velneshwar",
+                        fare: 875,
+                        availableSeats: 50,
+                        totalSeats: 50
+                    }
+                ],
+                status: true,
+                messages: []
+            }
+
+## Get Bus Details  → JSON [GET /api/buses/{id}]
+
++ Parameter
+    + id: `5ac908d9ddf941647d8663c3` - The ID of the Bus
+
++ Request  (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: {
+                    id: "5ac908d9ddf941647d8663c3",
+                    name: "Jejuri Express",
+                    number: "MH-22T3324",
+                    arrivalTime: "9 AM",
+                    departureTime: "6 PM",
+                    sourceStation: "Parbhani",
+                    destinationStation: "Jejuri",
+                    fare: 600,
+                    availableSeats: 12,
+                    totalSeats: 50,
+                    details: "Runs everyday except Sunday",
+                    additionalInfo: {
+                        Stops: "Bus has 2 stops in between"
+                    }
+                },
+                status: true,
+                messages: []
+            }
+
++ Request  (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: null,
+                status: false,
+                messages: [
+                    "failed to serve the request, something went wrong!"
+                ]
+            }
+
+## Create Bus  → JSON [PUT /api/buses/create]
+
+Create new bus.
+
++ Request  (application/json)
+
+        {
+            name:"Jejuri Express",
+            number:"MH-22T3324",
+            arrivalTime:"9 AM",
+            departureTime:"6 PM",
+            sourceStation:"Parbhani",
+            destinationStation:"Jejuri",
+            fare:"600",
+            availableSeats:"50",
+            totalSeats:"50",
+            details:"Runs everyday",
+            additionalInfo: {
+                
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: {
+                    id: "5ac943bb474a5a172805b36e",
+                    name: "Jejuri Express",
+                    number: "MH-22T3324",
+                    arrivalTime: "9 AM",
+                    departureTime: "6 PM",
+                    sourceStation: "Parbhani",
+                    destinationStation: "Jejuri",
+                    fare: 600,
+                    availableSeats: 50,
+                    totalSeats: 50,
+                    details: "Runs everyday",
+                    additionalInfo: {}
+                },
+                status: true,
+                messages: []
+            }
+
++ Request  (application/json)
+
+        {
+            name:"",
+            number:"",
+            arrivalTime:"",
+            departureTime:"",
+            sourceStation:"",
+            destinationStation:"",
+            fare:"",
+            availableSeats:"",
+            totalSeats:"",
+            details:"",
+            additionalInfo: {
+                
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: null,
+                status: false,
+                messages: [
+                    "bus name can not be left blank",
+                    "temple number can not be left blank",
+                    "bus arrival time can not be left blank",
+                    "bus departure time can not be left blank",
+                    "source place can not be left blank",
+                    "destination place can not be left blank",
+                    "fare can not be left blank",
+                    "price can not be left blank",
+                    "available seats can not be left blank"
+                ]
+            }
+
+## Update Bus  → JSON [POST /api/buses/update]
+
+Update booking.
+
++ Request  (application/json)
+
+        {
+            id: "5ac908d9ddf941647d8663c3",
+            name: "Jejuri Express",
+            number: "MH-22T3324",
+            arrivalTime: "9 AM",
+            departureTime: "6 PM",
+            sourceStation: "Parbhani",
+            destinationStation: "Jejuri",
+            fare: 600,
+            availableSeats: 12,
+            totalSeats: 50,
+            details: "Runs everyday except Sunday",
+            additionalInfo: {
+                "Stops" : "Bus has 2 stops in between"
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: {
+                    id: "5ac908d9ddf941647d8663c3",
+                    name: "Jejuri Express",
+                    number: "MH-22T3324",
+                    arrivalTime: "9 AM",
+                    departureTime: "6 PM",
+                    sourceStation: "Parbhani",
+                    destinationStation: "Jejuri",
+                    fare: 600,
+                    availableSeats: 12,
+                    totalSeats: 50,
+                    details: "Runs everyday except Sunday",
+                    additionalInfo: {
+                        Stops: "Bus has 2 stops in between"
+                    }
+                },
+                status: true,
+                messages: []
+            }
+
++ Request  (application/json)
+
+        {
+            id: "invalid",
+            name: "Jejuri Express",
+            number: "MH-22T3324",
+            arrivalTime: "9 AM",
+            departureTime: "6 PM",
+            sourceStation: "Parbhani",
+            destinationStation: "Jejuri",
+            fare: 600,
+            availableSeats: 12,
+            totalSeats: 50,
+            details: "Runs everyday except Sunday",
+            additionalInfo: {
+                "Stops" : "Bus has 2 stops in between"
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: null,
+                status: false,
+                messages: [
+                    "failed to serve the request, something went wrong!"
+                ]
+            }
+
++ Request  (application/json)
+
+        {
+            id:"",
+            name:"",
+            number:"",
+            arrivalTime:"",
+            departureTime:"",
+            sourceStation:"",
+            destinationStation:"",
+            fare:"",
+            availableSeats:"",
+            totalSeats:"",
+            details:"",
+            additionalInfo: {
+                
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: null,
+                status: false,
+                messages: [
+                    "bus id can not be left blank",
+                    "bus name can not be left blank",
+                    "temple number can not be left blank",
+                    "bus arrival time can not be left blank",
+                    "bus departure time can not be left blank",
+                    "source place can not be left blank",
+                    "destination place can not be left blank",
+                    "fare can not be left blank",
+                    "price can not be left blank",
+                    "available seats can not be left blank"
+                ]
+            }
+
+## Delete Bus Details  → JSON [DELETE /api/buses/{id}]
+
++ Parameter
+    + id: `5ac908d9ddf941647d8663c3` - The ID of the Bus
+
++ Request  (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                data: true,
+                status: true,
+                messages: []
+            }
+
++ Request  (application/json)
 
 + Response 200 (application/json)
 
