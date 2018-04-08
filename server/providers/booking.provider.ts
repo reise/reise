@@ -1,16 +1,16 @@
 import { BookingCollection, IBookingDbModel } from "../models/db/booking-db.model";
-import { Booking } from "../models/booking.model";
+import { Booking, BookingSummary } from "../models/booking.model";
 import { DbSchema } from "../models/db/db-constants";
 
 export namespace BookingProvider {
 
-    export function getBookings(): Promise<Array<Booking>> {
-        return new Promise<Array<Booking>>((resolve: Function, reject: Function) => {
-            BookingCollection.find({}, DbSchema.Projections.Temple.GetAll)
+    export function getBookings(): Promise<Array<BookingSummary>> {
+        return new Promise<Array<BookingSummary>>((resolve: Function, reject: Function) => {
+            BookingCollection.find({}, DbSchema.Projections.Booking.GetAll)
                 .sort({ name: 'asc' })
                 .then((response: Array<IBookingDbModel>) => {
-                    resolve(response.reduce((currList: Array<Booking>, item: IBookingDbModel) => {
-                        currList.push(Booking.translate(item));
+                    resolve(response.reduce((currList: Array<BookingSummary>, item: IBookingDbModel) => {
+                        currList.push(BookingSummary.translate(item));
                         return currList;
                     }, []));
                 })

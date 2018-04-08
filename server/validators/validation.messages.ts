@@ -57,6 +57,9 @@ export const Validations = {
         templeId: {
             required: "temple id can not be left blank"
         },
+        busId: {
+            required: "bus id can not be left blank"
+        },
         userId: {
             required: "user id can not be left blank"
         },
@@ -68,6 +71,13 @@ export const Validations = {
         },
         price: {
             required: "price can not be left blank"
+        },
+        journeyDate: {
+            required: "journey date can not be left blank",
+            invalid: "journey date is invalid"
+        },
+        passengerCount: {
+            required: "passenger count can not be left blank"
         }
     },
     Bus: {

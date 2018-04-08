@@ -8,13 +8,14 @@ export class Bus {
     public departureTime: string;
     public sourceStation: string;
     public destinationStation: string;
-    public fare: Number;
-    public totalSeats: Number;
-    public availabilityCalendar: Array<AvailabilityCalendar>;
+    public fare: number;
+    public totalSeats: number;
+    public availability: Array<Availability>;
     public details?: string;
     public additionalInfo?: any;
 
-    public static translate(model: IBusDbModel): Bus {
+    public static translate(model: IBusDbModel | Bus, isBooking?: boolean): Bus {
+        model.availability = model.availability || [];
         return {
             id: model.id,
             name: model.name,
@@ -25,15 +26,21 @@ export class Bus {
             destinationStation: model.destinationStation,
             fare: model.fare,
             totalSeats: model.totalSeats,
-            availabilityCalendar: model.availabilityCalendar,
-            details: model.details,
-            additionalInfo: model.additionalInfo,
-
+            availability: model.availability.map((item: any) => { return Availability.translate(item) }),
+            details: isBooking ? null : model.details,
+            additionalInfo: isBooking ? null : model.additionalInfo,
         };
     }
 }
 
-export class AvailabilityCalendar {
+export class Availability {
     public date: Date;
-    public availableSeats: Number;
+    public availableSeats: number;
+
+    public static translate(model: any): Availability {
+        return {
+            date: new Date(model.date),
+            availableSeats: model.availableSeats
+        }
+    }
 }

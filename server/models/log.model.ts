@@ -1,6 +1,8 @@
 import { UUID } from "./uuid-generator";
 import { Model, Document } from "mongoose";
 
+export type Status = "Success" | "Failure" | "Warning";
+
 export class Log {
 
     public constructor() {
@@ -13,6 +15,7 @@ export class Log {
     url: string;
     request: any;
     response: any;
+    status: Status;
     metadata?: any;
 
     public static translate(dbObject: any): Log {
@@ -26,7 +29,9 @@ export class Log {
             url: dbObject.url,
             method: dbObject.method,
             request: dbObject.request,
-            response: dbObject.response
+            response: dbObject.response,
+            status: dbObject.status,
+            metadata: dbObject.metadata
         };
     }
 }

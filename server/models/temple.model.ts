@@ -10,13 +10,13 @@ export class Temple {
     /**
      * translates db temple model to API model
      */
-    public static translate(model: ITempleDbModel): Temple {
+    public static translate(model: ITempleDbModel | Temple, isBooking?: boolean): Temple {
         return {
             id: model.id,
-            imageUrls: model.imageUrls,
+            imageUrls: isBooking ? null : model.imageUrls,
             name: model.name,
-            description: model.description,
-            additionalInfo: model.additionalInfo
+            description: isBooking ? null : model.description,
+            additionalInfo: isBooking ? null : model.additionalInfo
         };
     }
 }

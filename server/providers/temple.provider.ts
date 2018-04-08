@@ -1,12 +1,13 @@
 import { TemplesCollection, ITempleDbModel } from "../models/db/temple-db.model";
 import { Temple } from "../models/temple.model";
+import { DbSchema } from "../models/db/db-constants";
 
 export namespace TempleProvider {
 
     export function getTemples(): Promise<Array<Temple>> {
         return new Promise<Array<Temple>>((resolve: Function, reject: Function) => {
             // return resolve(temples);
-            TemplesCollection.find({}, 'id imageUrls name')
+            TemplesCollection.find({}, DbSchema.Projections.Temple.GetAll)
                 .sort({ name : 'asc'})
                 .then((response: Array<ITempleDbModel>) => {
                     resolve(response.reduce((currList: Array<Temple>, item: ITempleDbModel) => {

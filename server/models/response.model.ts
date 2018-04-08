@@ -1,15 +1,16 @@
 export class Page<T> {
-    rows: Array<T>;
-    count: number;
-    page: number;
-    size: number;
+    public rows: Array<T>;
+    public count: number;
+    public page: number;
+    public size: number;
 }
 
 export class Response<T> {
-    data: T;
-    status: boolean;
-    messages: Array<string>;
-    sessionId: string;
+    public data: T;
+    public status: boolean;
+    public messages: Array<string>;
+    public sessionId: string;
+    
     public constructor() {
         this.data = null;
         this.status = true;

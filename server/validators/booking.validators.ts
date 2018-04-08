@@ -39,24 +39,29 @@ export namespace BookingValidator {
             response.messages.push(Validations.Booking.templeId.required);
         }
 
+        if (!req.body.busId) {
+            response.status = false;
+            response.messages.push(Validations.Booking.busId.required);
+        }
+        
         if (!req.body.userId) {
             response.status = false;
             response.messages.push(Validations.Booking.userId.required);
         }
 
-        if (!req.body.templeName) {
+        if (!req.body.journeyDate) {
             response.status = false;
-            response.messages.push(Validations.Booking.templeName.required);
+            response.messages.push(Validations.Booking.journeyDate.required);
         }
 
-        if (!req.body.userName) {
+        if (req.body.journeyDate && !Date.parse(req.body.journeyDate)) {
             response.status = false;
-            response.messages.push(Validations.Booking.userName.required);
+            response.messages.push(Validations.Booking.journeyDate.invalid);            
         }
 
-        if (!parseInt(req.body.price)) {
+        if (!parseInt(req.body.passengerCount)) {
             response.status = false;
-            response.messages.push(Validations.Booking.price.required);
+            response.messages.push(Validations.Booking.passengerCount.required);
         }
 
         response.status ? next() : res.json(response);
