@@ -8,10 +8,13 @@ import { admindata } from './admindata';
 
 export class AdminDataService {
 
-  constructor(private http: HttpClient) { }
+    public constructor(private http: HttpClient) { }
 
-  public getData(): Observable<any> {
-      return this.http.get<admindata[]>('/api/temples/get-bookings');
-  }
+    public getBookings(): Observable<any> {
+        return this.http.get<admindata[]>('/api/bookings/all');
+    }
 
+    public deleteBooking(id: string): Observable<any> {
+        return this.http.delete<boolean>('/api/bookings/' + id);
+    }
 }

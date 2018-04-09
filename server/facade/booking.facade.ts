@@ -82,7 +82,7 @@ export namespace BookingFacade {
 
     export function deleteBooking(req: Request, res: Response, next: NextFunction): void {
         let apiResponse: ApiResponse<boolean> = new ApiResponse();
-        BookingProvider.deleteBooking(req.query.id)
+        BookingProvider.deleteBooking(req.params.id)
             .then((response: boolean) => {
                 apiResponse.data = response;
                 res.locals.apiResponse = apiResponse;

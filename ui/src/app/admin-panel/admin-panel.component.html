@@ -1,23 +1,33 @@
+<app-header></app-header>
 
-    <app-header></app-header>
-    
-    <table class="table table-bordered" >
+<div class="container-fluid text-center">
+    <table class="table table-bordered">
         <thead class="thead-dark">
-          <tr>
-            <th scope="col"> Temple Id</th>
-            <th scope="col">Temple Name</th>
-            <th scope="col">User</th>
-            <th scope="col">Price</th>
-          </tr>
+            <tr>
+                <th scope="col">Temple Name</th>
+                <th scope="col">Bus Name</th>
+                <th scope="col">Bus Number</th>
+                <th scope="col">Traveller Name</th>
+                <th scope="col">Travel Date</th>
+                <th scope="col">Passenger Count</th>
+                <th scope="col">Delete</th>
+            </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let data of data">
-            <th scope="row">{{data.templeId}}</th>
-            <td>{{data.templeName}}</td>
-            <td>{{data.userName}}</td>
-            <td>{{data.price}}</td>
-          </tr>
-          
+            <tr *ngFor="let booking of bookings">
+                <th scope="row">{{booking?.templeName}}</th>
+                <td>{{booking?.busName}}</td>
+                <td>{{booking?.busNumber}}</td>
+                <td>{{booking?.userName}}</td>
+                <td>{{booking?.journeyDate | date}}</td>
+                <td>{{booking?.passengerCount}}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="deleteBooking(booking.id)" 
+                        [disabled]="isPastDate(booking?.journeyDate)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
         </tbody>
-      </table>
-     
+    </table>
+</div>
