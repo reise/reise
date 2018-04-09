@@ -19,7 +19,7 @@ var UserProvider;
                 return resolve(translatedUser);
             })
                 .catch((error) => {
-                return reject("failed to get user from database");
+                return reject("failed to serve the request, something went wrong!");
             });
         });
     }
@@ -35,7 +35,7 @@ var UserProvider;
                 return resolve(translatedUser);
             })
                 .catch((error) => {
-                return reject("failed to save user details");
+                return reject("failed to serve the request, something went wrong!");
             });
         });
     }

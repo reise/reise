@@ -8,8 +8,8 @@ var LogsProvider;
 (function (LogsProvider) {
     function getLogs(filter, sessionId) {
         let page = new response_model_1.Page();
-        page.size = parseInt(filter.size.toString());
-        page.page = parseInt(filter.page.toString());
+        page.size = !!filter.size ? parseInt(filter.size.toString()) : 10;
+        page.page = !!filter.page ? parseInt(filter.page.toString()) : 1;
         return new Promise((resolve, reject) => {
             let resultQuery = !sessionId ?
                 logs_db_model_1.LogsCollection.find().select('_id, url') :
@@ -20,11 +20,11 @@ var LogsProvider;
             resultQuery
                 .exec((resultError, response) => {
                 if (resultError) {
-                    reject(resultError);
+                    reject(resultError.message);
                 }
                 countQuery.count((countError, count) => {
                     if (countError) {
-                        reject(countError);
+                        reject(countError.message);
                     }
                     page.count = count;
                     page.rows = page.rows || [];
@@ -35,7 +35,7 @@ var LogsProvider;
                 });
             })
                 .catch((error) => {
-                reject(error);
+                reject(error.message);
             });
         });
     }
@@ -47,11 +47,11 @@ var LogsProvider;
     function getLog(id) {
         return new Promise((resolve, reject) => {
             logs_db_model_1.LogsCollection.findById(id)
-                .then((response) => {
+                .then((document) => {
                 return resolve(log_model_1.Log.translate(document));
             })
                 .catch((error) => {
-                return reject(false);
+                return reject("failed to serve the request, something went wrong!");
             });
         });
     }
@@ -59,11 +59,11 @@ var LogsProvider;
     function createLog(log) {
         return new Promise((resolve, reject) => {
             logs_db_model_1.LogsCollection.create(log)
-                .then((response) => {
+                .then((document) => {
                 return resolve(log_model_1.Log.translate(document));
             })
                 .catch((error) => {
-                return reject(false);
+                return reject("failed to serve the request, something went wrong!");
             });
         });
     }
@@ -75,7 +75,7 @@ var LogsProvider;
                 return resolve(log_model_1.Log.translate(document));
             })
                 .catch((error) => {
-                return reject(false);
+                return reject("failed to serve the request, something went wrong!");
             });
         });
     }
@@ -87,7 +87,7 @@ var LogsProvider;
                 return resolve(true);
             })
                 .catch((error) => {
-                return reject(false);
+                return reject("failed to serve the request, something went wrong!");
             });
         });
     }

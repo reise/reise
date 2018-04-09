@@ -10,6 +10,7 @@ class User {
             username: user.username,
             name: user.name,
             email: user.email,
+            city: user.city,
             password: user.password,
             isAdmin: !!user.isAdmin,
             additionalInfo: user.additionalInfo

@@ -4,37 +4,57 @@ const response_model_1 = require("../models/response.model");
 const validation_messages_1 = require("./validation.messages");
 var TempleValidator;
 (function (TempleValidator) {
-    function validateTempleBooking(req, res, next) {
+    function validateGetTemple(req, res, next) {
         let response = new response_model_1.Response();
-        if (!req.body) {
+        if (!req.params) {
             response.status = false;
-            response.messages.push(validation_messages_1.Validations.user.required);
+            response.messages.push(validation_messages_1.Validations.Temple.required);
             res.json(response);
             return;
         }
-        if (!req.body.templeId) {
+        if (!req.params.id) {
             response.status = false;
-            response.messages.push(validation_messages_1.Validations.temple.templeId.required);
-        }
-        if (!req.body.userId) {
-            response.status = false;
-            response.messages.push(validation_messages_1.Validations.temple.userId.required);
-        }
-        if (!req.body.templeName) {
-            response.status = false;
-            response.messages.push(validation_messages_1.Validations.temple.templeName.required);
-        }
-        if (!req.body.userName) {
-            response.status = false;
-            response.messages.push(validation_messages_1.Validations.temple.userName.required);
-        }
-        if (!parseInt(req.body.price)) {
-            response.status = false;
-            response.messages.push(validation_messages_1.Validations.temple.userName.required);
+            response.messages.push(validation_messages_1.Validations.Temple.id);
         }
         response.status ? next() : res.json(response);
         return;
     }
-    TempleValidator.validateTempleBooking = validateTempleBooking;
+    TempleValidator.validateGetTemple = validateGetTemple;
+    function validateCreateTemple(req, res, next) {
+        let response = new response_model_1.Response();
+        if (!req.body) {
+            response.status = false;
+            response.messages.push(validation_messages_1.Validations.Temple.required);
+            res.json(response);
+            return;
+        }
+        if (!req.body.name) {
+            response.status = false;
+            response.messages.push(validation_messages_1.Validations.Temple.name);
+        }
+        response.status ? next() : res.json(response);
+        return;
+    }
+    TempleValidator.validateCreateTemple = validateCreateTemple;
+    function validateUpdateTemple(req, res, next) {
+        let response = new response_model_1.Response();
+        if (!req.body) {
+            response.status = false;
+            response.messages.push(validation_messages_1.Validations.Temple.required);
+            res.json(response);
+            return;
+        }
+        if (!req.body.id) {
+            response.status = false;
+            response.messages.push(validation_messages_1.Validations.Temple.id);
+        }
+        if (!req.body.name) {
+            response.status = false;
+            response.messages.push(validation_messages_1.Validations.Temple.name);
+        }
+        response.status ? next() : res.json(response);
+        return;
+    }
+    TempleValidator.validateUpdateTemple = validateUpdateTemple;
 })(TempleValidator = exports.TempleValidator || (exports.TempleValidator = {}));
 //# sourceMappingURL=temple.validators.js.map

@@ -22,6 +22,10 @@ exports.UsersCollection = mongoose_1.model(db_constants_1.DbSchema.Collections.U
         },
         required: [true, 'email id is required']
     },
+    city: {
+        type: String,
+        required: [true, "city is required"]
+    },
     password: {
         type: String,
         required: [true, 'password is required']
@@ -32,5 +36,5 @@ exports.UsersCollection = mongoose_1.model(db_constants_1.DbSchema.Collections.U
     additinlaInfo: {
         type: Array,
     }
-}, { timestamps: true, versionKey: false }));
+}, { timestamps: true, versionKey: false, id: true }));
 //# sourceMappingURL=user-db.model.js.map

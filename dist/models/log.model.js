@@ -15,7 +15,9 @@ class Log {
             url: dbObject.url,
             method: dbObject.method,
             request: dbObject.request,
-            response: dbObject.response
+            response: dbObject.response,
+            status: dbObject.status,
+            metadata: dbObject.metadata
         };
     }
 }

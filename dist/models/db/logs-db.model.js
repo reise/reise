@@ -31,5 +31,5 @@ exports.LogsCollection = mongoose_1.model(db_constants_1.DbSchema.Collections.Lo
     metadata: {
         type: Object
     }
-}, { timestamps: true, versionKey: false }));
+}, { timestamps: true, versionKey: false, id: true }));
 //# sourceMappingURL=logs-db.model.js.map

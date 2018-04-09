@@ -4,13 +4,29 @@ const response_model_1 = require("../models/response.model");
 const user_provider_1 = require("../providers/user.provider");
 var UserFacade;
 (function (UserFacade) {
+    function getLoggedInUser(req, res, next) {
+        let apiResponse = new response_model_1.Response();
+        if (req.session.user && req.session.user.id) {
+            apiResponse.data = req.session.user;
+        }
+        else {
+            apiResponse.data = null;
+            apiResponse.status = false;
+            apiResponse.messages = ["no logged in user found!"];
+        }
+        res.locals = {
+            apiResponse: apiResponse
+        };
+        next();
+    }
+    UserFacade.getLoggedInUser = getLoggedInUser;
     function login(req, res, next) {
         let apiResponse = new response_model_1.Response();
         user_provider_1.UserProvider.login(req.body)
             .then((response) => {
             apiResponse.data = response;
-            //set user in session
-            // req.session.user = response;
+            // set user in session
+            req.session.user = response;
             res.locals = {
                 apiResponse: apiResponse
             };
@@ -19,7 +35,7 @@ var UserFacade;
             .catch((error) => {
             apiResponse.data = null;
             apiResponse.status = false;
-            apiResponse.messages = error;
+            apiResponse.messages = [error];
             res.locals = {
                 apiResponse: apiResponse
             };
@@ -33,7 +49,7 @@ var UserFacade;
             .then((response) => {
             apiResponse.data = response;
             //set user in session
-            // req.session.user = response;
+            req.session.user = response;
             res.locals = {
                 apiResponse: apiResponse
             };
@@ -42,7 +58,7 @@ var UserFacade;
             .catch((error) => {
             apiResponse.data = null;
             apiResponse.status = false;
-            apiResponse.messages = error;
+            apiResponse.messages = [error];
             res.locals = {
                 apiResponse: apiResponse
             };
