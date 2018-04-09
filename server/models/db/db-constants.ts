@@ -16,7 +16,7 @@ export const DbSchema = {
             GetAll: "id imageUrls name"
         },
         Booking: {
-            GetAll: "id temple.name bus.name bus.number user.name user.email passengerCount"
+            GetAll: "id temple.name bus.name bus.number user.name user.email passengerCount journeyDate"
         }
     }
 };

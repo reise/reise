@@ -40,6 +40,7 @@ export class BookingSummary {
     public busName: string;
     public busNumber: string;
     public userName: string;
+    public journeyDate: Date;
     public userEmail: string;
     public passengerCount: number;
 
@@ -49,11 +50,12 @@ export class BookingSummary {
     public static translate(model: any): BookingSummary {
         return {
             id: model.id,
-            templeName: model.templeName,
-            busName: model.busName,
-            busNumber:model.busNumber,
-            userName: model.userName,
-            userEmail: model.userEmail,
+            templeName: model.temple.name,
+            busName: model.bus.name,
+            busNumber:model.bus.number,
+            userName: model.user.name,
+            userEmail: model.user.email,
+            journeyDate: model.journeyDate,
             passengerCount: parseInt(model.passengerCount)
         }
     }
