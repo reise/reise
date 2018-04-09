@@ -1,14 +1,10 @@
-
-
 <app-header></app-header>
+<div class="container">
+    <h2 class="text-primary text-center">{{info?.name}}</h2>
+    <div class="jumbotron">
+        <img *ngIf="info?.imageUrls && info?.imageUrls.length" src="{{info?.imageUrls[0]}}" alt="Card image cap">
+    </div>
 
-
-<div class="jumbotron">
-  <img src="{{info.imageUrls[0]}}" alt="Card image cap">
+    <h5 class="mtl text-primary">Description :</h5>
+    <p class="text-justify">{{info?.description }}</p>
 </div>
-  <div class="container">
-      <h5 class="text-primary text-center">{{info.name}}</h5>
-
-      <p class="text-justify">{{info.description }}</p>
-         
-  </div>

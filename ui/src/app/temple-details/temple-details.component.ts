@@ -13,7 +13,7 @@ import { User } from '../models/user-model';
     styleUrls: ['./temple-details.component.css']
 })
 export class TempleDetailsComponent implements OnInit {
-    public info: Array<any> = [];
+    public info: any;
     public user: User;
     public templeId;
 
@@ -23,8 +23,12 @@ export class TempleDetailsComponent implements OnInit {
 
     public ngOnInit(): void {
         let templeId = this.route.snapshot.params.id;
-        this._TempledetailsService.getData(templeId).subscribe((response: any) => this.info = JSON.parse(JSON.stringify(response.data)));
+
+        this._TempledetailsService.getData(templeId).subscribe((response: any) => 
+            this.info = JSON.parse(JSON.stringify(response.data)));
+
         this.user = JSON.parse(sessionStorage.getItem('user'));
+        
         if (!this.user || !this.user.username) {
             this._Router.navigate(['/login']);
         }
