@@ -1,4 +1,3 @@
-
 //framework modules
 import { NgModule,  Injectable, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,7 +28,7 @@ import { routes } from './app-routing.module';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ViewBookingComponent } from './view-booking/view-booking.component';
 import { NotificationComponent } from './notification/notification.component';
-import { TempleDatailsComponent } from './temple-datails/temple-datails.component';
+import { TempleDetailsComponent } from './temple-details/temple-details.component';
 
 
 @NgModule({
@@ -60,7 +59,7 @@ import { TempleDatailsComponent } from './temple-datails/temple-datails.componen
         AdminPanelComponent,
         ViewBookingComponent,
         NotificationComponent,
-        TempleDatailsComponent
+        TempleDetailsComponent
     ],
     providers: [TempleDataService, AdminDataService, TempledetailsService],
     bootstrap: [AppComponent],
