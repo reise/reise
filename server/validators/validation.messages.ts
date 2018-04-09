@@ -21,6 +21,9 @@ export const Validations = {
             required: "email can not be left blank",
             invalid: "email is invalid",
         },
+        city: {
+            required: "city can not be left blank"
+        },
         password: {
             required: "password can not be left blank",
             minLength: "password should be atleast 6 letters long"

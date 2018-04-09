@@ -84,6 +84,11 @@ export namespace UserValidator {
             response.messages.push(Validations.User.email.invalid);
         }
 
+        if (!req.body.city) {
+            response.status = false;
+            response.messages.push(Validations.User.city.required);
+        }
+
         response.status ? next() : res.json(response);
         return;
     }

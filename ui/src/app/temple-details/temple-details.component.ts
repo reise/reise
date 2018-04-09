@@ -18,7 +18,7 @@ export class TempleDetailsComponent implements OnInit {
     public user: User;
     public templeId;
     public selectedDateSeats: number = 0;
-    public paxCount: number;
+    public paxCount: number = 1;;
     public journeyDate: string;
     public isDisabled: boolean;
 

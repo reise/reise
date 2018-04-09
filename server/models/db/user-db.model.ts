@@ -26,6 +26,11 @@ export let UsersCollection = model(DbSchema.Collections.Users, new Schema({
         required: [true, 'email id is required']
     },
 
+    city: {
+        type: String,
+        required: [true, "city is required"]
+    },
+
     password: {
         type: String,
         required: [true, 'password is required']
