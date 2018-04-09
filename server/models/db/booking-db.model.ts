@@ -7,30 +7,31 @@ export interface IBookingDbModel extends Booking, Document {
 }
 
 let schema: Schema = new Schema({
-    templeId: {
-        type: Schema.Types.ObjectId,
-        ref: DbSchema.Collections.Temples,
-        required: [true, "temple id is required"]
+    temple: {
+        type: Object,
+        required: [true, "temple details are required"]
     },
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: DbSchema.Collections.Users,
-        required: [true, "user id is required"]
+    user: {
+        type: Object,
+        required: [true, "user details is required"]
     },
-    templeName: {
-        type: String,
-        required: [true, "temple name is required"]
+    bus: {
+        type: Object,
+        required: [true, "bus details are required"]
     },
-    userName: {
-        type: String,
-        required: [true, "user name is required"]
+    passengerCount: {
+        type: Number,
+        required: [true, "passenger count is required"]
     },
-    price: {
-        type: String,
-        required: [true, "price is required"]
+    journeyDate: {
+        type: Date,
+        required: [true, "journey date is required"]
     },
     remarks: {
         type: String
+    },
+    additionalInfo: {
+        type: Object
     }
 }, { timestamps: true, versionKey: false, id: true });
 

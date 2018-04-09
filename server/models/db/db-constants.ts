@@ -13,7 +13,10 @@ export const DbSchema = {
             GetAll: "id name number arrivalTime departureTime sourceStation destinationStation fare availableSeats totalSeats"
         },
         Temple: {
-            GetAll: "id templeId userId templeName userName price"
+            GetAll: "id imageUrls name"
+        },
+        Booking: {
+            GetAll: "id temple.name bus.name bus.number user.name user.email passengerCount"
         }
     }
 };

@@ -29,7 +29,6 @@ router.get('/:id', [
 
 router.put('/create', [
     UserValidator.validateUser,
-    UserValidator.validateAdmin,
     BookingValidator.validateCreateBooking,
     BookingFacade.createBooking,
     LogsFacade.dumpLog

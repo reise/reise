@@ -10,13 +10,19 @@ export namespace BusFacade {
         BusProvider.getBuses()
             .then((response: Array<Bus>) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -25,13 +31,19 @@ export namespace BusFacade {
         BusProvider.getBus(req.params.id)
             .then((response: Bus) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -40,13 +52,19 @@ export namespace BusFacade {
         BusProvider.createBus(req.body)
             .then((response: Bus) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -55,13 +73,19 @@ export namespace BusFacade {
         BusProvider.updateBus(req.body)
             .then((response: Bus) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 
@@ -70,13 +94,19 @@ export namespace BusFacade {
         BusProvider.deleteBus(req.query.id)
             .then((response: boolean) => {
                 apiResponse.data = response;
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.json(apiResponse);
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
             });
     }
 }

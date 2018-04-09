@@ -136,14 +136,16 @@ export namespace LogsFacade {
         if (!req.session) {
             res.json((res.locals && res.locals.apiResponse) ? res.locals.apiResponse : null);
         }
+        res.locals.apiResponse.sessionID = req.sessionID;
         let log: Log = {
             sessionId: req.sessionID || res.locals.sessionId,
             method: req.method,
             url: `${req.baseUrl}${req.url}`,
             request: req.body,
-            response: (res.locals && res.locals.apiResponse) ? res.locals.apiResponse : null
+            response: (res.locals && res.locals.apiResponse) ? res.locals.apiResponse : null,
+            status: res.locals.apiResponse.status ? "Success" : "Failure",
+            metadata: res.locals.metadata
         }
-        // log.metadata = res.locals;
         //async log dump
         LogsProvider.createLog(log);
         res.json(log.response);
