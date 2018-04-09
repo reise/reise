@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
     public login(): void {
 
         if (!this.user || !this.user.username || !this.user.password) {
+           
+           alert('username or password is incorrect');
+           
             return;
         }
 
