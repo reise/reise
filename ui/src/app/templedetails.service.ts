@@ -8,12 +8,17 @@ import { templedata } from './templeinfo';
 @Injectable()
 export class TempledetailsService {
 
-  constructor(private http: HttpClient) { }
+    public constructor(private http: HttpClient) { }
 
-  public getData(templeId:string): Observable<any> {
+    public getData(templeId: string): Observable<any> {
+        return this.http.get<templedata[]>('/api/temples/' + templeId);
+    }
 
-    return this.http.get<templedata[]>('/api/temples/' + templeId);
+    public getBus(busName: string): Observable<any> {
+        return this.http.get<templedata[]>('/api/buses/name/' + busName);
+    }
 
-}
-
+    public bookBus(bookingRequest: any): Observable<any> {
+        return this.http.put<any>('/api/bookings/create/', bookingRequest);
+    }
 }

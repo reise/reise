@@ -13,9 +13,14 @@ import { User } from '../models/user-model';
     styleUrls: ['./temple-details.component.css']
 })
 export class TempleDetailsComponent implements OnInit {
-    public info: any;
+    public temple: any;
+    public bus: any;
     public user: User;
     public templeId;
+    public selectedDateSeats: number = 0;
+    public paxCount: number;
+    public journeyDate: string;
+    public isDisabled: boolean;
 
     public constructor(private route: ActivatedRoute,
         private _TempledetailsService: TempledetailsService,
@@ -24,13 +29,48 @@ export class TempleDetailsComponent implements OnInit {
     public ngOnInit(): void {
         let templeId = this.route.snapshot.params.id;
 
-        this._TempledetailsService.getData(templeId).subscribe((response: any) => 
-            this.info = JSON.parse(JSON.stringify(response.data)));
+        this._TempledetailsService.getData(templeId).subscribe((templeResponse: any) => {
+            this.temple = JSON.parse(JSON.stringify(templeResponse.data));
+            this._TempledetailsService.getBus(this.temple.name).subscribe((busResponse: any) => {
+                this.bus = JSON.parse(JSON.stringify(busResponse.data));
+                this.selectedDateSeats = this.bus.availability[0].availableSeats;
+            });
+        });
 
         this.user = JSON.parse(sessionStorage.getItem('user'));
-        
+
         if (!this.user || !this.user.username) {
             this._Router.navigate(['/login']);
         }
+    }
+
+    public paxCountChanged(event: any): void {
+        this.paxCount = event.target.selectedOptions[0].value.trim();
+        this, this.isDisabled = this.paxCount > this.selectedDateSeats;
+    }
+
+    public dateChanged(event: any): void {
+        this.selectedDateSeats = event.target.selectedOptions[0].value.trim();
+        this.journeyDate = event.target.selectedOptions[0].innerText.trim();
+        this, this.isDisabled = this.paxCount > this.selectedDateSeats;
+    }
+
+    public book(): void {
+        this._TempledetailsService.bookBus({
+            templeId: this.temple.id,
+            busId: this.bus.id,
+            userId: this.user.id,
+            journeyDate: new Date(this.journeyDate),
+            passengerCount: this.paxCount
+        })
+            .subscribe((response: any) => {
+                console.log(response);
+                if (!response.status) {
+                    alert('booking failed');
+                } else {
+                    alert('booking successful');
+                    this._Router.navigate(['/']);
+                }
+            })
     }
 }

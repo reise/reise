@@ -1,10 +1,77 @@
 <app-header></app-header>
-<div class="container">
-    <h2 class="text-primary text-center">{{info?.name}}</h2>
+<div class="container margin-bottom">
+    <h2 class="text-primary text-center">{{temple?.name}}</h2>
     <div class="jumbotron">
-        <img *ngIf="info?.imageUrls && info?.imageUrls.length" src="{{info?.imageUrls[0]}}" alt="Card image cap">
+        <img *ngIf="temple?.imageUrls && temple?.imageUrls.length" src="{{temple?.imageUrls[0]}}" alt="Card image cap">
     </div>
 
     <h5 class="mtl text-primary">Description :</h5>
-    <p class="text-justify">{{info?.description }}</p>
+    <p class="text-justify">{{temple?.description }}</p>
+
+    <h2 class="text-primary text-center mtl">Bus Details</h2>
+
+    <div class="row">
+        <div class="col-lg-4"> <b>Bus Name :</b> </div>
+        <div class="col-lg-4"> {{bus?.name}} </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"> <b>Bus Number :</b> </div>
+        <div class="col-lg-4"> {{bus?.number}} </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"> <b>Source Station :</b> </div>
+        <div class="col-lg-4"> {{bus?.sourceStation}} </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"> <b>destination Station :</b> </div>
+        <div class="col-lg-4"> {{bus?.destinationStation}} </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"> <b>Arrival Time :</b> </div>
+        <div class="col-lg-4"> {{bus?.arrivalTime}} </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"> <b>Departure Time :</b> </div>
+        <div class="col-lg-4"> {{bus?.departureTime}} </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"> <b>Fare :</b> </div>
+        <div class="col-lg-4"> {{bus?.fare}} </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"> <b>Capacity :</b> </div>
+        <div class="col-lg-4"> {{bus?.totalSeats}} seats </div>
+    </div>
+
+    <h2 class="text-primary text-center mtl">Book Bus</h2>
+
+    <div class="row mtl">
+        <div class="col-lg-2 mts text-right"> <b>Passenger Count</b> </div>
+        <div class="col-lg-1 pull-left"> 
+            <select name="paxCount" class="form-control col-lg-12" (change)="paxCountChanged($event)">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="col-lg-2 mts text-right"> <b>Journey Date</b> </div>
+        <div class="col-lg-2 pull-left">
+            <select name="journeyDate" class="form-control col-lg-12" (change)="dateChanged($event)">
+                <option *ngFor="let availability of bus?.availability" 
+                    [value]="availability.availableSeats">
+                    {{availability.date | date}}
+                </option>
+            </select>
+        </div>
+
+        <div class="col-lg-2 mts text-right"> <b>Seats Left :</b> </div>
+        <div class="col-lg-1 mts text-left">{{selectedDateSeats || 'NA'}}</div>
+
+        <div class="col-lg-2">
+            <button [disabled]="isDisabled" class="btn btn-success" (click)="book()">Book Now</button>
+        </div>
+    </div>
 </div>
