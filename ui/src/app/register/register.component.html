@@ -1,48 +1,61 @@
 <div class="container">
-	<div class="row">
-		<div class="offset-lg-3 col-lg-6">
-			<mat-form-field class="col-lg-12">
-				<input matInput placeholder="Full Name" [(ngModel)]="user.name">
-			</mat-form-field>
-		</div>
-	</div>
-	<div class="row">
-		<div class="offset-lg-3 col-lg-6">
-			<mat-form-field class="col-lg-12">
-				<input matInput placeholder="Username" [(ngModel)]="user.username">
-			</mat-form-field>
-		</div>
-	</div>
-	<div class="row">
-		<div class="offset-lg-3 col-lg-6">
-			<mat-form-field class="col-lg-12">
-				<input type="email" matInput placeholder="Email" [(ngModel)]="user.email">
-			</mat-form-field>
-		</div>
-	</div>
-	<div class="row">
-		<div class="offset-lg-3 col-lg-6">
-			<mat-form-field class="col-lg-12">
-				<input type="password" matInput placeholder="Password" [(ngModel)]="user.password">
-			</mat-form-field>
-		</div>
-	</div>
-	<div class="row">
-		<div class="offset-lg-3 col-lg-6">
-			<mat-form-field class="col-lg-12">
-				<input matInput type="password" placeholder="Repeat Password" [(ngModel)]="user.repeatPassword">
-			</mat-form-field>
-		</div>
-	</div>
-	<div class="row">
-		<div class="offset-lg-3 col-lg-6">
-			<button mat-raised-button color="primary" class="col-lg-12" (click)="register()">Register</button>
-		</div>
-	</div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <mat-form-field class="col-lg-12">
+                <input matInput placeholder="Full Name" [(ngModel)]="user.name">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <mat-form-field class="col-lg-12">
+                <input matInput placeholder="Username" [(ngModel)]="user.username">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <mat-form-field class="col-lg-12">
+                <input type="email" matInput placeholder="Email" [(ngModel)]="user.email">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <mat-form-field class="col-lg-12">
+                <mat-select placeholder="Select City" [(ngModel)]="user.city">
+                    <mat-option value="Latur" selected>Latur</mat-option>
+                    <mat-option value="Pune">Pune</mat-option>
+                    <mat-option value="Mumbai">Mumbai</mat-option>
+                    <mat-option value="Nagpur">Nagpur</mat-option>
+                    <mat-option value="Aurangabad">Aurangabad</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <mat-form-field class="col-lg-12">
+                <input type="password" matInput placeholder="Password" [(ngModel)]="user.password">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <mat-form-field class="col-lg-12">
+                <input matInput type="password" placeholder="Repeat Password" [(ngModel)]="user.repeatPassword">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <button mat-raised-button color="primary" class="col-lg-12" (click)="register()">Register</button>
+        </div>
+    </div>
     <div class="row">
         <div class="offset-lg-3 col-lg-6 text-right">
             <span>Already A Member?</span>
-            <a [routerLink]="['/login']">Login</a>            
+            <a [routerLink]="['/login']">Login</a>
             <span>Here...!</span>
         </div>
     </div>

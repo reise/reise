@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule} from '@angular/material/toolbar';
-import { MatButtonModule, MatCheckboxModule } from "@angular/material";
+import { MatButtonModule, MatCheckboxModule, MatSelectModule } from "@angular/material";
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
@@ -39,6 +39,7 @@ import { TempleDetailsComponent } from './temple-details/temple-details.componen
         MatButtonModule,
         MatCheckboxModule,
         MatInputModule,
+        MatSelectModule,
         MatTableModule,
         MatToolbarModule,
         MatCardModule,

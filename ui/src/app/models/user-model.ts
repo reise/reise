@@ -3,11 +3,13 @@ export class User {
     name: string;
     username: string;
     email: string;
+    city: string;
     isAdmin: boolean;
     password: string;
     repeatPassword: string;
 
     public constructor() {
+        this.city = "Latur";
         this.id = "";
         this.name = "";
         this.username = "";

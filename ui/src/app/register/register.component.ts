@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
     public register(): void {
 
         if (!User.checkPasswordmatch(this.user)) {
-            
             alert('passwords do not match');
             return;
         }
@@ -34,23 +33,16 @@ export class RegisterComponent implements OnInit {
                 if (response.status) {
                     this._Router.navigate(['/']);
                     sessionStorage.setItem('user', JSON.stringify(response.data));
-                }
-
-                else{
-                     
+                } else {
                     alert(response.messages);
                 }
-               
             })
             .catch((error: any) => {
                 console.log(error);
-
-
             });
     }
 
     private validate(): boolean {
         return !!this.user;
     }
-
 }
