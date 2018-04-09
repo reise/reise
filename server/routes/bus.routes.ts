@@ -20,8 +20,15 @@ router.get('/all', [
 
 router.get('/:id', [
     UserValidator.validateUser,
-    BusValidator.validateGetBus,
+    BusValidator.validateGetBusByName,
     BusFacade.getBus,
+    LogsFacade.dumpLog
+]);
+
+router.get('/name/:name', [
+    UserValidator.validateUser,
+    BusValidator.validateGetBusByName,
+    BusFacade.getBusByName,
     LogsFacade.dumpLog
 ]);
 

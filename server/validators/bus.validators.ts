@@ -24,6 +24,25 @@ export namespace BusValidator {
         return;
     }
 
+    export function validateGetBusByName(req: Request, res: Response, next: NextFunction): void {
+        let response: ApiResponse<any> = new ApiResponse();
+
+        if (!req.params) {
+            response.status = false;
+            response.messages.push(Validations.Bus.required);
+            res.json(response);
+            return;
+        }
+
+        if (!req.params.name) {
+            response.status = false;
+            response.messages.push(Validations.Bus.name.required);
+        }
+
+        response.status ? next() : res.json(response);
+        return;
+    }
+
     export function validateCreateBus(req: Request, res: Response, next: NextFunction): void {
         let response: ApiResponse<any> = new ApiResponse();
 

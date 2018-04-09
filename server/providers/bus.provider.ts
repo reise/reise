@@ -31,6 +31,18 @@ export namespace BusProvider {
         });
     }
 
+    export function getBusByName(name: string): Promise<Bus> {
+        return new Promise<Bus>((resolve: Function, reject: Function) => {
+            BusCollection.findOne({name: name})
+                .then((response: IBusDbModel) => {
+                    resolve(Bus.translate(response));
+                })
+                .catch((error: any) => {
+                    return reject("failed to serve the request, something went wrong!");
+                });
+        });
+    }
+
     export function createBus(bus: Bus): Promise<Bus> {
         return new Promise<Bus>((resolve: Function, reject: Function) => {
             BusCollection.create(bus)

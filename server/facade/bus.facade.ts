@@ -47,6 +47,27 @@ export namespace BusFacade {
             });
     }
 
+    export function getBusByName(req: Request, res: Response, next: NextFunction): void {
+        let apiResponse: ApiResponse<Bus> = new ApiResponse();
+        BusProvider.getBusByName(req.params.name)
+            .then((response: Bus) => {
+                apiResponse.data = response;
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
+            })
+            .catch((error: string) => {
+                apiResponse.data = null;
+                apiResponse.status = false;
+                apiResponse.messages = [error];
+                res.locals = {
+                    apiResponse: apiResponse
+                };
+                next();
+            });
+    }
+
     export function createBus(req: Request, res: Response, next: NextFunction): void {
         let apiResponse: ApiResponse<Bus> = new ApiResponse();
         BusProvider.createBus(req.body)
