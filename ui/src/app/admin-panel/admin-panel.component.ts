@@ -33,7 +33,7 @@ export class AdminPanelComponent implements OnInit {
     public isPastDate(date: string): boolean {
         let todaysDate: Date = new Date();
         let diff: number = Math.floor((Date.parse(date) - Date.parse(todaysDate.toDateString())) / 86400000);
-        return diff <= 0;
+        return diff > 0;
     }
 
     public deleteBooking(id: string): void {
