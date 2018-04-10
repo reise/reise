@@ -1,0 +1,762 @@
+[
+    {
+        "name": "Shirdi Sai Temple",
+        "number": "MH-01T1287",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Shirdi",
+        "fare": 600,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Ganpatipule Temple",
+        "number": "MH-02T1486",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Ganpatipule",
+        "fare": 800,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Nashik",
+        "number": "MH-03T0923",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Nashik",
+        "fare": 325,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Shani Shingnapur",
+        "number": "MH-04T4582",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Shani Shingnapur",
+        "fare": 650,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Trimbakeshwar",
+        "number": "MH-06T3861",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Trimbakeshwar",
+        "fare": 750,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Ganeshgule Beach & Temple",
+        "number": "MH-07T1643",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Ganeshgule Beach",
+        "fare": 574,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Bhimashankar Temple",
+        "number": "MH-08T4109",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Bhimashankar",
+        "fare": 267,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Ghrushneshwar",
+        "number": "MH-09T3407",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Ghrushneshwar",
+        "fare": 800,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Anjarle Beach & Ganesh Temple",
+        "number": "MH-10T7792",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Anjarle Beach",
+        "fare": 423,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Yamai Devi Temple",
+        "number": "MH-11T7621",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Satara",
+        "fare": 612,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Jejuri",
+        "number": "MH-12T1927",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Jejuri",
+        "fare": 723,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Saptashrungi Devi Temple",
+        "number": "MH-12T8441",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Nashik",
+        "fare": 940,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Ranjangaon Maha Ganapati",
+        "number": "MH-14T4521",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Ranjangaon",
+        "fare": 198,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Bhuleshwar Temple",
+        "number": "MH-15T5622",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Pune",
+        "fare": 556,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Moreshwar Temple",
+        "number": "MH-16T4310",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Pune",
+        "fare": 743,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Wai",
+        "number": "MH-17T7764",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Wai",
+        "fare": 343,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Velneshwar Temple & Beach",
+        "number": "MH-18T1288",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Ratnagiri",
+        "fare": 489,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Hedvi Ganesh Temple & Beach",
+        "number": "MH-19T2307",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Ratnagiri",
+        "fare": 503,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Marleshwar Temple & Waterfalls",
+        "number": "MH-20T9821",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Ratnagiri",
+        "fare": 600,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    },
+    {
+        "name": "Harihareshwar Beach & Temple",
+        "number": "MH-05T5461",
+        "arrivalTime": "9 AM",
+        "departureTime": "6 PM",
+        "sourceStation": "Parbhani",
+        "destinationStation": "Ratnagiri",
+        "fare": 1100,
+        "totalSeats": 50,
+        "availability": [
+            {
+                "availableSeats": 50,
+                "date": "2018-04-12T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-13T23:00:00Z"
+            },
+            {
+                "availableSeats": 47,
+                "date": "2018-04-14T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-15T23:00:00Z"
+            },
+            {
+                "availableSeats": 50,
+                "date": "2018-04-16T23:00:00Z"
+            },
+            {
+                "availableSeats": 48,
+                "date": "2018-04-17T23:00:00Z"
+            }
+        ],
+        "details": null,
+        "additionalInfo": null
+    }
+]
