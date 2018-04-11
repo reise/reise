@@ -1,29 +1,44 @@
-
-<div class="container">
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <mat-form-field class="col-lg-12">
-                <input matInput placeholder="Username/Email" [(ngModel)]="user.username">
-            </mat-form-field>
+<form [formGroup]="form">
+    <div class="container">
+        <div class="row">
+            <div *ngIf="!!response && !response?.status" class="offset-lg-3 col-lg-6">
+                <div class="alert alert-danger">
+                    <div *ngFor="let message of response?.messages; let i = index;">
+                        {{response?.messages.length > 1 ?  (i + 1) + '. ' : ''}}{{message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <mat-form-field class="col-lg-12">
+                    <input matInput placeholder="Username/Email" formControlName="username">
+                    <mat-error>
+                        username or email is required!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <mat-form-field class="col-lg-12">
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                    <mat-error>
+                        password is required!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mtl">
+            <div class="offset-lg-3 col-lg-6">
+                <button mat-raised-button color="primary" class="col-lg-12" (click)="login()">Login</button>
+            </div>
+        </div>
+        <div class="row mtxs">
+            <div class="offset-lg-3 col-lg-6 text-right">
+                <span>Not A Member Yet?</span>
+                <a [routerLink]="['/register']">Register Now!</a>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <mat-form-field class="col-lg-12">
-                <input matInput type="password" placeholder="Password" [(ngModel)]="user.password">
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <button mat-raised-button color="primary" class="col-lg-12" (click)="login()">Login</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6 text-right">
-            <span>Not A Member Yet?</span>
-            <a [routerLink]="['/register']">Register</a>            
-            <span>Here...!</span>
-        </div>
-    </div>
-</div>
+</form>
