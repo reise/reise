@@ -66,6 +66,28 @@ var UserFacade;
         });
     }
     UserFacade.register = register;
+    function checkUsernameAvailability(req, res, next) {
+        let apiResponse = new response_model_1.Response();
+        user_provider_1.UserProvider.checkUsernameAvailability(req.body)
+            .then((userExists) => {
+            if (!userExists) {
+                next();
+            }
+            else {
+                apiResponse.data = null;
+                apiResponse.status = false;
+                apiResponse.messages = ["Username or Emailid already exists!"];
+                res.json(apiResponse);
+            }
+        })
+            .catch((error) => {
+            apiResponse.data = null;
+            apiResponse.status = false;
+            apiResponse.messages = ["Username or Emailid already exists!"];
+            res.json(apiResponse);
+        });
+    }
+    UserFacade.checkUsernameAvailability = checkUsernameAvailability;
     function logout(req, res, next) {
         let apiResponse = new response_model_1.Response();
         //copy session id before destroying session

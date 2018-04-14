@@ -24,6 +24,18 @@ var UserProvider;
         });
     }
     UserProvider.login = login;
+    function checkUsernameAvailability(user) {
+        return new Promise((resolve, reject) => {
+            user_db_model_1.UsersCollection.findOne({
+                $or: [{ email: user.email }, { username: user.username }],
+            }).then((user) => {
+                resolve(!!user);
+            }).catch((error) => {
+                reject(false);
+            });
+        });
+    }
+    UserProvider.checkUsernameAvailability = checkUsernameAvailability;
     function register(user) {
         return new Promise((resolve, reject) => {
             user_db_model_1.UsersCollection.create(user)
