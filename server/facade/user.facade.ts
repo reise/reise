@@ -66,6 +66,27 @@ export namespace UserFacade {
             });
     }
 
+    export function checkUsernameAvailability(req: Request, res: Response, next: NextFunction): void {
+        let apiResponse: ApiResponse<boolean> = new ApiResponse();
+        UserProvider.checkUsernameAvailability(req.body)
+            .then((userExists: boolean) => {
+                if (!userExists) {
+                    next();
+                } else {
+                    apiResponse.data = null;
+                    apiResponse.status = false;
+                    apiResponse.messages = ["Username or Emailid already exists!"];
+                    res.json(apiResponse);
+                }
+            })
+            .catch((error: string) => {
+                apiResponse.data = null;
+                apiResponse.status = false;
+                apiResponse.messages = ["Username or Emailid already exists!"];
+                res.json(apiResponse);
+            });
+    }
+
     export function logout(req: Request, res: Response, next: NextFunction): void {
         let apiResponse: ApiResponse<boolean> = new ApiResponse();
         //copy session id before destroying session

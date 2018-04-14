@@ -25,6 +25,18 @@ export namespace UserProvider {
         });
     }
 
+    export function checkUsernameAvailability(user: User): Promise<boolean> {
+        return new Promise<boolean>((resolve: Function, reject: Function) => {
+            UsersCollection.findOne({
+                $or: [{ email: user.email }, { username: user.username }],
+            }).then((user: Document) => {
+                resolve(!!user);
+            }).catch((error: any) => {
+                reject(false);
+            });
+        });
+    }
+
     export function register(user: User): Promise<User> {
         return new Promise<User>((resolve: Function, reject: Function) => {
             UsersCollection.create(user)

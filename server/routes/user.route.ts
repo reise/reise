@@ -18,6 +18,7 @@ router.post('/login', [
 
 router.post('/register', [
     UserValidator.validateRegister,
+    UserFacade.checkUsernameAvailability,
     UserFacade.register,
     LogsFacade.dumpLog
 ]);
