@@ -12,8 +12,6 @@ import { User } from '../models/user-model';
 export class LoginComponent implements OnInit {
 
     public form: FormGroup;
-    public emailFormControl: FormControl;
-    public passwordFormControl: FormControl;
     public user: User;
     public response: any;
 
@@ -47,7 +45,7 @@ export class LoginComponent implements OnInit {
             .post('/api/user/login', this.form.value)
             .toPromise()
             .then((response: any) => {
-                if (!response || !response.status) {
+                if (!response.status) {
                     this.response = {
                         status: response.status,
                         messages: response.messages
