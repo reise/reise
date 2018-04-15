@@ -66,7 +66,7 @@ export class TempleDetailsComponent implements OnInit {
     public dateChanged(event: any): void {
         this.selectedDateSeats = event.target.selectedOptions[0].value.trim();
         this.journeyDate = event.target.selectedOptions[0].innerText.trim();
-        this, this.isDisabled = this.paxCount > this.selectedDateSeats;
+        this.isDisabled = parseInt(this.paxCount.toString()) > parseInt(this.selectedDateSeats.toString());
     }
 
     public book(): void {
