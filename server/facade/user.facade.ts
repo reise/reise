@@ -93,6 +93,11 @@ export namespace UserFacade {
         next();
     }
 
+    export function sendBookingVerification(req: Request, res: Response, next: NextFunction): void {
+        EmailProvider.sendBookingVerification(req.body.email);
+        next();
+    }
+
     export function verifyEmail(req: Request, res: Response, next: NextFunction): void {
 
     }
