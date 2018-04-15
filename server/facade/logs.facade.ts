@@ -10,19 +10,13 @@ export namespace LogsFacade {
         LogsProvider.getLogs(req.body)
             .then((response: Page<Log>) => {
                 apiResponse.data = response;
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             });
     }
 
@@ -31,19 +25,13 @@ export namespace LogsFacade {
         LogsProvider.getLogsBySessionId(req.params.sessionId, req.body)
             .then((response: Page<Log>) => {
                 apiResponse.data = response;
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             });
     }
 
@@ -52,19 +40,13 @@ export namespace LogsFacade {
         LogsProvider.getLog(req.params.id)
             .then((response: Log) => {
                 apiResponse.data = response;
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             });
     }
 
@@ -73,19 +55,13 @@ export namespace LogsFacade {
         LogsProvider.createLog(req.body)
             .then((response: Log) => {
                 apiResponse.data = response;
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             });
     }
 
@@ -94,19 +70,13 @@ export namespace LogsFacade {
         LogsProvider.updateLog(req.body)
             .then((response: Log) => {
                 apiResponse.data = response;
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             });
     }
 
@@ -115,19 +85,13 @@ export namespace LogsFacade {
         LogsProvider.deleteLog(req.params.id)
             .then((response: boolean) => {
                 apiResponse.data = response;
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             })
             .catch((error: string) => {
                 apiResponse.data = null;
                 apiResponse.status = false;
                 apiResponse.messages = [error];
-                res.locals = {
-                    apiResponse: apiResponse
-                };
-                next();
+                res.json(apiResponse);
             });
     }
 

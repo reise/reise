@@ -15,6 +15,9 @@
             <li *ngIf="!!user?.isAdmin" class="nav-item">
                 <a class="nav-link text-primary" routerLink="/user-admin">Admin</a>
             </li>
+            <li *ngIf="!!user?.isAdmin" class="nav-item">
+                <a class="nav-link text-primary" routerLink="/logs">Logs</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-primary" routerLink="/contact">Contact</a>
             </li>

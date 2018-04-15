@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Page, Response } from "../../models/response.model";
 import { Log } from "../../models/log.model";
 import { FilterGroup } from "../../models/filter.model";
+import { User } from '../../models/user-model';
 
 @Component({
     selector: 'app-log-listing',
@@ -11,12 +13,17 @@ import { FilterGroup } from "../../models/filter.model";
 })
 export class LogListingComponent implements OnInit {
 
+    public user: User;
     public logs: Page<Log>;
     private filterGroup: FilterGroup;
 
-    public constructor(private _HttpClient: HttpClient) { }
+    public constructor(private _Router: Router, private _HttpClient: HttpClient) { }
 
     public ngOnInit(): void {
+        this.user = JSON.parse(sessionStorage.getItem('user'));
+        if (!this.user || !this.user.username) {
+            this._Router.navigate(['/login']);
+        }
         this.filterGroup = new FilterGroup();
     }
 

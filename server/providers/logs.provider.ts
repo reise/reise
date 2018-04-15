@@ -20,6 +20,10 @@ export namespace LogsProvider {
 
             resultQuery = FilterGroup.generateResultQuery(filter, resultQuery);
 
+            if (!filter.orderBy) {
+                resultQuery = resultQuery.sort('-createdAt');
+            }
+
             let countQuery: Query<number> = !sessionId ? LogsCollection.count({}) : LogsCollection.count({ sessionId: sessionId });
             countQuery = FilterGroup.generateCountQuery(filter, countQuery);
 
