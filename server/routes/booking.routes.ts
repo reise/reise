@@ -32,7 +32,7 @@ router.put('/create', [
     UserValidator.validateUser,
     BookingValidator.validateCreateBooking,
     BookingFacade.createBooking,
-    UserFacade.sendEmailVerification,
+    UserFacade.sendBookingVerification,
     LogsFacade.dumpLog
 ]);
 

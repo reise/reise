@@ -94,7 +94,7 @@ export namespace UserFacade {
     }
 
     export function sendBookingVerification(req: Request, res: Response, next: NextFunction): void {
-        EmailProvider.sendBookingVerification(req.body.email);
+        EmailProvider.sendBookingVerification(res.locals.apiResponse.data.user.email);
         next();
     }
 
