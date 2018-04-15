@@ -1,31 +1,26 @@
-<nav *ngIf="!!user && !!user?.id" class="navbar navbar-expand-lg navbar-light bg-light col-lg-12">
+<nav class="navbar navbar-expand-lg navbar-light bg-light col-lg-12">
     <a class="navbar-brand text-primary" routerLink="/home">Reise</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link text-primary" routerLink="/">Home
-                    <span class="sr-only">(current)</span>
-                </a>
+                <a class="nav-link text-primary" routerLink="/">Home</a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="!!user?.id" class="nav-item">
                 <a class="nav-link text-primary" routerLink="/temples">Temples</a>
             </li>
-            <li *ngIf="user?.isAdmin" class="nav-item">
+            <li *ngIf="!!user?.isAdmin" class="nav-item">
                 <a class="nav-link text-primary" routerLink="/user-admin">Admin</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-primary" routerLink="/contact">Contact</a>
             </li>
         </ul>
-        <span>Welcome <b class="text-primary">{{user?.name}} !</b></span> &nbsp;&nbsp;
-        <form class="form-inline my-2 my-lg-0">
-            <br>
-            <button class="btn btn-danger col-lg-12" (click)="logout()">Logout</button>
-        </form>
+        <span *ngIf="!!user?.id">Welcome <b class="text-primary">{{user?.name}} !</b></span> &nbsp;&nbsp;
+        <button *ngIf="!!user?.id" class="btn btn-danger" (click)="logout()">Logout</button>
+        <a *ngIf="!user?.id" class="btn btn-success" routerLink="/login">Login</a>
     </div>
 </nav>
