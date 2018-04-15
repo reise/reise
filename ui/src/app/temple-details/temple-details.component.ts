@@ -33,6 +33,7 @@ export class TempleDetailsComponent implements OnInit {
             this.temple = JSON.parse(JSON.stringify(templeResponse.data));
             this._TempledetailsService.getBus(this.temple.name).subscribe((busResponse: any) => {
                 this.bus = JSON.parse(JSON.stringify(busResponse.data));
+                this.removeDisabledDates();
                 this.selectedDateSeats = this.bus.availability[0].availableSeats;
             });
         });
@@ -44,9 +45,22 @@ export class TempleDetailsComponent implements OnInit {
         }
     }
 
+    private removeDisabledDates(): void{
+        if (!this.bus || !this.bus.availability) {
+            return;
+        }
+
+        this.bus.availability = this.bus.availability.filter((item: any) => {
+            let now: Date = new Date();
+            let selectedDate: Date = new Date(item.date);
+            now.setHours(0,0,0,0);
+            return selectedDate >= now;
+        })
+    }
+
     public paxCountChanged(event: any): void {
         this.paxCount = event.target.selectedOptions[0].value.trim();
-        this, this.isDisabled = this.paxCount > this.selectedDateSeats;
+        this.isDisabled = this.paxCount > this.selectedDateSeats;
     }
 
     public dateChanged(event: any): void {

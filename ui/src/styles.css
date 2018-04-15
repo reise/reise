@@ -3,6 +3,10 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,300");
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.mtxl {
+    margin-top: 60px;
+}
+
 .mtl {
     margin-top: 20px;
 }

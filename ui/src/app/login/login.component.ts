@@ -52,8 +52,9 @@ export class LoginComponent implements OnInit {
                     };
 
                 } else {
-                    this._Router.navigate([response.data.isAdmin ? '/user-admin' : '']);
                     sessionStorage.setItem('user', JSON.stringify(response.data));
+                    document.dispatchEvent(new Event("user-logged-in"));
+                    this._Router.navigate([response.data.isAdmin ? '/user-admin' : '']);
                 }
             })
             .catch((error: any) => {

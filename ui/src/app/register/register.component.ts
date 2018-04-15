@@ -67,8 +67,9 @@ export class RegisterComponent implements OnInit {
                         messages: response.messages
                     };
                 } else {
-                    this._Router.navigate(['/']);
                     sessionStorage.setItem('user', JSON.stringify(response.data));
+                    document.dispatchEvent(new Event("user-logged-in"));
+                    this._Router.navigate(['/']);
                 }
             })
             .catch((error: any) => {

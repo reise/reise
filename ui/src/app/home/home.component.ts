@@ -21,6 +21,4 @@ export class HomeComponent implements OnInit {
             this._Router.navigate(['/login']);
         }
     }
-
-    
 }

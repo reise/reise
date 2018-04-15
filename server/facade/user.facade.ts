@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { Response as ApiResponse } from "../models/response.model";
 import { UserProvider } from "../providers/user.provider";
 import { User } from "../models/user.model";
+import { EmailProvider } from "../providers/email.provider";
 
 export namespace UserFacade {
 
@@ -85,6 +86,15 @@ export namespace UserFacade {
                 apiResponse.messages = ["Username or Emailid already exists!"];
                 res.json(apiResponse);
             });
+    }
+
+    export function sendEmailVerification(req: Request, res: Response, next: NextFunction): void {
+        EmailProvider.sendEmailVerification(req.body.email);
+        next();
+    }
+
+    export function verifyEmail(req: Request, res: Response, next: NextFunction): void {
+
     }
 
     export function logout(req: Request, res: Response, next: NextFunction): void {

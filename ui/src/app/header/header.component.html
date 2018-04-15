@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav *ngIf="!!user && !!user?.id" class="navbar navbar-expand-lg navbar-light bg-light col-lg-12">
     <a class="navbar-brand text-primary" routerLink="/home">Reise</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation"
         aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navigation">
@@ -22,9 +22,10 @@
                 <a class="nav-link text-primary" routerLink="/contact">Contact</a>
             </li>
         </ul>
+        <span>Welcome <b class="text-primary">{{user?.name}} !</b></span> &nbsp;&nbsp;
         <form class="form-inline my-2 my-lg-0">
-
-            <button class="btn btn-primary col-lg-12" (click)="logout()">Logout</button>
+            <br>
+            <button class="btn btn-danger col-lg-12" (click)="logout()">Logout</button>
         </form>
     </div>
 </nav>

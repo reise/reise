@@ -17,6 +17,9 @@ export class HeaderComponent implements OnInit {
 
     public ngOnInit(): void {
         this.user = JSON.parse(sessionStorage.getItem('user'));
+        document.addEventListener('user-logged-in', (evt: Event) => {
+            this.user = JSON.parse(sessionStorage.getItem('user'));
+        });
     }
 
     public logout(): void {
@@ -26,13 +29,13 @@ export class HeaderComponent implements OnInit {
             .then((response: any) => {
                 if (response.status) {
                     sessionStorage.removeItem('user');
+                    this.user = JSON.parse(sessionStorage.getItem('user'));
                     this._Router.navigate(['/login']);
                 }
             })
             .catch((error: any) => {
+                this.user = null;
                 console.log(error);
             });
     }
-
-
 }
