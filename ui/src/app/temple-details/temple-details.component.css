@@ -1,9 +1,16 @@
 .card {
     padding: 0px;
-    text-transform: capitalize;
     display: inline-block;
     border: 1px solid #77aaff;
     border-radius: 5px;
+}
+
+.card-header {
+    text-transform: capitalize;
+}
+
+.card-body > p {
+    margin: 0;
 }
 
 img {
@@ -14,4 +21,10 @@ img {
 
 .margin-bottom {
     margin-bottom: 100px;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

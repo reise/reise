@@ -1,4 +1,4 @@
-<div class="container-fluid margin-bottom">
+<div class="container margin-bottom">
     <div class="card mtl col-lg-12">
         <div class="card-header">
             <h2 class="text-primary text-center">{{temple?.name}}</h2>
@@ -6,10 +6,12 @@
         <img class="card-img-top" src="{{temple?.imageUrls[0]}}" alt="Card image cap">
         <div class="card-body">
             <h5 class="mtl text-primary">Description :</h5>
-            <p class="text-justify">{{temple?.description }}</p>
+            <p class="text-justify" [class.ellipsis]="!isLess">{{temple?.description }}</p>
+            <button class="btn btn-link pull-right" (click)="isLess = !isLess">
+                {{isLess ? 'show less' : 'show more'}}
+            </button>
         </div>
     </div>
-
     <div class="row">
         <div class="col-lg-6">
             <div class="card mtl col-lg-12">
