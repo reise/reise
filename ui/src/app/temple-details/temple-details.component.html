@@ -1,14 +1,19 @@
-<app-header></app-header>
 <div class="container margin-bottom">
-    <h2 class="text-primary text-center">{{temple?.name}}</h2>
-    <div class="jumbotron">
-        <img *ngIf="temple?.imageUrls && temple?.imageUrls.length" src="{{temple?.imageUrls[0]}}" alt="Card image cap">
+    <div class="card mtl col-lg-12">
+        <div class="card-header">
+            <h2 class="text-primary text-center">{{temple?.name}}</h2>
+        </div>
+        <img class="card-img-top" src="{{temple?.imageUrls[0]}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="mtl text-primary">Description :</h5>
+            <p class="text-justify" [class.ellipsis]="!isLess">{{temple?.description }}</p>
+            <button class="btn btn-link pull-right" (click)="isLess = !isLess">
+                {{isLess ? 'show less' : 'show more'}}
+            </button>
+        </div>
     </div>
-
-    <h5 class="mtl text-primary">Description :</h5>
-    <p class="text-justify">{{temple?.description }}</p>
-
     <div class="row">
+<<<<<<< HEAD
         <div class="col-lg-4">
             <div class="row">
                 <div class="col-lg-12">
@@ -48,25 +53,90 @@
             <div class="row">
                 <div class="col-lg-6 text-right">
                     <b>Departure Time :</b>
+=======
+        <div class="col-lg-6">
+            <div class="card mtl col-lg-12">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2 class="text-primary text-center">Bus Details</h2>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6"> {{bus?.departureTime}} </div>
+                <div class="card-body">
+                    <table class="table table-stripped">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <b>Bus Name</b>
+                                </td>
+                                <td>
+                                    {{bus?.name}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Bus Number</b>
+                                </td>
+                                <td>
+                                    {{bus?.number}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Source Station</b>
+                                </td>
+                                <td>
+                                    {{user?.city}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>destination Station</b>
+                                </td>
+                                <td>
+                                    {{bus?.destinationStation}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Arrival Time</b>
+                                </td>
+                                <td>
+                                    {{bus?.arrivalTime}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Departure Time</b>
+                                </td>
+                                <td>
+                                    {{bus?.departureTime}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Fare</b>
+                                </td>
+                                <td>
+                                    <b>{{bus?.fare | currency:'INR'}}</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Capacity :</b>
+                                </td>
+                                <td>
+                                    {{bus?.totalSeats}} seats
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+>>>>>>> 274cca2e1048bf74956b35dc173088145dc46607
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 text-right">
-                    <b>Fare :</b>
-                </div>
-                <div class="col-lg-6">
-                    <b>{{bus?.fare | currency:'INR'}}</b>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 text-right">
-                    <b>Capacity :</b>
-                </div>
-                <div class="col-lg-6"> {{bus?.totalSeats}} seats </div>
-            </div>
-
         </div>
+<<<<<<< HEAD
         <div class="col-lg-8">
             <div class="row">
                 <div class="col-lg-12">
@@ -107,6 +177,67 @@
                 </div>
                 <div class="col-lg-2">
                     <button [disabled]="isDisabled" class="btn btn-success" (click)="book()">Book Now</button>
+=======
+        <div class="col-lg-6">
+            <div class="card mtl col-lg-12">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2 class="text-primary text-center">Booking Details</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-stripped">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <b class="mts">Passenger Count</b>
+                                </td>
+                                <td>
+                                    <select name="paxCount" class="form-control col-lg-12" (change)="paxCountChanged($event)">
+                                        <option value="1" selected>1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Journey Date</b>
+                                </td>
+                                <td>
+                                    <select name="journeyDate" class="form-control col-lg-12" (change)="dateChanged($event)">
+                                        <option *ngFor="let availability of bus?.availability" [value]="availability.availableSeats">
+                                            {{availability.date | date}}
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Seats Left</b>
+                                </td>
+                                <td>
+                                    {{selectedDateSeats || 'NA'}}
+                                </td>
+                            </tr>
+                            <tr class="text-primary">
+                                <td>
+                                    <h3>Total Price</h3>
+                                </td>
+                                <td>
+                                    <h3>{{(bus?.fare * paxCount) | currency:'INR'}}</h3>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <button [disabled]="isDisabled" class="btn btn-success col-lg-12" (click)="book()">Book Now</button>
+>>>>>>> 274cca2e1048bf74956b35dc173088145dc46607
                 </div>
             </div>
         </div>

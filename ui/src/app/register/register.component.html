@@ -1,63 +1,102 @@
-<div class="container">
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <mat-form-field class="col-lg-12">
-                <input matInput placeholder="Full Name" [(ngModel)]="user.name">
-            </mat-form-field>
+<form [formGroup]="form">
+    <div class="container">
+        <div class="row">
+            <div *ngIf="!!response && !response?.status" class="offset-lg-3 col-lg-6">
+                <div class="alert alert-danger">
+                    <div *ngFor="let message of response?.messages; let i = index;">
+                        {{response?.messages.length > 1 ? (i + 1) + '. ' : ''}}{{message}}
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!passwordMatching" class="offset-lg-3 col-lg-6">
+                <div class="alert alert-danger">
+                    <div>Passwords do not match!</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <mat-form-field class="col-lg-12">
+                    <input matInput placeholder="Full Name" formControlName="name">
+                    <mat-error *ngIf="form?.controls?.name?.hasError('required')">
+                        Name is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <mat-form-field class="col-lg-12">
+                    <input matInput placeholder="Username" formControlName="username">
+                    <mat-error *ngIf="form?.controls?.username?.hasError('required')">
+                        Username is required
+                    </mat-error>
+                    <mat-error *ngIf="form?.controls?.username?.hasError('minlength')">
+                        Username should be atleast 5 letters long
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <mat-form-field class="col-lg-12">
+                    <input type="email" matInput placeholder="Email" formControlName="email">
+                    <mat-error *ngIf="form?.controls?.email?.hasError('email') && !form?.controls?.email?.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="form?.controls?.email?.hasError('required')">
+                        Email is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <mat-form-field class="col-lg-12">
+                    <mat-select placeholder="Select City" formControlName="city">
+                        <mat-option value="Latur" selected>Latur</mat-option>
+                        <mat-option value="Pune">Pune</mat-option>
+                        <mat-option value="Mumbai">Mumbai</mat-option>
+                        <mat-option value="Nagpur">Nagpur</mat-option>
+                        <mat-option value="Aurangabad">Aurangabad</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <mat-form-field class="col-lg-12">
+                    <input type="password" matInput placeholder="Password" formControlName="password">
+                    <mat-error *ngIf="form?.controls?.password?.hasError('required')">
+                        Password is required
+                    </mat-error>
+                    <mat-error *ngIf="form?.controls?.password?.hasError('minlength')">
+                        Password should be atleast 6 letters long
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <mat-form-field class="col-lg-12">
+                    <input matInput type="password" placeholder="Repeat Password" formControlName="repeatPassword">
+                    <mat-error *ngIf="form?.controls?.repeatPassword?.hasError('required')">
+                        Repeat password is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mtl">
+            <div class="offset-lg-3 col-lg-6">
+                <button mat-raised-button color="primary" class="col-lg-12" (click)="register()">Register</button>
+            </div>
+        </div>
+        <div class="row mtxs">
+            <div class="offset-lg-3 col-lg-6 text-right">
+                <span>Already a member?</span>
+                <a [routerLink]="['/login']">Login Here!</a>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <mat-form-field class="col-lg-12">
-                <input matInput placeholder="Username" [(ngModel)]="user.username">
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <mat-form-field class="col-lg-12">
-                <input type="email" matInput placeholder="Email" [(ngModel)]="user.email">
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <mat-form-field class="col-lg-12">
-                <mat-select placeholder="Select City" [(ngModel)]="user.city">
-                    <mat-option value="Latur" selected>Latur</mat-option>
-                    <mat-option value="Pune">Pune</mat-option>
-                    <mat-option value="Mumbai">Mumbai</mat-option>
-                    <mat-option value="Nagpur">Nagpur</mat-option>
-                    <mat-option value="Aurangabad">Aurangabad</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <mat-form-field class="col-lg-12">
-                <input type="password" matInput placeholder="Password" [(ngModel)]="user.password">
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <mat-form-field class="col-lg-12">
-                <input matInput type="password" placeholder="Repeat Password" [(ngModel)]="user.repeatPassword">
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6">
-            <button mat-raised-button color="primary" class="col-lg-12" (click)="register()">Register</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-lg-3 col-lg-6 text-right">
-            <span>Already A Member?</span>
-            <a [routerLink]="['/login']">Login</a>
-            <span>Here...!</span>
-        </div>
-    </div>
-</div>
-<div class="headr"></div>
+    <div class="headr"></div>
+</form>

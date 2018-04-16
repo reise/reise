@@ -3,6 +3,7 @@ import { BookingValidator } from "../validators/booking.validators";
 import { UserValidator } from "../validators/user-validator";
 import { BookingFacade } from "../facade/booking.facade";
 import { LogsFacade } from "../facade/logs.facade";
+import { UserFacade } from "../facade/user.facade";
 
 function redirect(req: Request, res: Response, next: NextFunction) {
     res.redirect('/api/bookings/all');
@@ -31,6 +32,7 @@ router.put('/create', [
     UserValidator.validateUser,
     BookingValidator.validateCreateBooking,
     BookingFacade.createBooking,
+    UserFacade.sendBookingVerification,
     LogsFacade.dumpLog
 ]);
 

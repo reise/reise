@@ -18,7 +18,15 @@ router.post('/login', [
 
 router.post('/register', [
     UserValidator.validateRegister,
+    UserFacade.checkUsernameAvailability,
     UserFacade.register,
+    UserFacade.sendEmailVerification,
+    LogsFacade.dumpLog
+]);
+
+router.get('/verify-email', [
+    UserValidator.validateRegister,
+    UserFacade.verifyEmail,
     LogsFacade.dumpLog
 ]);
 

@@ -1,5 +1,6 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user-model';
 
@@ -10,44 +11,57 @@ import { User } from '../models/user-model';
 })
 export class LoginComponent implements OnInit {
 
+    public form: FormGroup;
     public user: User;
+    public response: any;
 
     public constructor(private _Http: HttpClient,
-        private _Router: Router) { }
+        private _Router: Router) {
+        this.form = new FormGroup({
+            username: new FormControl('', [
+                Validators.required
+            ]),
+            password: new FormControl('', [
+                Validators.required
+            ])
+        });
+    }
 
     public ngOnInit(): void {
         let user: User = JSON.parse(sessionStorage.getItem('user'));
         this.user = user || new User();
-        if (!!user && !!user.id) {            
+        if (!!user && !!user.id) {
             this._Router.navigate([this.user.isAdmin ? '/user-admin' : '']);
         }
     }
 
     public login(): void {
 
-        if (!this.user || !this.user.username || !this.user.password) {
-           
-           alert('username or password is incorrect');
-           
+        if (!this.form.valid) {
             return;
         }
 
         this._Http
-            .post('/api/user/login', this.user)
+            .post('/api/user/login', this.form.value)
             .toPromise()
             .then((response: any) => {
-                if (!response && !response.status) {
-                    
-                    
-                    alert(response.messages);
+                if (!response.status) {
+                    this.response = {
+                        status: response.status,
+                        messages: response.messages
+                    };
+
+                } else {
+                    sessionStorage.setItem('user', JSON.stringify(response.data));
+                    document.dispatchEvent(new Event("user-logged-in"));
+                    this._Router.navigate([response.data.isAdmin ? '/user-admin' : '']);
                 }
-               
-                this._Router.navigate([response.data.isAdmin ? '/user-admin' : '']);
-                sessionStorage.setItem('user', JSON.stringify(response.data));
             })
             .catch((error: any) => {
-                //show messgae
-                console.log(error);
+                this.response = {
+                    status: false,
+                    messages: [error]
+                };
             });
     }
 }

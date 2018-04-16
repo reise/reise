@@ -12,7 +12,7 @@ import { User } from '../models/user-model';
     styleUrls: ['./temples.component.css']
 })
 export class TemplesComponent implements OnInit {
-    user: User;
+    public user: User;
     public temples: Array<any> = [];
 
     constructor(private _Router: Router, private _TempleDataService: TempleDataService) { }

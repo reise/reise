@@ -1,10 +1,6 @@
-body {
-    overflow: hidden;
-}
-
 .card {
     padding: 0px;
-    text-transform:capitalize;
+    text-transform: capitalize;
     display: inline-block;
     border: 1px solid #77aaff;
     border-radius: 5px;
@@ -22,10 +18,16 @@ img {
     justify-content: center;
 }
   
-.flex-container > div {
+.flex-container > div.card {
     background-color: #f1f1f1;
     width: 300px;
     min-width: 300px;
+    height: 350px;
     margin: 10px;
     text-align: center;
+}
+
+.card-footer {
+    bottom: 0;
+    position: absolute;
 }
