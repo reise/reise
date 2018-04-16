@@ -49,7 +49,7 @@ export class TempleDetailsComponent implements OnInit {
         if (!this.bus || !this.bus.availability) {
             return;
         }
-
+        this.journeyDate = this.bus.availability[0].date;
         this.bus.availability = this.bus.availability.filter((item: any) => {
             let now: Date = new Date();
             let selectedDate: Date = new Date(item.date);
@@ -78,7 +78,6 @@ export class TempleDetailsComponent implements OnInit {
             passengerCount: this.paxCount
         })
             .subscribe((response: any) => {
-                console.log(response);
                 if (!response.status) {
                     alert('booking failed');
                 } else {

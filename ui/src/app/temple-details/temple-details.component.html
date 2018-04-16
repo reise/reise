@@ -13,47 +13,6 @@
         </div>
     </div>
     <div class="row">
-<<<<<<< HEAD
-        <div class="col-lg-4">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="text-primary text-center mtl">Bus Details</h2>
-                </div>
-            </div>
-            <div class="row mtl">
-                <div class="col-lg-6 text-right">
-                    <b>Bus Name :</b>
-                </div>
-                <div class="col-lg-6"> {{bus?.name}} Express</div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 text-right">
-                    <b>Bus Number :</b>
-                </div>
-                <div class="col-lg-6"> {{bus?.number}} </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 text-right">
-                    <b>Source Station :</b>
-                </div>
-                <div class="col-lg-6"> {{user?.city}} </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 text-right">
-                    <b>destination Station :</b>
-                </div>
-                <div class="col-lg-6"> {{bus?.destinationStation}} </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 text-right">
-                    <b>Arrival Time :</b>
-                </div>
-                <div class="col-lg-6"> {{bus?.arrivalTime}} </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 text-right">
-                    <b>Departure Time :</b>
-=======
         <div class="col-lg-6">
             <div class="card mtl col-lg-12">
                 <div class="card-header">
@@ -132,52 +91,9 @@
                             </tr>
                         </tbody>
                     </table>
->>>>>>> 274cca2e1048bf74956b35dc173088145dc46607
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="col-lg-8">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="text-primary text-center mtl">Booking Details</h2>
-                </div>
-            </div>
-            <div class="row mtl">
-                <div class="col-lg-3 mts text-left">
-                    <b>Passenger Count</b>
-                </div>
-                <div class="col-lg-2 pull-left">
-                    <select name="paxCount" class="form-control col-lg-12" (change)="paxCountChanged($event)">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="col-lg-2 mts text-right">
-                    <b>Journey Date</b>
-                </div>
-                <div class="col-lg-3 pull-left">
-                    <select name="journeyDate" class="form-control col-lg-12" (change)="dateChanged($event)">
-                        <option *ngFor="let availability of bus?.availability" [value]="availability.availableSeats">
-                            {{availability.date | date}}
-                        </option>
-                    </select>
-                </div>
-            </div>
-            <div class="row mtl">
-                <div class="col-lg-2 mts text-left">
-                    <b>Seats Left :</b>
-                </div>
-                <div class="col-lg-1 mts text-left">{{selectedDateSeats || 'NA' - paxCount}}</div>
-                <div class="col-lg-4 text-primary text-center mts">
-                    <h5>Total Price - <b>{{(bus?.fare * paxCount) | currency:'INR'}}</b></h5>
-                </div>
-                <div class="col-lg-2">
-                    <button [disabled]="isDisabled" class="btn btn-success" (click)="book()">Book Now</button>
-=======
         <div class="col-lg-6">
             <div class="card mtl col-lg-12">
                 <div class="card-header">
@@ -237,7 +153,6 @@
                 </div>
                 <div class="card-footer">
                     <button [disabled]="isDisabled" class="btn btn-success col-lg-12" (click)="book()">Book Now</button>
->>>>>>> 274cca2e1048bf74956b35dc173088145dc46607
                 </div>
             </div>
         </div>
