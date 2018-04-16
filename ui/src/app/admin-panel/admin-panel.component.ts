@@ -30,11 +30,11 @@ export class AdminPanelComponent implements OnInit {
         }
     }
 
-    public isPastDate(date: string): boolean {
-        let todaysDate: Date = new Date();
-        let diff: number = Math.floor((Date.parse(date) - Date.parse(todaysDate.toDateString())) / 86400000);
-        return diff > 0;
-    }
+    // public isPastDate(date: string): boolean {
+    //     let todaysDate: Date = new Date();
+    //     let diff: number = Math.floor((Date.parse(date) - Date.parse(todaysDate.toDateString())) / 86400000);
+    //     return diff > 0;
+    // }
 
     public deleteBooking(id: string): void {
         this._AdminDataService.deleteBooking(id)
@@ -42,8 +42,12 @@ export class AdminPanelComponent implements OnInit {
                 if (response.status) {
                     this.bookings = this.bookings.filter((booking: any) => {
                         return booking.id !== id;
+                        
                     });
-                } else {
+                    confirm("Are you sure want to delete the data");
+                    alert("The Booking Has Been Successfully Deleted");
+                
+            } else {
                     alert("booking couldn't be deleted");
                 }
             });

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TempleDatailsComponent } from './temple-datails.component';
+import { TempleDetailsComponent } from './temple-details.component';
 
-describe('TempleDatailsComponent', () => {
-  let component: TempleDatailsComponent;
-  let fixture: ComponentFixture<TempleDatailsComponent>;
+describe('TempleDetailsComponent', () => {
+  let component: TempleDetailsComponent;
+  let fixture: ComponentFixture<TempleDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TempleDatailsComponent ]
+      declarations: [ TempleDetailsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TempleDatailsComponent);
+    fixture = TestBed.createComponent(TempleDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

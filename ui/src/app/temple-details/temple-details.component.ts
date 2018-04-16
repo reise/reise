@@ -68,7 +68,7 @@ export class TempleDetailsComponent implements OnInit {
                 if (!response.status) {
                     alert('booking failed');
                 } else {
-                    alert('booking successful');
+                    alert('Your Booking Has Been Successfully registered For comfrming tickete Plz Go to our nearest branch and Pay Before one day of Booking date.....  Thank you');
                     this._Router.navigate(['/']);
                 }
             })

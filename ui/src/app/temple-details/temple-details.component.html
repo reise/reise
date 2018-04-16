@@ -19,7 +19,7 @@
                 <div class="col-lg-6 text-right">
                     <b>Bus Name :</b>
                 </div>
-                <div class="col-lg-6"> {{bus?.name}} </div>
+                <div class="col-lg-6"> {{bus?.name}} Express</div>
             </div>
             <div class="row">
                 <div class="col-lg-6 text-right">
@@ -101,7 +101,7 @@
                 <div class="col-lg-2 mts text-left">
                     <b>Seats Left :</b>
                 </div>
-                <div class="col-lg-1 mts text-left">{{selectedDateSeats || 'NA'}}</div>
+                <div class="col-lg-1 mts text-left">{{selectedDateSeats || 'NA' - paxCount}}</div>
                 <div class="col-lg-4 text-primary text-center mts">
                     <h5>Total Price - <b>{{(bus?.fare * paxCount) | currency:'INR'}}</b></h5>
                 </div>

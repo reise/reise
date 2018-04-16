@@ -8,5 +8,10 @@ border-radius: 0px;
 img{
 
     width: 100%;
-    max-height: 400px;
+    max-height: 500px;
+}
+
+button{
+
+    margin-bottom: 20px;
 }
